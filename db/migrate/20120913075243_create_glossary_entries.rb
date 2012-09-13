@@ -1,0 +1,19 @@
+class CreateGlossaryEntries < ActiveRecord::Migration
+  def change
+    create_table :glossary_entries do |t|
+      t.string :name
+
+      # Short definition that will be appeared in the lesson
+      t.string :short_definition
+
+      # Full definition that is will be appeared in the glossary section
+      t.text :full_definition
+
+      t.string :pronun_file
+      t.string :image_file
+      t.string :ext_link
+
+      t.timestamps
+    end
+  end
+end
