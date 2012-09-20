@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Protorails</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= yield(:title) %></title>
+
+  <%= stylesheet_link_tag 'application', :media => "all" %>
+  <%= javascript_include_tag 'application' %>
+
+  <%#= yield_content :custom_css %>
+
+  <%#= javascript_include_tag "jquery-1.7.2.min" %>
+  <%#= javascript_include_tag "jquery-ui-1.8.22.custom.min" %>
+  <%#= javascript_include_tag "menu" %>
+  <%#= javascript_include_tag "feedback" %>
+  <%#= javascript_include_tag "sign_up" %>
+  <%#= javascript_include_tag "jquery.form" %>
+  <%#= javascript_include_tag "content_suggestion" %>
+  <%#= javascript_include_tag "modal_window" %>
+
+  <%#= yield_content :custom_js %>
+
 </head>
+
 <body>
+
+<div id="mask"></div>
 
 <%= yield %>
 
 </body>
+
 </html>

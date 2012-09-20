@@ -1,0 +1,39 @@
+<a id="content_suggestion_btn" href="#dialog_content_suggestion" name="modal">Suggest a Topic</a>
+
+<div id="dialog_content_suggestion" class="window orange_window">
+  <p id="content_suggestion_thanks" class="thanks_msg">Thank you for your suggestion!</p>
+
+  <div id="cs_form_wrapper">
+    <h1>Suggest a Topic</h1>
+
+    <p class="window_txt">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua
+    </p>
+
+    <%= form_for @suggestion, url: '/fake', html: {id: 'content_suggestion_form'} do |f| %>
+      <ul class="inputs">
+        <li>
+          <%= f.label :name, 'Name:' %>
+          <%= f.text_field :name %>
+        </li>
+        <li>
+          <%= f.label :email, 'Email:' %>
+          <%= f.text_field :email %>
+        </li>
+        <li>
+          <%= f.label :subject, 'Subject:' %>
+          <%= f.text_field :subject %>
+        </li>
+        <li>
+          <%= f.label :content, 'Comment:' %>
+          <%= f.text_area :content %>
+        </li>
+      </ul>
+
+      <%= f.button 'Cancel', class: 'close' %>
+      <%= f.submit 'Submit' %>
+    <% end %>
+  </div>
+
+</div>

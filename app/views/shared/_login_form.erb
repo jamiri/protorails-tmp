@@ -1,0 +1,23 @@
+<% if session['user_name'].nil? %>
+
+    <%= form_tag '/fake', :method => 'post', :id => 'login_form', :class => 'loginform' do %>
+      <%= text_field_tag 'login[user_name]', nil, :class => 'emailfield', :value => 'Email',
+                         :onfocus => "if (this.value == 'Email') {this.value = '';}",
+                         :onblur => "if (this.value == '') {this.value = 'Email';}" %>
+      <%= password_field_tag 'login[password]', nil, :class => 'passfield', :value => 'Password',
+                             :onkeypress => "this.type='password';",
+                             :onfocus => "if (this.value == 'Password') {this.value = '';}",
+                             :onblur => "if (this.value == '') {this.value = 'Password';this.type='text';}else{this.type='password'}"%>
+      <%= hidden_field_tag 'login[url]' %>
+      <%= submit_tag  "Sign in" ,:class => 'signinbutton' %>
+    <% end %>
+
+  <a href="#dialog_sign_up" name="modal">Sign Up</a>
+  <%= render 'shared/sign_up' %>
+
+<% else %>
+
+    <%= session['user_name'] %>
+    <a href="/fake" class="sign_up">Sign Out</a>
+
+<% end %>

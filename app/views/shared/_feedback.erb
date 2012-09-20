@@ -1,0 +1,42 @@
+<a id="feedback_btn" href="#feedback_dialog" name="modal">Feedback</a>
+
+<div id="feedback_dialog" class="window orange_window">
+  <p id="feedback_thanks" class="thanks_msg">Thank you for your comment!</p>
+
+  <div id="feedback_form_wrapper">
+    <h1>Feedback</h1>
+
+    <p class="window_txt">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua
+    </p>
+
+    <%= form_for @feedback, url: '/fake', html: {id: 'feedback_form'} do |f| %>
+      <ul class="inputs">
+        <li>
+          <%= f.label :user_name, 'Name:' %>
+          <%= f.text_field :user_name %>
+        </li>
+        <li>
+          <%= f.label :email, 'Email:' %>
+          <%= f.text_field :email %>
+        </li>
+        <li>
+          <%= f.label :subject, 'Subject:' %>
+          <%= f.text_field :subject %>
+        </li>
+        <li>
+          <%= f.label :comment, 'Comment:' %>
+          <%= f.text_area :comment %>
+        </li>
+      </ul>
+
+      <%= f.hidden_field :url %>
+
+      <%= f.button 'Cancel', class: 'close' %>
+      <%= f.submit 'Submit' %>
+    <% end %>
+
+  </div>
+
+</div>
