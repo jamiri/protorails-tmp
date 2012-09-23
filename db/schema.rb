@@ -38,12 +38,10 @@ ActiveRecord::Schema.define(:version => 20120913080210) do
   end
 
   create_table "content_suggestions", :force => true do |t|
-    t.string   "user_name"
+    t.string   "name"
     t.string   "email"
     t.string   "subject"
-    t.string   "comment"
-    t.string   "url"
-    t.integer  "user_id"
+    t.string   "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
