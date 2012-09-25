@@ -1,3 +1,4 @@
+
 namespace :lesson do
 
   desc "Create fake lessons"
