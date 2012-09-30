@@ -48,22 +48,22 @@
 
 <!-- /-- Body -->
 
-<%= render :"shared/feedback" %>
+<%= render :partial =>'shared/feedback' %>
 
-<%= render :"shared/header" %>
+<%= render :partial =>"shared/header" %>
 
 <div id="content" class="container_24 clearfix">
-  <%= render :"lesson/partial/glossary" %>
+  <%= render :partial =>"lesson/partial/glossary" %>
 
-  <%= render :"lesson/partial/lesson_header" %>
+  <%= render :partial =>"lesson/partial/lesson_header" %>
 
-  <%= render :"lesson/partial/sidebar" %>
+  <%= render :partial =>"lesson/partial/sidebar" %>
 
-  <%= render :"lesson/partial/tabbed_area" %>
+  <%= render :partial =>"lesson/partial/tabbed_area" %>
 </div>
 
-<%= render :"shared/footer" %>
+<%= render :partial =>"shared/footer" %>
 
-<%= render :"shared/content_suggestion" %>
+<%= render :partial =>"shared/content_suggestion" %>
 
 <!-- \-- Body -->

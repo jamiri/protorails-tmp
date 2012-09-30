@@ -62,15 +62,15 @@
     <!--------------------------------------Main Script Content ------------------------------------>
 
     <!--------------------------------------Micro Blog Content ------------------------------------>
-    <%= erb :"lesson/partial/_microblog" %>
+    <%= render :partial=>"lesson/partial/_microblog" %>
     <!--------------------------------------Micro Blog Content ------------------------------------>
 
     <!--------------------------------------Q and A Content ------------------------------------>
-    <%= erb :"lesson/partial/_questions" %>
+    <%= render :partial=>"lesson/partial/_questions" %>
     <!--------------------------------------Q and A Content ------------------------------------>
 
     <!-- /- Discussion Content -->
-    <%= erb :'lesson/partial/_discussion' %>
+    <%= render :partial=>'lesson/partial/_discussion' %>
     <!-- \- Discussion Content -->
 
     <div id="lastPostsLoader" style="display: none; text-align: center;">

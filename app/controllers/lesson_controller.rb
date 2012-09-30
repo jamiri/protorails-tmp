@@ -1,9 +1,12 @@
 class LessonController < ApplicationController
-  def lesson_show
+
+  def show
 
      #exception handling required!
-
-    @lesson = Lesson.where(:id => params[:id])
+    @feedback = Feedback.new
+    @suggestion = ContentSuggestion.new
+    @user = User.new
+    @lesson = Lesson.where(:title => params[:title])
     .includes(:objectives, :references, :category , :lesson_ratings)
     .first
 

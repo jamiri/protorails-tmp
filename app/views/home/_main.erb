@@ -28,7 +28,7 @@
       <div class="info">
         <h2><%= lesson_row.title %></h2>
 
-        <p><%= lesson_row.description %>...<%= link_to "View This Lesson!" %></p>
+        <p><%= lesson_row.description %>...<%= link_to "View This Lesson!","lesson/" + lesson_row.title %></p>
       </div>
     </div>
     <% end %>
