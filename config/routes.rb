@@ -1,5 +1,11 @@
 Protorails::Application.routes.draw do
-  get "home/index"
+  root :to => 'home#index', :as => 'home'
+
+  match '/lesson/:id/terms', :to => 'glossary#lookup_lesson_terms', :as => :lesson_terms
+  match '/glossary/:term', :to => 'glossary#lookup_term', :as => :lookup_term
+
+  match '/lesson/:lesson_id/microblog/create', :to => 'microblog#create', :as => :lookup_term
+  match '/lesson/:lesson_id/microblogs/:page', :to => 'microblog#get', :as => :get_micrblog
 
   match 'feedback' => 'home#feedback'
   match 'suggestion' => 'home#suggestion'
