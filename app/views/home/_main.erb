@@ -1,7 +1,7 @@
 <div id="main" class="grid_19 clearfix">
 <div id="slider" class="grid_19 alpha omega">
   <div class="SecHead">
-    <img class="icon" src="images/home.png"/>
+    <img class="icon" src="assets/home.png"/>
 
     <h3 class="title">What's New?</h3>
   </div>
@@ -23,12 +23,12 @@
     <!-- First Content -->
     <% @top_lessons.each_with_index  do |lesson_row, index| %>
     <div id="fragment-<%= index %>" class="ui-tabs-panel <%= (index != 0 ? "ui-tabs-hide" : "") %>" style="">
-      <img src="images/slide1.jpg" alt=""/>
+      <img src="assets/images/slide1.jpg" alt=""/>
 
       <div class="info">
         <h2><%= lesson_row.title %></h2>
 
-        <p><%= lesson_row.description %>...<a href="/lesson/<%= lesson_row.id %>">View This Lesson!</a></p>
+        <p><%= lesson_row.description %>...<%= link_to "View This Lesson!", :controller => "lesson", :action => "lesson_show" %></p>
       </div>
     </div>
     <% end %>
@@ -75,7 +75,7 @@
 <div id="populars_container" class="grid_19 alpha omega clearfix">
   <div id="Lessons" class="popular">
     <div class="SecHead">
-      <img class="icon" src="images/home.png"/>
+      <img class="icon" src="assets/home.png"/>
 
       <h3 class="title">Popular Lessons</h3>
     </div>
@@ -86,7 +86,7 @@
       <ul class="popular_items">
         <li>
           <a href="">
-            <img src="images/slide1.jpg"/>
+            <img src="assets/images/slide1.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -95,7 +95,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide2.jpg"/>
+            <img src="assets/images/slide2.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -104,7 +104,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide3.jpg"/>
+            <img src="assets/images/slide3.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -113,7 +113,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide4.jpg"/>
+            <img src="assets/images/slide4.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -130,7 +130,7 @@
 
   <div id="Entries" class="popular">
     <div class="SecHead">
-      <img class="icon" src="images/home.png"/>
+      <img class="icon" src="assets/home.png"/>
 
       <h3 class="title">Popular Entries</h3>
     </div>
@@ -142,7 +142,7 @@
       <ul class="popular_items">
         <li>
           <a href="">
-            <img src="images/slide1.jpg"/>
+            <img src="assets/images/slide1.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -151,7 +151,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide2.jpg"/>
+            <img src="assets/images/slide2.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -160,7 +160,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide3.jpg"/>
+            <img src="assets/images/slide3.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -169,7 +169,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide4.jpg"/>
+            <img src="assets/images/slide4.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -185,7 +185,7 @@
 
   <div id="Suggestions" class="popular last">
     <div class="SecHead">
-      <img class="icon" src="images/home.png"/>
+      <img class="icon" src="assets/home.png"/>
 
       <h3 class="title">Suggestions</h3>
     </div>
@@ -197,7 +197,7 @@
       <ul class="popular_items">
         <li>
           <a href="">
-            <img src="images/slide1.jpg"/>
+            <img src="assets/images/slide1.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -206,7 +206,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide2.jpg"/>
+            <img src="assets/images/slide2.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -215,7 +215,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide3.jpg"/>
+            <img src="assets/images/slide3.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -224,7 +224,7 @@
 
         <li>
           <a href="">
-            <img src="images/slide4.jpg"/>
+            <img src="assets/images/slide4.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>

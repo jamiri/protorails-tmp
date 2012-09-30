@@ -432,7 +432,7 @@ visibility: hidden;
 
   
 #featured li.ui-tabs-selected{ /*Selected tab style*/  
-    background: url(../images/arrow.png) top left no-repeat;  
+    background: url(../images/arrow.png) top left no-repeat;
 } 
 
  
@@ -554,7 +554,7 @@ visibility: hidden;
 	display: block;
 	height: 16px;
 	padding:0 24px 2px 0; 
-	background:transparent url(../images/masir.png) no-repeat right center;
+	background:transparent url(../assets/images/masir.png) no-repeat right center;
 }
 
 #breadcrumbs li a:link, #breadcrumbs li a:visited,
@@ -605,7 +605,7 @@ visibility: hidden;
 	display: block;
 	width: 32px;
 	height: 32px;
-	background:  url(../images/info.png) center center;
+	background:  url(../assets/images/info.png) center center;
 	-moz-border-radius: 7px;
 	border-radius: 7px;
 	cursor: pointer;
@@ -761,12 +761,12 @@ ol{
 }
 
 .question{
-	background: rgba(0,0,0,.2) url(../images/q.png) bottom right no-repeat;
+	background: rgba(0,0,0,.2) url(../assets/images/q.png) bottom right no-repeat;
 	margin-top: 10px;
 }
 
 .answer{
-	background: url(../images/a.png) top right no-repeat;
+	background: url(../assets/images/a.png) top right no-repeat;
 	margin-bottom: 10px;
 }
 /*--------------------------------Tabbed Area Lessons-----------------------------*/

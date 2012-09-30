@@ -1,0 +1,43 @@
+<% content_for :custom_css do %>
+    <link rel="stylesheet" type="text/css" href="/styles/question_rating.css"/>
+<% end %>
+
+<% content_for :custom_js do %>
+    <script src="/js/question_rating.js" type="text/javascript"></script>
+<% end %>
+
+
+<!--------------------------------------Q and A Content ------------------------------------>
+<div id="tabs-3" class="QA body">
+
+  <div class="items">
+    <div class="QAbody">
+      <div class="rating">__rating__</div>
+      <div class="question">
+        <span class="id">__user_name__</span>
+        <p> __question__</p>
+      </div>
+      <div class="answer">
+        <span class="id">__answered_by__</span>
+        <p>__answer__ </p>
+      </div>
+    </div>
+    <% @lesson_questions.each do |question_row|%>
+    <div class="QAbody">
+      <div class="rating"><script language="javascript">
+         document.write(getTags_question_rating("<%= question_row.id  %>" , "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>"));
+      </script> </div>
+      <div class="question">
+        <span class="id"><%= question_row.user.name %></span>
+        <p><%= question_row.question %></p>
+      </div>
+    <div class="answer">
+      <span class="id"><%= question_row.answered_by %></span>
+      <p><%= question_row.answer %> </p>
+     </div>
+    </div>
+    <% end %>
+  </div>
+  <div id="lastPostsLoader"></div>
+</div>
+<!--------------------------------------Q and A Content ------------------------------------>

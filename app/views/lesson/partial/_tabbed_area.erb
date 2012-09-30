@@ -1,0 +1,83 @@
+<!-- /-Tabbed Area -->
+
+<div id="main" class="grid_19 clearfix">
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Main Script</a></li>
+      <li><a href="#tabs-2">Micro Blog</a></li>
+      <li id="qa"><a href="#tabs-3">Q & A</a></li>
+      <li><a href="#tabs-4">Discussion</a></li>
+    </ul>
+
+    <!--------------------------------------Main Script Content ------------------------------------>
+    <div id="tabs-1" class="Script body">
+
+      <!-- /- Objective -->
+      <div class="objectives">
+        <h4>Objectives of this Lesson:</h4>
+
+        <% if @lesson.objectives.any? %>
+            <ol>
+              <% @lesson.objectives.each do |oj| %>
+                  <li><%= oj %></li>
+              <% end %>
+            </ol>
+        <% end %>
+      </div>
+      <!-- \- Objective -->
+      <div class="script" id="lesson_script" lesson_id="<%= @lesson.id %>" >
+        <h4>Script of Lesson</h4>
+        <div id="lesson_script_body">
+          <%= @lesson.script %>
+        </div>
+      </div>
+
+      <!-- /- References -->
+      <div class="references">
+        <h4>References</h4>
+        <% if @lesson.references.any? %>
+            <ol>
+              <% @lesson.references.each do |ref| %>
+                  <li>
+                    <div style="margin: 0 30px 15px 0;">
+                      <% unless ref.photo.nil? or ref.photo.empty? %>
+                          <img src="/<%= settings.ref_img_dir + "/" + ref.photo %>"
+                               style="float: left; margin: 10px 10px 0 10px; border: 1px solid gray;
+                                       max-height: 150px; padding: 5px; background-color: #FFF;">
+                      <% end %>
+                      <div style="text-align: justify; clear: right; margin-left: 10px;">
+                        <strong><%= ref.title %></strong>
+                        <span><%= ref.description %></span>
+                      </div>
+                    </div>
+                  </li>
+              <% end %>
+            </ol>
+        <% end %>
+      </div>
+      <!-- \- References -->
+
+      </div>
+    <!--------------------------------------Main Script Content ------------------------------------>
+
+    <!--------------------------------------Micro Blog Content ------------------------------------>
+    <%= erb :"lesson/partial/_microblog" %>
+    <!--------------------------------------Micro Blog Content ------------------------------------>
+
+    <!--------------------------------------Q and A Content ------------------------------------>
+    <%= erb :"lesson/partial/_questions" %>
+    <!--------------------------------------Q and A Content ------------------------------------>
+
+    <!-- /- Discussion Content -->
+    <%= erb :'lesson/partial/_discussion' %>
+    <!-- \- Discussion Content -->
+
+    <div id="lastPostsLoader" style="display: none; text-align: center;">
+      <img src="/images/bigLoader.gif">
+    </div>
+
+  </div>
+
+</div>
+<!-- \-Tabbed Area -->
