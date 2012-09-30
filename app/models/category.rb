@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  created_at  :datetime         not null
+#  description :string(255)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  parent_id   :integer
+#  updated_at  :datetime         not null
+#
+
 class Category < ActiveRecord::Base
   attr_accessible :name, :description
 

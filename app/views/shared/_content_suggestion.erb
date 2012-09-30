@@ -11,7 +11,7 @@
       incididunt ut labore et dolore magna aliqua
     </p>
 
-    <%= form_for @suggestion, url: '/fake', html: {id: 'content_suggestion_form'} do |f| %>
+    <%= form_for @suggestion, url: {:action => 'suggestion'}, html: {id: 'content_suggestion_form'} do |f| %>
       <ul class="inputs">
         <li>
           <%= f.label :name, 'Name:' %>

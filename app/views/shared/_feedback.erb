@@ -11,7 +11,7 @@
       incididunt ut labore et dolore magna aliqua
     </p>
 
-    <%= form_for @feedback, url: '', html: {id: 'feedback_form'} do |f| %>
+    <%= form_for @feedback, url: {:action => 'feedback'}, html: {id: 'feedback_form'} do |f| %>
       <ul class="inputs">
         <li>
           <%= f.label :user_name, 'Name:' %>

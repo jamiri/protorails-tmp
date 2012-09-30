@@ -8,6 +8,9 @@ Protorails::Application.routes.draw do
   match '/lesson/:lesson_id/microblog/create', :to => 'microblog#create', :as => :lookup_term
   match '/lesson/:lesson_id/microblogs/:page', :to => 'microblog#get', :as => :get_micrblog
 
+  match 'feedback' => 'home#feedback'
+  match 'suggestion' => 'home#suggestion'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
