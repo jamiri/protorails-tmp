@@ -9,28 +9,13 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    @feedback = Feedback.new
-    f = params[:feedback]
-
-    @feedback.user_name = f[:user_name]
-    @feedback.email = f[:email]
-    @feedback.subject = f[:subject]
-    @feedback.comment = f[:comment]
-    @feedback.url = f[:url]
-
-    @feedback.save if @feedback.valid?
+    Feedback.new.update_attributes(params[:feedback])
+    render :nothing => true
   end
 
   def suggestion
-    @suggestion = ContentSuggestion.new
-    s = params[:content_suggestion]
-
-    @suggestion.name = s[:name]
-    @suggestion.email = s[:email]
-    @suggestion.subject = s[:subject]
-    @suggestion.content = s[:content]
-
-    @suggestion.save if @suggestion.valid?
+    ContentSuggestion.new.update_attributes(params[:content_suggestion])
+    render :nothing => true
   end
 
 end
