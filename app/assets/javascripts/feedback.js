@@ -2,6 +2,7 @@ $(document).ready(function() {
 
     var feedback_form_options = {
         success: function() {
+            alert("hi");
             $('#feedback_form_wrapper').hide();
             $('#feedback_thanks').show();
             $('#mask, .window').delay(800).fadeOut(200);
