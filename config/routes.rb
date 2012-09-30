@@ -1,6 +1,9 @@
 Protorails::Application.routes.draw do
   get "home/index"
 
+  match 'feedback' => 'home#feedback'
+  match 'suggestion' => 'home#suggestion'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

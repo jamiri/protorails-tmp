@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: blog_posts
+#
+#  content    :text
+#  created_at :datetime         not null
+#  id         :integer          not null, primary key
+#  lesson_id  :integer
+#  title      :string(255)
+#  updated_at :datetime         not null
+#
+
 class BlogPost < ActiveRecord::Base
   attr_accessible :title, :content
 
