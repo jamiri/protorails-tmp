@@ -42,7 +42,7 @@
                   <li>
                     <div style="margin: 0 30px 15px 0;">
                       <% unless ref.photo.nil? or ref.photo.empty? %>
-                          <img src="/<%= settings.ref_img_dir + "/" + ref.photo %>"
+                          <img src="/assets/images/<%= ref.photo %>">
                                style="float: left; margin: 10px 10px 0 10px; border: 1px solid gray;
                                        max-height: 150px; padding: 5px; background-color: #FFF;">
                       <% end %>
@@ -62,15 +62,15 @@
     <!--------------------------------------Main Script Content ------------------------------------>
 
     <!--------------------------------------Micro Blog Content ------------------------------------>
-    <%= render :partial=>"lesson/partial/_microblog" %>
+    <%= render :partial=>"lesson/partial/microblog" %>
     <!--------------------------------------Micro Blog Content ------------------------------------>
 
     <!--------------------------------------Q and A Content ------------------------------------>
-    <%= render :partial=>"lesson/partial/_questions" %>
+    <%= render :partial=>"lesson/partial/questions" %>
     <!--------------------------------------Q and A Content ------------------------------------>
 
     <!-- /- Discussion Content -->
-    <%= render :partial=>'lesson/partial/_discussion' %>
+    <%= render :partial=>'lesson/partial/discussion' %>
     <!-- \- Discussion Content -->
 
     <div id="lastPostsLoader" style="display: none; text-align: center;">

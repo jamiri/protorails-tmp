@@ -1,5 +1,5 @@
 <div id="tabs-2" class="MicroBlog body">
-  <%= erb :'lesson/partial/_prototypes' %>
+  <%= render :partial=>'lesson/partial/prototypes' %>
 
   <% if @lesson.blog_posts.any? %>
     <% @lesson.blog_posts.each do |mcblog| %>
@@ -29,7 +29,7 @@
 
           <!------ Comment form ------>
           <form name="comment_form_<%= mcblog.id %>" method="post"
-                action="<%= url_for(:new_microblog, :lesson_id => @lesson.id) %>"
+                action=""
                 class="blog_post_comment_form">
             <div class="comment_post">
               <label for="comment" style="font-weight: bold; display: block; padding: 0 10px 0 0;">
