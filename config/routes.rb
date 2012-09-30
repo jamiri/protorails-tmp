@@ -1,6 +1,11 @@
 Protorails::Application.routes.draw do
+  root :to => 'home#index', :as => 'home'
 
-  get "home/index"
+  match '/lesson/:id/terms', :to => 'glossary#lookup_lesson_terms', :as => :lesson_terms
+  match '/glossary/:term', :to => 'glossary#lookup_term', :as => :lookup_term
+
+  match '/lesson/:lesson_id/microblog/create', :to => 'microblog#create', :as => :lookup_term
+  match '/lesson/:lesson_id/microblogs/:page', :to => 'microblog#get', :as => :get_micrblog
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
