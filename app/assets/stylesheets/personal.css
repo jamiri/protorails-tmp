@@ -554,7 +554,7 @@ visibility: hidden;
 	display: block;
 	height: 16px;
 	padding:0 24px 2px 0; 
-	background:transparent url(../assets/images/masir.png) no-repeat right center;
+	background:transparent url(masir.png) no-repeat right center;
 }
 
 #breadcrumbs li a:link, #breadcrumbs li a:visited,
@@ -605,7 +605,7 @@ visibility: hidden;
 	display: block;
 	width: 32px;
 	height: 32px;
-	background:  url(../assets/images/info.png) center center;
+	background:  url(info.png) center center;
 	-moz-border-radius: 7px;
 	border-radius: 7px;
 	cursor: pointer;

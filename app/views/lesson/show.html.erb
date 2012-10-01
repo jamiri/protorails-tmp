@@ -1,11 +1,9 @@
 <% content_for :title do %>iosie VISITOR - View Lesson<% end %>
-<%= stylesheet_link_tag :question %>
-<% content_for :custom_css do %>
-    <link rel="stylesheet" type="text/css" href="/styles/jplayer.pink.flag.css">
-    <link rel="stylesheet" type="text/css" href="/styles/jquery-ui-1.8.22.custom.css">
-    <link rel="stylesheet" type="text/css" href="/styles/glossary_entry.css"/>
-    <link rel="stylesheet" type="text/css" href="/styles/tipTip.css"/>
-    <link rel="stylesheet" type="text/css" href="/styles/question_rating.css"/>
+    <link rel="stylesheet" type="text/css" href="jplayer.pink.flag.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui-1.8.22.custom.css">
+    <link rel="stylesheet" type="text/css" href="glossary_entry.css"/>
+    <link rel="stylesheet" type="text/css" href="tipTip.css"/>
+    <link rel="stylesheet" type="text/css" href="question_rating.css"/>
     <style>
         .proto {
             display: none;
@@ -25,25 +23,12 @@
             background: url('cross.png') no-repeat 0 -36px;
         }
     </style>
-<% end %>
-
-<% content_for :custom_js do %>
-    <script src="/js/jquery.jplayer.min.js" type="text/javascript"></script>
-    <script src="/js/glossary_entry.js" type="text/javascript"></script>
-    <script src="/js/podcast.js" type="text/javascript"></script>
-    <script src="/js/jquery.tipTip.minified.js" type="text/javascript"></script>
-    <script src="/js/question_infinite_scroll.js" type="text/javascript"></script>
-    <script src="/js/infini_scroll.js" type="text/javascript"></script>
-    <script src="/js/strftime.minified.js" type="text/javascript"></script>
-    <script src="/js/microblog.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             //Tabs
             $("#tabs").tabs();
         });
     </script>
-
-<% end %>
 
 <!-- /-- Body -->
 

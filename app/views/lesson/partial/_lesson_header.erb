@@ -3,7 +3,7 @@
 
   <ul id="breadcrumbs">
     <li><a href="<%= url_for(:home) %>">Home</a></li>
-    <%= create_navbar @lesson.category_id %>
+    <%= create_navbar(@lesson.category_id).html_safe %>
   </ul>
   <div class="LessonTitle">
     <h1><%=@lesson.title %></h1>
