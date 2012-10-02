@@ -20,6 +20,8 @@ class LessonController < ApplicationController
 
     @avg_rate = @lesson.lesson_ratings.average("rating")
   end
+
+
   def rate
 
     unless request.xhr?
@@ -42,4 +44,5 @@ class LessonController < ApplicationController
     end
 
   end
+
 end

@@ -20,7 +20,6 @@ function initInfiniScroll(elem, url, callback) {
 
                 elem.fetching = true;
                 $('div#lastPostsLoader').show();
-
                 $.getJSON(url(elem.page), function(data) {
                     callback(data);
                     elem.fetching = false;
