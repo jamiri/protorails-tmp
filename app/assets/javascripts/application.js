@@ -11,8 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 // require jquery
-// require jquery_ujs
-// require_tree .
+//require jquery_ujs
+//require_tree .
 //= require jquery-1.7.2.min
 //= require jquery-ui-1.8.22.custom.min
 //= require jquery.form

@@ -4,21 +4,50 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title><%= yield(:title) %></title>
 
-  <%= stylesheet_link_tag 'application', :media => "all" %>
-  <%= javascript_include_tag 'application' %>
-
-  <%#= yield_content :custom_css %>
-
-  <%#= javascript_include_tag "jquery-1.7.2.min" %>
-  <%#= javascript_include_tag "jquery-ui-1.8.22.custom.min" %>
-  <%#= javascript_include_tag "menu" %>
-  <%#= javascript_include_tag "feedback" %>
-  <%#= javascript_include_tag "sign_up" %>
-  <%#= javascript_include_tag "jquery.form" %>
-  <%#= javascript_include_tag "content_suggestion" %>
-  <%#= javascript_include_tag "modal_window" %>
-
-  <%#= yield_content :custom_js %>
+  <%= stylesheet_link_tag "application" ,
+                          "question_rating" ,
+                          "rating" ,
+                          "jquery-ui-1.8.22.custom" ,
+                          "jplayer.pink.flag" ,
+                          "widget087" ,
+                          "modal_window" ,
+                          "960grid/960_24_col" ,
+                          "960grid/reset" ,
+                          "content_suggestion" ,
+                          "feedback" ,
+                          "glossary_entry" ,
+                          "tipTip" ,
+                          "personal" ,
+                          "admin",
+                          "modal_window",
+                          :media => "all"
+  %>
+  <%= javascript_include_tag "modal_window" ,
+                             "jquery",
+                             "jquery-ui",
+                             "jquery-ui-1",
+                             "application",
+                             "content_suggestion",
+                             "feedback",
+                             "glossary",
+                             "glossary_entry",
+                             "infini_scroll",
+                             "jquery-1",
+                             "jquery.jplayer.min",
+                             "home",
+                             "jquery_ujs",
+                             "lesson",
+                             "menu",
+                             "microblog",
+                             "question",
+                             "sign_up",
+                             "addthis_widget",
+                             "podcast",
+                             "question_infinite_scroll",
+                             "question_rating",
+                             "rating",
+                             "strftime"
+  %>
 
 </head>
 
@@ -27,6 +56,7 @@
 <div id="mask"></div>
 
 <%= yield %>
+
 
 </body>
 

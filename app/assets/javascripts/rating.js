@@ -7,7 +7,6 @@
  */
 
 function vote(amnt){
-
     $.ajax({
         type: "GET",
         url: $('.script:first').attr('lesson_id') + "/rating/" + amnt,

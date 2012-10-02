@@ -3,9 +3,8 @@
 /* CSS Document */
 
 body{
-	background:rgb(242,233,198) image-url("bg.png");
-	font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 1em;
+	background:rgb(242,233,198) url(bg.png);
+	font-family: "Segoe UI", Arial, sans-serif; font-size: 1em;
 }
 
 div#header, div#content{
@@ -101,11 +100,11 @@ div.SecHead h3{
 .searchform, .loginform {
 	display: inline-block;
 	zoom: 1; /* ie7 hack for display:inline-block */
-	/*display: inline;*/
+	*display: inline;
 	border: none;
 	padding-top: 5px;
 	padding-bottom: 3px;
-	font-family: "Segoe UI";
+	font-family:  Segoe UI;
 }
 
 .loginform{
@@ -162,7 +161,7 @@ a.advanced_search, a.sign_up{
 }
 
 div#logo{
-	background: image-url("islamifc.png") center center no-repeat;
+	background:url(islamifc.png) center center no-repeat;
 	height: 65px;
 	width: 305px;
 	padding: 60px 0px 5px;
@@ -433,7 +432,7 @@ visibility: hidden;
 
   
 #featured li.ui-tabs-selected{ /*Selected tab style*/  
-    background: image-url("arrow.png") top left no-repeat;
+    background: url(arrow.png) top left no-repeat;
 } 
 
  
@@ -555,7 +554,7 @@ visibility: hidden;
 	display: block;
 	height: 16px;
 	padding:0 24px 2px 0; 
-	background:transparent image-url("masir.png") no-repeat right center;
+	background:transparent url(masir.png) no-repeat right center;
 }
 
 #breadcrumbs li a:link, #breadcrumbs li a:visited,
@@ -606,7 +605,7 @@ visibility: hidden;
 	display: block;
 	width: 32px;
 	height: 32px;
-	background: image-url("info.png") center center;
+	background:  url(info.png) center center;
 	-moz-border-radius: 7px;
 	border-radius: 7px;
 	cursor: pointer;
@@ -762,12 +761,12 @@ ol{
 }
 
 .question{
-	background: rgba(0,0,0,.2) image-url("q.png") bottom right no-repeat;
+	background: rgba(0,0,0,.2) url(../assets/images/q.png) bottom right no-repeat;
 	margin-top: 10px;
 }
 
 .answer{
-	background: image-url("a.png") top right no-repeat;
+	background: url(../assets/images/a.png) top right no-repeat;
 	margin-bottom: 10px;
 }
 /*--------------------------------Tabbed Area Lessons-----------------------------*/

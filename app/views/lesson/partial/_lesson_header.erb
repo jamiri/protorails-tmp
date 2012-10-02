@@ -3,13 +3,13 @@
 
   <ul id="breadcrumbs">
     <li><a href="<%= url_for(:home) %>">Home</a></li>
-    <%= create_navbar @lesson.category_id %>
+    <%= create_navbar(@lesson.category_id).html_safe %>
   </ul>
   <div class="LessonTitle">
     <h1><%=@lesson.title %></h1>
     <span class="LessonInfo" onclick="location.href='#';" title="Lesson Info"></span>
   </div>
 
-  <%= erb :'lesson/partial/rating' %>
+  <%= render :partial=>'lesson/partial/rating' %>
 </div>
 <!--end of lesson header------------------------------------------------------->

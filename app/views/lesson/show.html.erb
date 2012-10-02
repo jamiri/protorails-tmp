@@ -1,0 +1,53 @@
+<% content_for :title do %>iosie VISITOR - View Lesson<% end %>
+    <link rel="stylesheet" type="text/css" href="jplayer.pink.flag.css">
+    <link rel="stylesheet" type="text/css" href="jquery-ui-1.8.22.custom.css">
+    <link rel="stylesheet" type="text/css" href="glossary_entry.css"/>
+    <link rel="stylesheet" type="text/css" href="tipTip.css"/>
+    <link rel="stylesheet" type="text/css" href="question_rating.css"/>
+    <style>
+        .proto {
+            display: none;
+        }
+
+        .cross {
+            position: absolute;
+            top: -19px;
+            right: -19px;
+            display: block;
+            background: url('cross.png') no-repeat 0 0;
+            width: 36px;
+            height: 35px;
+        }
+
+        .cross:hover {
+            background: url('cross.png') no-repeat 0 -36px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            //Tabs
+            $("#tabs").tabs();
+        });
+    </script>
+
+<!-- /-- Body -->
+
+<%= render :partial =>'shared/feedback' %>
+
+<%= render :partial =>"shared/header" %>
+
+<div id="content" class="container_24 clearfix">
+  <%= render :partial =>"lesson/partial/glossary" %>
+
+  <%= render :partial =>"lesson/partial/lesson_header" %>
+
+  <%= render :partial =>"lesson/partial/sidebar" %>
+
+  <%= render :partial =>"lesson/partial/tabbed_area" %>
+</div>
+
+<%= render :partial =>"shared/footer" %>
+
+<%= render :partial =>"shared/content_suggestion" %>
+
+<!-- \-- Body -->

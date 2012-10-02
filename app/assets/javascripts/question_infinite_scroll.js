@@ -13,11 +13,11 @@ $(document).ready(function () {
     }, function (data) {
             $(data).each(function () {
                 item.clone()
-                    .find(".question").find(".id").html(this.question.user.name).end().end()
-                    .find(".question").find("p").html(this.question.question).end().end()
-                    .find(".answer").find(".id").html(this.question.answered_by).end().end()
-                    .find(".answer").find("p").html(this.question.answer).end().end()
-                    .find(".rating").html(getTags_question_rating(this.question.id, this.question.rating_average * 25)).end()
+                    .find(".question").find(".id").html(this.user.name).end().end()
+                    .find(".question").find("p").html(this.question).end().end()
+                    .find(".answer").find(".id").html(this.answered_by).end().end()
+                    .find(".answer").find("p").html(this.answer).end().end()
+                    .find(".rating").html(getTags_question_rating(this.id, this.rating_average * 25)).end()
                     .appendTo($(".items"));
             });
     });
@@ -25,7 +25,7 @@ $(document).ready(function () {
 function getTags_question_rating(id_question , average_value)
 {
     var tx='';
-    txt = '<ul class="star-rating-question" id="star-rating-question' + id_question + '" style="background: url(/images/alt_star.png) ;">';
+    txt = '<ul class="star-rating-question" id="star-rating-question' + id_question + '" style="background: url(/assets/alt_star.png) ;">';
     txt =  txt + '<li class="current-rating-question" id="current-rating-question' + id_question + '" style="width: ' + average_value + 'px"></li>';
     txt =  txt + '<li><a href="#" onclick="question_vote(' + id_question + ', 1); return false;"';
     txt =  txt + ' title="1 star out of 5" class="one-star">1</a></li>';
