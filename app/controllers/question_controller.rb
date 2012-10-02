@@ -2,6 +2,10 @@ class QuestionController < ApplicationController
 
   def  rate
 
+    unless request.xhr?
+      render :file => "#{Rails.root}/public/404.html", :status => :not_found and return
+    end
+
     question_id = params[:question_id]
     rate_val = params[:rate_val]
 
@@ -20,6 +24,10 @@ class QuestionController < ApplicationController
   end
 
   def pagination
+
+    unless request.xhr?
+      render :file => "#{Rails.root}/public/404.html", :status => :not_found and return
+    end
 
     lesson_id = params[:lesson_id].to_s
     page = params[:page].to_i
