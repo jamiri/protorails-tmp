@@ -9,12 +9,12 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    Feedback.new.update_attributes(params[:feedback])
+    Feedback.new(params[:feedback]).save
     render :nothing => true
   end
 
   def suggestion
-    ContentSuggestion.new.update_attributes(params[:content_suggestion])
+    ContentSuggestion.new(params[:content_suggestion]).save
     render :nothing => true
   end
 

@@ -1,4 +1,5 @@
 Protorails::Application.routes.draw do
+
   root :to => 'home#index', :as => 'home'
 
   match '/lesson/:id/terms', :to => 'glossary#lookup_lesson_terms', :as => :lesson_terms
@@ -9,6 +10,10 @@ Protorails::Application.routes.draw do
 
   match 'feedback' => 'home#feedback'
   match 'suggestion' => 'home#suggestion'
+
+  match 'user/signup' => 'user#signup'
+  match 'user/signin' => 'user#signin'
+  match 'user/signout' => 'user#signout'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
