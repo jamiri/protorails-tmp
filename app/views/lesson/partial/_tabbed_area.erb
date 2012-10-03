@@ -14,7 +14,7 @@
     <div id="tabs-1" class="Script body">
 
       <!-- /- Objective -->
-      <div class="objectives">
+      <div id="lesson_objectives" class="objectives">
         <h4>Objectives of this Lesson:</h4>
 
         <% if @lesson.objectives.any? %>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- /- References -->
-      <div class="references">
+      <div id="lesson_references" class="references">
         <h4>References</h4>
         <% if @lesson.references.any? %>
             <ol>
