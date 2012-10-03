@@ -15,9 +15,7 @@ class UserController < ApplicationController
     user = User.find_by_mail_address_and_password(params[:email], params[:password])
 
     if user.present? && user.enable
-
       session['user_name'] = user.name
-
     end
 
     redirect_to :home
