@@ -18,4 +18,7 @@ class GlossaryEntry < ActiveRecord::Base
                   :pronun_file, :image_file, :ext_link
 
   has_and_belongs_to_many :lessons
+
+  scope :for_lesson, lambda { |lesson_id| joins(:lessons).where('lesson_id = ?', lesson_id) }
+  scope :lookup,     lambda { |term|      where(:name => term) }
 end
