@@ -41,5 +41,4 @@ class QuestionController < ApplicationController
 
   end
 
-
 end

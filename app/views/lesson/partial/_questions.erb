@@ -13,14 +13,21 @@
         <p>__answer__ </p>
       </div>
     </div>
+    <%
+       if params[:question].present?
+    %>
+        <div align="right"> <a  href="/lesson/<%=@lesson.title.sub('?','%3f') %>#tabs-3">Brows All Questions</a></div>
+    <% end %>
     <% @lesson_questions.each do |question_row|%>
-    <div class="QAbody">
+        <a name="qa<%= question_row.id  %>"></a>
+
+    <div id="qa<%= question_row.id  %>" class="QAbody">
       <div class="rating"><script language="javascript">
          document.write(getTags_question_rating("<%= question_row.id  %>" , "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>"));
       </script> </div>
       <div class="question">
         <span class="id"><%= question_row.user.name %></span>
-        <p><%= question_row.question %></p>
+        <p><a href="<%= "/lesson/" + question_row.lesson_id.to_s + "/question/" + question_row.question.sub('?','%3f')  %>#tabs-3"><%= question_row.question %></a></p>
       </div>
     <div class="answer">
       <span class="id"><%= question_row.answered_by %></span>
