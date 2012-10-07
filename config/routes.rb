@@ -10,6 +10,7 @@ Protorails::Application.routes.draw do
 
   match '/lesson/:lesson_id/microblog/create', :to => 'microblog#create', :as => :lookup_term
   match '/lesson/:lesson_id/microblogs/:page', :to => 'microblog#get', :as => :get_micrblog
+  match '/lesson/:lesson_id/microblog/:BlogTitle', :to => 'lesson#show', :as => :get_micrblog_with_title
 
   match '/lesson/:lesson_id/question/page/:page', :to => 'question#pagination'
   match '/lesson/:lesson_id/question/:question_id/rating/:rate_val', :to => 'question#rate'

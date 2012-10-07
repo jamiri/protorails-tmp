@@ -1,10 +1,29 @@
 <div id="tabs-2" class="MicroBlog body">
   <%= render :partial=>'lesson/partial/prototypes' %>
 
-  <% if @lesson.blog_posts.any? %>
-    <% @lesson.blog_posts.each do |mcblog| %>
+  <% if @microblogs.any? %>
+      <%
+      if(params[:BlogTitle].present?)
+      %>
+          <div align="right"> <a  href="/lesson/<%=@lesson.title.sub('?','%3f') %>#tabs-2">Brows All MicroBlogs</a></div>
+      <%
+      end
+      %>
+    <% @microblogs.each do |mcblog| %>
       <div class="post">
-        <h2><%= mcblog.title %></h2>
+        <h2>
+          <% if(!params[:BlogTitle].present?) %>
+
+          <a href="<%= "/lesson/" + mcblog.lesson_id.to_s + "/microblog/" + mcblog.title  %>#tabs-2"><%= mcblog.title %></a>
+
+          <%
+             else
+          %>
+              <%= mcblog.title %>
+          <%
+           end
+          %>
+        </h2>
         <span class="date">posted on <%= mcblog.posted_on.strftime('%B %e, %Y') %></span>
             <span class="comments">
               <a href="#dialog<%= mcblog.id %>">
@@ -15,7 +34,13 @@
                 <% end %>
               </a>
             </span>
-        <p><%= mcblog.content %></p>
+        <p>
+          <% if(!params[:BlogTitle].present?) %>
+              <a href="<%= "/lesson/" + mcblog.lesson_id.to_s + "/microblog/" + mcblog.title  %>#tabs-2"><%= mcblog.content  %></a>
+          <% else %>
+              <%= mcblog.content  %>
+          <% end %>
+        </p>
 
         <div class="microblog_comment" id="dialog<%= mcblog.id %>" title="Comments on <%=mcblog.title %>">
           <% if mcblog.comments.any? %>
