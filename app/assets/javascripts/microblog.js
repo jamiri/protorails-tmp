@@ -34,7 +34,7 @@ $(document).ready(function () {
 
     // init auto scrolling for microblogs
     initInfiniScroll($('.MicroBlog').get(0), function(page) {
-        return "/lesson/" + $('.script:first').attr('lesson_id') + "/microblog/" + page;
+        return "/lesson/" + $('.script:first').attr('lesson_id') + "/microblogs/" + page;
     }, function(data) {
         $(data).each(function() {
 

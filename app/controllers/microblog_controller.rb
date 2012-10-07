@@ -22,7 +22,12 @@ class MicroblogController < ApplicationController
     lesson_id = params[:lesson_id].to_i
     page = params[:page].to_i
 
-    microblogs = BlogPost.recent_paged(lesson_id, page)
+
+
+      microblogs = BlogPost.where(:lesson_id => lesson_id)
+      .includes(:comments => :user)
+      .offset(5 * page)
+      .limit(5)
 
     render :json => microblogs.to_json(:only => [:id, :title, :content],
                                        :methods => :posted_on,
