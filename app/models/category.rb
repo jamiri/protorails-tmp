@@ -19,4 +19,6 @@ class Category < ActiveRecord::Base
   belongs_to :parent, :class_name => "Category"
 
   has_many :lessons, :foreign_key => "category_id"
+
+  scope :roots, where('parent_id' => nil)
 end

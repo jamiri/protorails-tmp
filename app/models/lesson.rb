@@ -26,4 +26,6 @@ class Lesson < ActiveRecord::Base
   has_many :lesson_ratings, :foreign_key => 'lesson_id'
 
   has_and_belongs_to_many :glossary_entries
+
+  scope :top4, order('created_at DESC').limit(4)
 end

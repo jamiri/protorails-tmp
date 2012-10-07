@@ -1,63 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title><%= yield(:title) %></title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><%= yield(:title) %></title>
 
-  <%= stylesheet_link_tag "application" ,
-                          "question_rating" ,
-                          "rating" ,
-                          "jquery-ui-1.8.22.custom" ,
-                          "jplayer.pink.flag" ,
-                          "widget087" ,
-                          "modal_window" ,
-                          "960grid/960_24_col" ,
-                          "960grid/reset" ,
-                          "content_suggestion" ,
-                          "feedback" ,
-                          "glossary_entry" ,
-                          "tipTip" ,
-                          "personal" ,
-                          "admin",
-                          "modal_window",
-                          :media => "all"
-  %>
-  <%= javascript_include_tag "modal_window" ,
-                             "jquery",
-                             "jquery-ui",
-                             "jquery-ui-1",
-                             "application",
-                             "content_suggestion",
-                             "feedback",
-                             "glossary",
-                             "glossary_entry",
-                             "infini_scroll",
-                             "jquery-1",
-                             "jquery.jplayer.min",
-                             "home",
-                             "jquery_ujs",
-                             "lesson",
-                             "menu",
-                             "microblog",
-                             "question",
-                             "sign_up",
-                             "addthis_widget",
-                             "podcast",
-                             "question_infinite_scroll",
-                             "question_rating",
-                             "rating",
-                             "strftime"
-  %>
+    <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
 
-</head>
+    <%= javascript_include_tag "application", params[:controller] %>
 
-<body>
+  </head>
 
-<div id="mask"></div>
+  <body>
+    <div id="mask"></div>
 
-<%= yield %>
+    <%= yield %>
 
-
-</body>
-
+  </body>
 </html>
