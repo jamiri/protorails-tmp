@@ -1,10 +1,9 @@
-@import "widget087.css";
-@import "jplayer.pink.flag.css";
-@import "jquery-ui-1.8.22.custom.css";
-@import "glossary_entry.css";
-@import "tipTip.css";
-@import "rating.css";
-@import "question_rating.css";
-
-
-
+/*
+ *= require widget087
+ *= require jquery-ui-1.8.22.custom
+ *= require tipTip
+ *= require rating
+ *= require question_rating
+ *= require jplayer.pink.flag
+ *= require glossary_entry
+*/
