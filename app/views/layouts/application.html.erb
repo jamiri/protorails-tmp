@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><%= yield(:title) %></title>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= yield(:title) %></title>
 
-    <%= stylesheet_link_tag "application", params[:controller], :media => "all" %>
 
-    <%= javascript_include_tag "application", params[:controller] %>
+  <%= stylesheet_link_tag  "application" , params[:controller], :media => "all" %>
 
-  </head>
+  <%= javascript_include_tag "application", params[:controller] %>
+</head>
 
-  <body>
-    <div id="mask"></div>
+<body>
+<div id="mask"></div>
 
-    <%= yield %>
+<%= yield %>
 
-  </body>
+</body>
 </html>
