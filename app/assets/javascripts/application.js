@@ -19,4 +19,7 @@
 //= require "jquery.form.js"
 //= require "content_suggestion.js"
 //= require "modal_window.js"
+//= require "modal_window.js"
+//= require "addthis_widget.js"
+
 
