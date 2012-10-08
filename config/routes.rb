@@ -20,7 +20,7 @@ Protorails::Application.routes.draw do
   match 'suggestion' => 'home#suggestion'
 
   match 'user/signup' => 'user#signup'
-  match 'user/signin' => 'user#signin'
+  match 'user/signin' => 'user#signin', :as => :user_login
   match 'user/signout' => 'user#signout'
 
   # The priority is based upon order of creation:

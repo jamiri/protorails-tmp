@@ -1,20 +1,24 @@
 class UserController < ApplicationController
   def signup
-    user = User.new
+    # TODO: requires refactoring!
 
-    user.name = params[:name]
-    user.mail_address = params[:mail_address]
-    user.password = params[:password]
+    user = User.new(params[:user])
     user.enable = true
 
-    user.save if user.valid?
+    unless user.valid?
+      render :nothing => true, :status => 403
+    end
+
+    user.save
     render :nothing => true
   end
 
   def signin
-    user = User.find_by_mail_address_and_password(params[:email], params[:password])
+    user_credentials = params[:login]
 
-    if user.present? && user.enable
+    user = User.find_by_mail_address_and_password(user_credentials[:email], user_credentials[:password])
+
+    if user.present? && user.enable?
       session['user_name'] = user.name
     end
 
