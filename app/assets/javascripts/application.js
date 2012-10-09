@@ -10,16 +10,12 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-
-//= require "jquery-1.7.2.min.js"
-//= require "jquery-ui-1.8.22.custom.min.js"
-//= require "menu.js"
-//= require "feedback.js"
-//= require "sign_up.js"
-//= require "jquery.form.js"
-//= require "content_suggestion.js"
-//= require "modal_window.js"
-//= require "modal_window.js"
-//= require "addthis_widget.js"
-
-
+//= require jquery-1.7.2.min
+//= require jquery-ui-1.8.22.custom.min
+//= require menu
+//= require feedback
+//= require sign_up
+//= require jquery.form
+//= require content_suggestion
+//= require modal_window
+//= require addthis_widget
