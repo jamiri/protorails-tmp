@@ -835,4 +835,19 @@ ol{
   margin: 0 0 10px 20px;
   border: 1px solid gray;
 }
+
+.invalid {
+  border-color: red !important;
+}
+
+form input[type=text]:hover, form input[type=password]:hover {
+  box-shadow: 0px 0px 4px #888;
+}
+
+.errors-wrapper {
+  background-color: #ffada5;
+  border: 2px solid red;
+  padding: 5px;
+  display: none;
+}
 /* ----- ^^^^^^^^^^^^ ----- */

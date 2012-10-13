@@ -6,23 +6,28 @@
 
     <p class="window_txt">Signing up for an account is FREE.</p>
 
-    <%= form_for @user, :url => {:action => :signup, :controller => :user}, :html => {:id => 'sign_up_form'} do |f| %>
+    <div class="errors-wrapper">
+
+    </div>
+
+    <%= form_for @user, :url => {:action => :signup, :controller => :user},
+                        :html => {:id => 'sign_up_form', :name => 'sign_up_form'} do |f| %>
       <ul class="inputs">
         <li>
           <%= f.label(:name, "Name:") %>
-          <%= f.text_field :name,:size => 25, :required => true %>
+          <%= f.text_field :name %>
         </li>
         <li>
           <%= f.label(:mail_address, "Email:") %>
-          <%= f.text_field :mail_address,:size => 25, :required => true %>
+          <%= f.text_field :mail_address %>
         </li>
         <li>
           <%= f.label(:password, "Password:") %>
-          <%= f.password_field :password ,:size => 25, :required => true %>
+          <%= f.password_field :password %>
         </li>
         <li>
           <%= f.label(:password_confirmation, "Confirm Password:") %>
-          <%= f.password_field :password_confirmation ,:size => 25, :required => true %>
+          <%= f.password_field :password_confirmation %>
         </li>
       </ul>
 
