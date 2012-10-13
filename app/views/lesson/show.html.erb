@@ -1,30 +1,4 @@
-<% content_for :title do %>iosie VISITOR - View Lesson<% end %>
-    <style>
-        .proto {
-            display: none;
-        }
-
-        .cross {
-            position: absolute;
-            top: -19px;
-            right: -19px;
-            display: block;
-            background: url('cross.png') no-repeat 0 0;
-            width: 36px;
-            height: 35px;
-        }
-
-        .cross:hover {
-            background: url('cross.png') no-repeat 0 -36px;
-        }
-    </style>
-    <script type="text/javascript">
-        $(function () {
-            //Tabs
-            $("#tabs").tabs();
-        });
-    </script>
-
+<% title('iosie VISITOR - View Lesson') %>
 <!-- /-- Body -->
 
 <%= render :partial =>'shared/feedback' %>

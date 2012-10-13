@@ -13,8 +13,11 @@ class GlossaryController < ApplicationController
 
     word = GlossaryEntry.lookup(params[:term]).first
 
-    render :json => word.to_json(:only =>
-                                     [:name, :short_definition, :full_definition, :image_file, :pronun_file, :ext_link])
+    respond_to do |format|
+      format.json { render :json => word.to_json(:only =>
+                                                     [:name, :short_definition, :full_definition,
+                                                      :image_file, :pronun_file, :ext_link]) }
+    end
   end
 
 end

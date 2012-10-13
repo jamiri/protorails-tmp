@@ -37,28 +37,26 @@ function addTags(data) {
     $(".glossary_entry").tipTip({defaultPosition:"top"});
 
     $('.glossary_entry').click(function(e) {
-
         e.preventDefault();
 
         $.getJSON($(this).attr('href') + '.json', function(data) {
-            var ge = data.glossary_entry;
             var gd = $('#glossary_dialog');
 
-            gd.find('#term_name').html(ge.name);
+            gd.find('#term_name').html(data.name);
 
-            if (ge.full_definition != null) {
-                gd.find('#term_full_def').html(ge.full_definition);
+            if (data.full_definition != null) {
+                gd.find('#term_full_def').html(data.full_definition);
             } else {
-                gd.find('#term_full_def').html(ge.short_definition);
+                gd.find('#term_full_def').html(data.short_definition);
             }
 
-            if (ge.pronun_file) {
+            if (data.pronun_file) {
                 gd.find('#term_pronun')
                     .empty()
                     .append(
                         $('<source>')
                             .attr('type', 'audio/mpeg')
-                            .attr('src', '/assets/' + ge.pronun_file)
+                            .attr('src', '/assets/' + data.pronun_file)
                     );
 
                 gd.find('#play_pronun').show();
@@ -66,15 +64,15 @@ function addTags(data) {
                 gd.find('#play_pronun').hide();
             }
 
-            if (ge.image_file) {
-                gd.find('#term_image').attr('src', '/assets/' + ge.image_file).show();
+            if (data.image_file) {
+                gd.find('#term_image').attr('src', '/assets/' + data.image_file).show();
             } else {
                 gd.find('#term_image').hide();
             }
 
-            if (ge.ext_link) {
+            if (data.ext_link) {
                 gd.find('#term_link_wrapper').show();
-                gd.find('#term_link').attr('href', ge.ext_link).html(ge.ext_link);
+                gd.find('#term_link').attr('href', data.ext_link).html(data.ext_link);
             } else {
                 gd.find('#term_link_wrapper').hide();
             }
