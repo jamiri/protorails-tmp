@@ -20,5 +20,5 @@ class Category < ActiveRecord::Base
 
   has_many :lessons, :foreign_key => "category_id"
 
-  scope :roots, where('parent_id' => nil)
+  scope :roots, where('parent_id' => nil).includes(:sub_categories)
 end

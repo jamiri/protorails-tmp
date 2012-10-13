@@ -1,65 +1,24 @@
 class LessonController < ApplicationController
 
   def show
-
-     #exception handling required!
+    #exception handling required!
     @feedback = Feedback.new
     @suggestion = ContentSuggestion.new
     @user = User.new
 
-    @categories = Category.where(:parent_id => nil).includes(:sub_categories)
+    @categories = Category.roots
 
-    if(params[:question].present?)
+    @lesson = Lesson.where(:slug => params[:slug])
+                    .includes(:objectives, :references, :category , :lesson_ratings)
+                    .first
 
-      question = params[:question]
-      lesson_id =  params[:lesson_id]
+    @lesson_questions = Question.find_all_by_lesson_id(@lesson.id,
+                                                       :select => "questions.* , avg(question_ratings.rating) as rating_average",
+                                                       :joins => "left outer join question_ratings ON question_ratings.question_id = questions.id",
+                                                       :group => "questions.id",:offset => 0 , :limit => 5)
+    @microblogs = BlogPost.recent_paged(@lesson.id, 0)
 
-      @lesson = Lesson.where(:id => lesson_id)
-      .includes(:objectives, :references, :category , :lesson_ratings)
-      .first
-
-      @lesson_questions = Question.find_all_by_question_and_lesson_id(question, lesson_id,
-                                                                      :select => "questions.* , avg(question_ratings.rating) as rating_average",
-                                                                      :joins => "left outer join question_ratings ON question_ratings.question_id = questions.id",
-                                                                      :group => "questions.id")
-      @microblogs = BlogPost.where(:lesson_id => lesson_id)
-      .includes(:comments => :user)
-      .offset(0)
-      .limit(5)
-
-    elsif(params[:title].present?)
-
-      @lesson = Lesson.where( :slug => params[:title])
-      .includes(:objectives, :references, :category , :lesson_ratings)
-      .first
-
-      @lesson_questions = Question.find_all_by_lesson_id(@lesson.id,
-                                        :select => "questions.* , avg(question_ratings.rating) as rating_average",
-                                        :joins => "left outer join question_ratings ON question_ratings.question_id = questions.id",
-                                        :group => "questions.id",:offset => 0 , :limit => 5)
-      @microblogs = BlogPost.where(:lesson_id => @lesson.id)
-      .includes(:comments => :user)
-      .offset(0)
-      .limit(5)
-
-    elsif(params[:BlogTitle].present?)
-      lesson_id =  params[:lesson_id]
-
-      @lesson = Lesson.where(:id => lesson_id)
-      .includes(:objectives, :references, :category , :lesson_ratings)
-      .first
-
-      @lesson_questions = Question.find_all_by_lesson_id( lesson_id,
-                                                                      :select => "questions.* , avg(question_ratings.rating) as rating_average",
-                                                                      :joins => "left outer join question_ratings ON question_ratings.question_id = questions.id",
-                                                                      :group => "questions.id")
-      @microblogs = BlogPost.where(:title => params[:BlogTitle])
-      .includes(:comments => :user)
-      .offset(0)
-      .limit(5)
-    end
-
-      @avg_rate = @lesson.lesson_ratings.average("rating")
+    @avg_rate = @lesson.lesson_ratings.average("rating")
   end
 
 

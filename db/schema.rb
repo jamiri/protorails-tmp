@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120913080210) do
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
+    t.string   "slug"
     t.string   "description"
     t.text     "script"
     t.string   "audio_file"
