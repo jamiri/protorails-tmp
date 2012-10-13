@@ -8,3 +8,8 @@
 //= require glossary_entry
 //= require question_rating
 //= require rating
+//= require_self
+
+$(function() {
+    $("#tabs").tabs();
+})
