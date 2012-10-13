@@ -29,7 +29,7 @@ class LessonController < ApplicationController
 
     elsif(params[:title].present?)
 
-      @lesson = Lesson.where(:title => params[:title])
+      @lesson = Lesson.where( :slug => params[:title])
       .includes(:objectives, :references, :category , :lesson_ratings)
       .first
 
