@@ -15,8 +15,7 @@
 #
 
 class Lesson < ActiveRecord::Base
-  attr_accessible :title, :description, :script, :audio_file, :video_file, :author
-
+  attr_accessible :title, :description, :script, :audio_file, :video_file, :author,:title_slug
   belongs_to :category
 
   has_many :blog_posts, :foreign_key => 'lesson_id', :limit => 5, :include => {:comments => [:user]}

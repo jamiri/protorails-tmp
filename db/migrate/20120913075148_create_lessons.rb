@@ -2,6 +2,7 @@ class CreateLessons < ActiveRecord::Migration
   def change
     create_table :lessons do |t|
       t.string :title
+      t.string :slug
       t.string :description
       t.text :script
       t.string :audio_file
