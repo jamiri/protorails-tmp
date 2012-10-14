@@ -13,8 +13,8 @@
 #  updated_at  :datetime         not null
 #  video_file  :string(255)
 #
-
-require 'slugify'
+#
+#require 'slugify'
 
 class Lesson < ActiveRecord::Base
   attr_accessible :title, :description, :script, :audio_file, :video_file, :author, :slug
@@ -26,14 +26,17 @@ class Lesson < ActiveRecord::Base
   has_many :references, :foreign_key => 'lesson_id'
   has_many :lesson_ratings, :foreign_key => 'lesson_id'
 
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
+
   has_and_belongs_to_many :glossary_entries
 
   scope :top4, order('created_at DESC').limit(4)
 
-  before_create :set_slug
-
-  private
-    def set_slug
-      self.slug = self.title.slugify
-    end
+  #before_create :set_slug
+  #
+  #private
+  #  def set_slug
+  #    self.slug = self.title.slugify
+  #  end
 end
