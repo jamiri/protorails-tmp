@@ -14,10 +14,12 @@
 #  video_file  :string(255)
 #
 #
-#require 'slugify'
 
 class Lesson < ActiveRecord::Base
-  attr_accessible :title, :description, :script, :audio_file, :video_file, :author, :slug
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+
+  attr_accessible :title, :description, :script, :audio_file, :video_file, :author
   belongs_to :category
 
   has_many :blog_posts, :foreign_key => 'lesson_id', :limit => 5, :include => {:comments => [:user]}
@@ -26,17 +28,19 @@ class Lesson < ActiveRecord::Base
   has_many :references, :foreign_key => 'lesson_id'
   has_many :lesson_ratings, :foreign_key => 'lesson_id'
 
-  extend FriendlyId
-  friendly_id :name, :use => :slugged
-
   has_and_belongs_to_many :glossary_entries
 
   scope :top4, order('created_at DESC').limit(4)
 
-  #before_create :set_slug
-  #
-  #private
-  #  def set_slug
-  #    self.slug = self.title.slugify
-  #  end
+  scope :single_show, lambda { |slug|
+    where(:slug => slug)
+    .includes(:objectives, :references, :category)
+    .joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
+    .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
+    .group('lessons.id')
+  }
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 end

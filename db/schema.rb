@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120913080210) do
+ActiveRecord::Schema.define(:version => 20121014145843) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20120913080210) do
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
-    t.string   "slug"
     t.string   "description"
     t.text     "script"
     t.string   "audio_file"
@@ -92,7 +91,10 @@ ActiveRecord::Schema.define(:version => 20120913080210) do
     t.integer  "category_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "slug"
   end
+
+  add_index "lessons", ["slug"], :name => "index_lessons_on_slug", :unique => true
 
   create_table "objectives", :force => true do |t|
     t.string   "title"
