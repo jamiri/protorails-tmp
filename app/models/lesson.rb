@@ -30,6 +30,14 @@ class Lesson < ActiveRecord::Base
 
   scope :top4, order('created_at DESC').limit(4)
 
+  scope :single_show, lambda { |slug|
+    where(:slug => slug)
+    .includes(:objectives, :references, :category)
+    .joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
+    .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
+    .group('lessons.id')
+  }
+
   before_create :set_slug
 
   private
