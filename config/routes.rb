@@ -16,6 +16,8 @@ Protorails::Application.routes.draw do
   match '/lesson/:lesson_id/question/:question_id/rating/:rate_val', :to => 'question#rate'
   #match '/lesson/:lesson_id/question/:question', :to => 'lesson#show'
 
+  match '/microblog/create', :to => 'microblog#create', :as => :create_microblog
+
   match 'feedback' => 'home#feedback'
   match 'suggestion' => 'home#suggestion'
 

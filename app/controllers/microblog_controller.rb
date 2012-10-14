@@ -9,7 +9,7 @@ class MicroblogController < ApplicationController
 
     microblog.comments << Comment.new(
         :comment => comment_d[:body],
-        :user_id => 1
+        :user => User.first #TODO: should be fixed
     )
 
     # TODO: the new comment should be returned.

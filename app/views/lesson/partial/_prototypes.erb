@@ -12,16 +12,17 @@
   <p>__comment_body__</p>
 </div>
 
-<form class="blog_post_comment_form proto" method="post"
-      action="">
+<%= form_tag :create_microblog, :method => :post,
+             :class => 'blog_post_comment_form proto' do %>
   <div class="comment_post">
-    <label for="comment" style="font-weight: bold; display: block; padding: 0 10px 0 0;">
+    <%= label_tag 'comment[body]' do %>
       Comment:
-      <textarea name="comment[body]" style="padding: 4px; width: 100%;"></textarea>
-    </label>
+      <%= text_area_tag 'comment[body]' %>
+    <% end %>
+
     <div style="text-align: right;">
-      <input type="hidden" name="comment[blog_post_id]" value="__blog_post_id__">
-      <input type="submit" name="submit" value="Submit" style="margin: 0;">
+      <%= hidden_field_tag 'comment[blog_post_id]', '__blog_post_id__' %>
+      <%= submit_tag 'Submit' %>
     </div>
   </div>
-</form>
+<% end %>

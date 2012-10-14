@@ -10,6 +10,10 @@ class LessonController < ApplicationController
 
     @lesson = Lesson.single_show(params[:slug]).first
 
+    unless @lesson.present?
+      not_found and return
+    end
+
     @lesson_questions = Question.for_lesson(@lesson.id).limit(5)
 
     @microblogs = BlogPost.recent_paged(@lesson.id, 0)

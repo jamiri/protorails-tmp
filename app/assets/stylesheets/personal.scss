@@ -850,4 +850,17 @@ form input[type=text]:hover, form input[type=password]:hover {
   padding: 5px;
   display: none;
 }
+
+.comment_post {
+  label {
+    font-weight: bold;
+    display: block;
+    padding: 0 10px 0 0;
+  }
+
+  textarea {
+    padding: 4px;
+    width: 100%;
+  }
+}
 /* ----- ^^^^^^^^^^^^ ----- */
