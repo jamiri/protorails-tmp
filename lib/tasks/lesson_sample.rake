@@ -154,6 +154,7 @@ DESC
 
     # ----- microblogs -----
     lesson.blog_posts.build(
+        :title => "Sample title 1",
         :content => <<BLOG
 Islam sees the unethical and uncontrolled practice of sexual relations as one
 of the most potent forces that threaten social stability and civilization. By
@@ -163,6 +164,7 @@ BLOG
     )
 
     lesson.blog_posts.build(
+        :title => "Sample title 2",
         :content => <<BLOG
 Since sexual attraction is something instinctual, it operates on the basis of
 stimulus/response. Certain natural characteristics of the human body, like the
@@ -173,6 +175,7 @@ BLOG
     )
 
     lesson.blog_posts.build(
+        :title => "Sample title 3",
         :content => <<BLOG
 Now the reaction of Western feminists is that this is discriminatory and that
 it indicates male domination. However, when we look at the phenomenon of male
