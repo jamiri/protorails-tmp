@@ -19,4 +19,11 @@ class Question < ActiveRecord::Base
 
   belongs_to :lesson
   belongs_to :user
+
+  scope :for_lesson, lambda { |lesson_id|
+    where(:lesson_id => lesson_id)
+    .select('questions.* , avg(question_ratings.rating) as rating_average')
+    .joins('left outer join question_ratings ON question_ratings.question_id = questions.id')
+    .group('questions.id')
+  }
 end
