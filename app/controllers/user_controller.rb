@@ -16,7 +16,7 @@ class UserController < ApplicationController
   def signin
     user_credentials = params[:login]
 
-    user = User.find_by_mail_address_and_password(user_credentials[:email], user_credentials[:password])
+    user = User.authenticate(user_credentials[:email], user_credentials[:password])
 
     if user.present? && user.enable?
       session['user_name'] = user.name
