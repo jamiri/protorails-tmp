@@ -1,4 +1,4 @@
-var commentFormHandler = function(e) {
+var commentFormHandler = function (e) {
     e.preventDefault();
 
     var commentElem = $('.comment_post.proto').clone().removeClass('proto');
@@ -20,8 +20,8 @@ var commentFormHandler = function(e) {
 $(document).ready(function () {
     // enable comment dialogs for microblogs
     $('.microblog_comment').dialog({
-        autoOpen: false,
-        width: 600
+        autoOpen:false,
+        width:600
     });
 
     $('.post .comments a').click(function (ev) {
@@ -33,32 +33,33 @@ $(document).ready(function () {
     $('.blog_post_comment_form').submit(commentFormHandler);
 
     // init auto scrolling for microblogs
-    initInfiniScroll($('.MicroBlog').get(0), function(page) {
+
+    initInfiniScroll($('.MicroBlog').get(0), function (page) {
         return "/lesson/" + $('.script:first').attr('lesson_id') + "/microblogs/" + page;
-    }, function(data) {
-        $(data).each(function() {
+    }, function (data) {
+        $(data).each(function () {
 
             // DOM element for BlogPost
             var blogElem = $('.post.proto').clone().removeClass('proto').show()
                 .find('h2')
-                    .html(this.title)
-                    .end()
+                .html(this.title)
+                .end()
                 .find('.date')
-                    .html('posted on ' + new Date(this.posted_on).strftime('%B %d, %Y'))
-                    .end()
+                .html('posted on ' + new Date(this.posted_on).strftime('%B %d, %Y'))
+                .end()
                 .find('.comments a')
-                    .attr('href',"#dialog" + this.id)
-                    .html(this.comments.length > 0 ?
-                          this.comments.length + " comment(s)" :
-                          "Post a new comment")
-                    .click(function (ev) {
-                        ev.preventDefault();
-                        $($(this).attr('href')).dialog('open');
-                    })
-                    .end()
+                .attr('href', "#dialog" + this.id)
+                .html(this.comments.length > 0 ?
+                this.comments.length + " comment(s)" :
+                "Post a new comment")
+                .click(function (ev) {
+                    ev.preventDefault();
+                    $($(this).attr('href')).dialog('open');
+                })
+                .end()
                 .find('p')
-                    .html(this.content)
-                    .end();
+                .html(this.content)
+                .end();
 
             // DOM element for BlogPost's comments window
             var commentsWindow = $('.microblog_comment.proto').clone().removeClass('proto').hide()
@@ -67,21 +68,21 @@ $(document).ready(function () {
                 .appendTo(blogElem)
                 // the dialog call must be at the end of the chain.
                 .dialog({
-                    autoOpen: false,
-                    width: 600
+                    autoOpen:false,
+                    width:600
                 });
 
             if (this.comments.length > 0) {
-                $(this.comments).each (function() {
+                $(this.comments).each(function () {
 
                     // DOM element for a single comment
                     $('.comment_post.proto').clone().removeClass('proto')
                         .find('.id')
-                            .html(this.user.name)
-                            .end()
+                        .html(this.user.name)
+                        .end()
                         .find('p')
-                            .html(this.comment)
-                            .end()
+                        .html(this.comment)
+                        .end()
                         .appendTo(commentsWindow);
                 });
             }

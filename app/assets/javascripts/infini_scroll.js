@@ -1,4 +1,5 @@
 var scrolltrigger = 0.95;
+var ElemInPage = 5;
 
 function initInfiniScroll(elem, url, callback) {
     if (!elem) return false;
@@ -15,7 +16,6 @@ function initInfiniScroll(elem, url, callback) {
             var wintop = $(window).scrollTop(),
                 docheight = $(document).height(),
                 winheight = $(window).height();
-
             if (((wintop / (docheight - winheight)) > scrolltrigger) && !elem.fetching && !elem.ended) {
 
                 elem.fetching = true;
@@ -29,7 +29,7 @@ function initInfiniScroll(elem, url, callback) {
                     if ($(data).length > 0) {
                         elem.page += 1;
                     }
-                    if ($(data).length < 5) {
+                    if ($(data).length < ElemInPage) {
                         elem.ended = true;
                     }
                 });
@@ -37,6 +37,5 @@ function initInfiniScroll(elem, url, callback) {
         }
 
     });
-
     return true;
 }
