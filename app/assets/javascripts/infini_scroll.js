@@ -7,6 +7,7 @@ function initInfiniScroll(elem, url, callback) {
         elem = $(elem);
     }
 
+
     elem.page = 1;
     elem.fetching = false;
     elem.ended = false;
@@ -17,6 +18,7 @@ function initInfiniScroll(elem, url, callback) {
                 docheight = $(document).height(),
                 winheight = $(window).height();
             if (((wintop / (docheight - winheight)) > scrolltrigger) && !elem.fetching && !elem.ended) {
+
 
                 elem.fetching = true;
 

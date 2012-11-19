@@ -5,22 +5,25 @@
  * Time: 12:42 PM
  * To change this template use File | Settings | File Templates.
  */
+
 $(document).ready(function () {
     var item = $('.QAbody').first().clone();
     $('.QAbody').first().html("");
-    initInfiniScroll($('.items'), function (page) {
-        return "/lesson/" + $('.script:first').attr('lesson_id') + "/question/page/" + page;
-    }, function (data) {
-        $(data).each(function () {
-            item.clone()
-                .find(".question").find(".id").html(this.user.name).end().end()
-                .find(".question").find("p").html(this.question).end().end()
-                .find(".answer").find(".id").html(this.answered_by).end().end()
-                .find(".answer").find("p").html(this.answer).end().end()
-                .find(".rating").html(getTags_question_rating(this.id, this.rating_average * 25)).end()
-                .appendTo($(".items"));
+    if (qa_pagination) {
+        initInfiniScroll($('.items'), function (page) {
+            return "/lesson/" + $('.script:first').attr('lesson_id') + "/question/page/" + page;
+        }, function (data) {
+            $(data).each(function () {
+                item.clone()
+                    .find(".question").find(".id").html(this.user.name).end().end()
+                    .find(".question").find("p").html(this.question).end().end()
+                    .find(".answer").find(".id").html(this.answered_by).end().end()
+                    .find(".answer").find("p").html(this.answer).end().end()
+                    .find(".rating").html(getTags_question_rating(this.id, this.rating_average * 25)).end()
+                    .appendTo($(".items"));
+            });
         });
-    });
+    }
 });
 function getTags_question_rating(id_question, average_value) {
     var tx = '';

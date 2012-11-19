@@ -1,6 +1,15 @@
+<script language="javascript">
+    if(<%= @lesson_microblogs_cnt < 6 %>  )
+    {
+        microblog_pagination = false;
+    }
+    else
+    {
+        microblog_pagination = true;
+    }
+</script>
 <div id="tabs-2" class="MicroBlog body">
   <%= render :partial=>'lesson/partial/prototypes' %>
-
   <% if @microblogs.any? %>
       <%
       if(params[:BlogTitle].present?)

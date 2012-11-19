@@ -16,7 +16,11 @@ class LessonController < ApplicationController
 
     @lesson_questions = Question.for_lesson(@lesson.id).limit(5)
 
+    @lesson_questions_cnt = Question.where(:lesson_id => @lesson.id).count
+
     @microblogs = BlogPost.recent_paged(@lesson.id, 0)
+
+    @lesson_microblogs_cnt = BlogPost.where(:lesson_id => @lesson.id).count
   end
 
 
