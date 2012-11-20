@@ -19,25 +19,26 @@ $(document).ready(function () {
                     .find(".question").find("p").html(this.question).end().end()
                     .find(".answer").find(".id").html(this.answered_by).end().end()
                     .find(".answer").find("p").html(this.answer).end().end()
-                    .find(".rating").html(getTags_question_rating(this.id, this.rating_average * 25)).end()
+                    .find(".rating").html(getTags_question_rating(this.id, this.rating_average * 25,true)).end()
                     .appendTo($(".items"));
             });
         });
     }
 });
-function getTags_question_rating(id_question, average_value) {
+function getTags_question_rating(id_question, average_value,enabled) {
     var tx = '';
+    eval("question_"+ id_question +"_not_rated = true");
     txt = '<ul class="star-rating-question" id="star-rating-question' + id_question + '" style="background: url(/assets/alt_star.png) ;">';
     txt = txt + '<li class="current-rating-question" id="current-rating-question' + id_question + '" style="width: ' + average_value + 'px"></li>';
-    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ', 1); return false;"';
+    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ', 1,'+ enabled + '); return false;"';
     txt = txt + ' title="1 star out of 5" class="one-star">1</a></li>';
-    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ' , 2); return false;"';
+    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ' , 2,'+ enabled + '); return false;"';
     txt = txt + 'title="2 star out of 5" class="two-stars">2</a></li>';
-    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ' , 3); return false;"';
+    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ' , 3,'+ enabled + '); return false;"';
     txt = txt + ' title="3 star out of 5" class="three-stars">3</a></li>';
-    txt = txt + ' <li><a href="#" onclick="question_vote(' + id_question + ' , 4); return false;"';
+    txt = txt + ' <li><a href="#" onclick="question_vote(' + id_question + ' , 4,'+ enabled +'); return false;"';
     txt = txt + ' title="4 star out of 5" class="four-stars">4</a></li>';
-    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ', 5); return false;"';
+    txt = txt + '<li><a href="#" onclick="question_vote(' + id_question + ', 5,'+ enabled +'); return false;"';
     txt = txt + ' title="5 star out of 5" class="five-stars">5</a></li></ul>';
     return txt;
 }

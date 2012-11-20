@@ -15,4 +15,14 @@ class QuestionRating < ActiveRecord::Base
 
   belongs_to :question
   belongs_to :user
+  def self.question_user_rated(question_id , user_id)
+
+    rate = find_by_question_id_and_user_id(question_id,user_id)
+    if rate.nil?
+      return false
+    else
+      return true
+    end
+
+  end
 end

@@ -1,11 +1,9 @@
 <!--------------------------------------Q and A Content ------------------------------------>
 <script language="javascript">
-    if(<%= @lesson_questions_cnt < 6 %> )
-    {
+    if (<%= @lesson_questions_cnt < 6 %>) {
         qa_pagination = false;
     }
-    else
-    {
+    else {
         qa_pagination = true;
     }
 </script>
@@ -16,10 +14,12 @@
       <div class="rating">__rating__</div>
       <div class="question">
         <span class="id">__user_name__</span>
+
         <p> __question__</p>
       </div>
       <div class="answer">
         <span class="id">__answered_by__</span>
+
         <p>__answer__ </p>
       </div>
     </div>
@@ -27,30 +27,30 @@
        if params[:question].present?
     %>
 
-        <div align="right"> <a  href="/lesson/<%=@lesson.title.sub('?','%3f') %>#tabs-3">Brows All Questions</a></div>
+        <div align="right"><a href="/lesson/<%= @lesson.title.sub('?', '%3f') %>#tabs-3">Brows All Questions</a></div>
     <% end %>
-    <% @lesson_questions.each do |question_row|%>
-        <a name="qa<%= question_row.id  %>"></a>
+    <% @lesson_questions.each do |question_row| %>
+        <a name="qa<%= question_row.id %>"></a>
 
-    <div id="qa<%= question_row.id  %>" class="QAbody">
+        <div id="qa<%= question_row.id %>" class="QAbody">
 
-      <% if session['user_name'].present? %>
-          <div class="rating">
-            <script language="javascript">
-                document.write(getTags_question_rating("<%= question_row.id  %>", "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>"));
-            </script>
+          <% if session['user_name'].present? %>
+              <%= render :partial => "lesson/partial/question_rating", :locals => {:question_row => question_row} %>
+          <% end %>
+
+          <div class="question">
+            <span class="id"><%= question_row.user.name %></span>
+
+            <p>
+              <a href="<%= "/lesson/" + question_row.lesson_id.to_s + "/question/" + question_row.question.sub('?', '%3f') %>#tabs-3"><%= question_row.question %></a>
+            </p>
           </div>
-      <% end %>
+          <div class="answer">
+            <span class="id"><%= question_row.answered_by %></span>
 
-      <div class="question">
-        <span class="id"><%= question_row.user.name %></span>
-        <p><a href="<%= "/lesson/" + question_row.lesson_id.to_s + "/question/" + question_row.question.sub('?','%3f')  %>#tabs-3"><%= question_row.question %></a></p>
-      </div>
-    <div class="answer">
-      <span class="id"><%= question_row.answered_by %></span>
-      <p><%= question_row.answer %> </p>
-     </div>
-    </div>
+            <p><%= question_row.answer %> </p>
+          </div>
+        </div>
     <% end %>
   </div>
   <div id="lastPostsLoader"></div>

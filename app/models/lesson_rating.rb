@@ -15,4 +15,15 @@ class LessonRating < ActiveRecord::Base
 
   belongs_to :lesson
   belongs_to :user
+
+  def self.lesson_user_rated(lesson_id , user_id)
+
+    rate = find_by_lesson_id_and_user_id(lesson_id,user_id)
+    if rate.nil?
+      return false
+    else
+      return true
+    end
+
+  end
 end
