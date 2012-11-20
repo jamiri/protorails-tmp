@@ -33,9 +33,15 @@
         <a name="qa<%= question_row.id  %>"></a>
 
     <div id="qa<%= question_row.id  %>" class="QAbody">
-      <div class="rating"><script language="javascript">
-         document.write(getTags_question_rating("<%= question_row.id  %>" , "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>"));
-      </script> </div>
+
+      <% if session['user_name'].present? %>
+          <div class="rating">
+            <script language="javascript">
+                document.write(getTags_question_rating("<%= question_row.id  %>", "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>"));
+            </script>
+          </div>
+      <% end %>
+
       <div class="question">
         <span class="id"><%= question_row.user.name %></span>
         <p><a href="<%= "/lesson/" + question_row.lesson_id.to_s + "/question/" + question_row.question.sub('?','%3f')  %>#tabs-3"><%= question_row.question %></a></p>
