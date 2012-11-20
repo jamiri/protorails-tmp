@@ -20,6 +20,7 @@ class UserController < ApplicationController
 
     if user.present? && user.enable?
       session['user_name'] = user.name
+      session['user_id'] = user.id
     end
 
     redirect_to :home

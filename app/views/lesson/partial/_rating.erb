@@ -14,7 +14,7 @@
 <div id='current-rating-result'></div> <!-- used to show "success" message after vote -->
 <script language="javascript">
     <% if @lesson.average_rating %>
-    $('#current-rating').width(<%= @lesson.average_rating.round(3) %> * 25 + 'px');
+    $('#current-rating').width(<%= @lesson.average_rating.round(3) * 25 %>  + 'px');
     <% else %>
     $('#current-rating').width('0px');
     <% end %>

@@ -6,7 +6,7 @@
       <%= text_field_tag 'login[email]', nil, :class => 'emailfield', :value => 'Email',
                          :onfocus => "if (this.value == 'Email') {this.value = '';}",
                          :onblur => "if (this.value == '') {this.value = 'Email';}" %>
-      <%= password_field_tag 'login[password]', nil, :class => 'passfield', :value => 'Password',
+      <%= text_field_tag 'login[password]', nil, :class => 'passfield', :value => 'Password',
                              :onkeypress => "this.type='password';",
                              :onfocus => "if (this.value == 'Password') {this.value = '';}",
                              :onblur => "if (this.value == '') {this.value = 'Password';this.type='text';}else{this.type='password'}"%>

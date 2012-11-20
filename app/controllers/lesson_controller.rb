@@ -33,16 +33,19 @@ class LessonController < ApplicationController
     lesson_id = params[:lesson_id]
     rate_val = params[:rate_val]
 
-    vote = LessonRating.new
-    vote.lesson_id = lesson_id
-    vote.user_id = 1
-    vote.rating = rate_val
+    if session['user_id'].present?
 
-    vote.save
+      vote = LessonRating.new
+      vote.lesson_id = lesson_id
+      vote.user_id = session['user_id']
+      vote.rating = rate_val
 
+      vote.save
 
-    respond_to do |format|
-      format.json { render :json => LessonRating.where(:lesson_id => lesson_id).average("rating")   }
+      respond_to do |format|
+        format.json { render :json => LessonRating.where(:lesson_id => lesson_id).average("rating") }
+      end
+
     end
 
   end
