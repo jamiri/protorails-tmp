@@ -26,9 +26,23 @@
 }
 .star-rating li a:hover{
     background: url(alt_star.png) left bottom;
+    cursor: hand;
     z-index: 2;
     left: 0px;
 }
+.star-rating-not-clickable
+{
+    background: none;
+    z-index: 2;
+    left: 0px;
+}
+.star-rating-not-clickable:hover
+{
+    background: none;
+    z-index: 2;
+    left: 0px;
+}
+
 .star-rating a:focus,
 .star-rating a:active{
     border:0;

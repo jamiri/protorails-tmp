@@ -16,6 +16,7 @@ function question_vote(question_id, amnt, enabled) {
             success:function (amnt) {
 
                 $("#current-rating-question" + question_id).width(amnt * 25);
+
             }
         });
     }
