@@ -10,6 +10,7 @@ class LessonController < ApplicationController
 
     @lesson = Lesson.single_show(params[:slug]).first
 
+
     unless @lesson.present?
       not_found and return
     end

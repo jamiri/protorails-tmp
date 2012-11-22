@@ -495,6 +495,7 @@ visibility: hidden;
 	width: 244px;
 	margin-right: 5px;
 	display: inline-block;
+  vertical-align: top;
 }
 
 .last{
@@ -527,15 +528,17 @@ visibility: hidden;
 .popular a h4{
 	color: #666;
 	padding-top: 5px;
+  font-size: 12px;
 }
-
+.show_rate
+  {
+  background-color: #ff4500;
+  text-align: center;
+  color: #ffffff;
+  margin-left: 85px;
+  font-size: 13px;
+}
 /*--------------------------------end of Populars-----------------------------*/
-
-
-
-
-
-
 
 /*--------------------------------Lesson Title-----------------------------*/
 #breadcrumbs {

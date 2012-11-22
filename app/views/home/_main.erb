@@ -23,7 +23,7 @@
     <!-- First Content -->
     <% @top_lessons.each_with_index  do |lesson_row, index| %>
     <div id="fragment-<%= index %>" class="ui-tabs-panel <%= (index != 0 ? "ui-tabs-hide" : "") %>" style="">
-      <img src="assets/images/slide1.jpg" alt=""/>
+      <img src="assets/<%= lesson_row.image_file %>" alt=""/>
 
       <div class="info">
         <h2><%= lesson_row.title %></h2>
@@ -38,59 +38,8 @@
 <!--Slider -------------------------------------------------------------------------------------------------------------->
 
 <div id="populars_container" class="grid_19 alpha omega clearfix">
-  <div id="Lessons" class="popular">
-    <div class="SecHead">
-      <img class="icon" src="assets/home.png"/>
 
-      <h3 class="title">Popular Lessons</h3>
-    </div>
-
-    <!--Popular Lessons -------------------------------------------------------------------------------------------------------------->
-
-    <div class="SecBody">
-      <ul class="popular_items">
-        <li>
-          <a href="">
-            <img src="assets/images/slide1.jpg"/>
-            <h4>Lesson Title</h4>
-
-            <p>viewed 225 times</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="">
-            <img src="assets/images/slide2.jpg"/>
-            <h4>Lesson Title</h4>
-
-            <p>viewed 225 times</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="">
-            <img src="assets/images/slide3.jpg"/>
-            <h4>Lesson Title</h4>
-
-            <p>viewed 225 times</p>
-          </a>
-        </li>
-
-        <li>
-          <a href="">
-            <img src="assets/images/slide4.jpg"/>
-            <h4>Lesson Title</h4>
-
-            <p>viewed 225 times</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!--Popular Lessons -------------------------------------------------------------------------------------------------------------->
-
-
-  </div>
+  <%= render :partial => "home/popular_lessons" %>
   <!--end of Lessons -->
 
   <div id="Entries" class="popular">
@@ -107,7 +56,7 @@
       <ul class="popular_items">
         <li>
           <a href="">
-            <img src="assets/images/slide1.jpg"/>
+            <img src="assets/slide1.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -116,7 +65,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide2.jpg"/>
+            <img src="assets/slide2.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -125,7 +74,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide3.jpg"/>
+            <img src="assets/slide3.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -134,7 +83,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide4.jpg"/>
+            <img src="assets/slide4.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -162,7 +111,7 @@
       <ul class="popular_items">
         <li>
           <a href="">
-            <img src="assets/images/slide1.jpg"/>
+            <img src="assets/slide1.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -171,7 +120,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide2.jpg"/>
+            <img src="assets/slide2.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -180,7 +129,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide3.jpg"/>
+            <img src="assets/slide3.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>
@@ -189,7 +138,7 @@
 
         <li>
           <a href="">
-            <img src="assets/images/slide4.jpg"/>
+            <img src="assets/slide4.jpg"/>
             <h4>Lesson Title</h4>
 
             <p>viewed 225 times</p>

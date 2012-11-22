@@ -32,6 +32,13 @@ class Lesson < ActiveRecord::Base
 
   scope :top4, order('created_at DESC').limit(4)
 
+  scope :top_rated_4 ,lambda {
+    includes(:objectives, :references, :category)
+    .joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
+    .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
+    .group('lessons.id').order('average_rating desc')
+  }
+
   scope :single_show, lambda { |slug|
     where(:slug => slug)
     .includes(:objectives, :references, :category)
@@ -39,6 +46,7 @@ class Lesson < ActiveRecord::Base
     .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
     .group('lessons.id')
   }
+
 
   def should_generate_new_friendly_id?
     new_record?

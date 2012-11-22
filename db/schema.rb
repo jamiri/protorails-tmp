@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021145844) do
+ActiveRecord::Schema.define(:version => 20121122071541) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20121021145844) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "slug"
+    t.string   "image_file"
   end
 
   add_index "lessons", ["slug"], :name => "index_lessons_on_slug", :unique => true

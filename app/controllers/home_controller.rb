@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     @user = User.new
     @top_lessons = Lesson.top4
     @categories = Category.roots
+    @lesson_top_rated = Lesson.top_rated_4
   end
 
   def feedback
