@@ -10,15 +10,13 @@
       <% @lesson_top_rated.each do |top_rated_row| %>
           <li>
             <a href="lesson/<%= top_rated_row.to_param %>">
+
               <img src="assets/<%= top_rated_row.image_file %>"/>
               <h4>
                 <%= top_rated_row.title %>
                 <br/>
-                <div class="show_rate" style="width: <%= 25 * (top_rated_row.average_rating.nil? ? 0 : top_rated_row.average_rating.to_i) %>px ;">
-                  <%= top_rated_row.average_rating.to_i %>
-                </div>
+                <div class="show_rate" style="width: <%= 25 * (top_rated_row.average_rating.nil? ? 0 : top_rated_row.average_rating) %>px ;"></div>
               </h4>
-
             </a>
           </li>
       <% end %>

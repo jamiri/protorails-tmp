@@ -1,9 +1,5 @@
 module HomeHelper
-  def calculate_date_difference(from, to)
-    dt = Date.parse(to.to_s) - Date.parse(from.to_s)
-  end
-
-  def create_child_for_category(root_categories)
+   def create_child_for_category(root_categories)
 
     # the string that is going to be returned
     str = String.new

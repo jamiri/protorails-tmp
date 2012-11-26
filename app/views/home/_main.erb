@@ -13,7 +13,7 @@
       <% @top_lessons.each_with_index do |lesson_row, index| %>
       <li class="ui-tabs-nav-item <%= (index == 0 ? "ui-tabs-selected" : "") %>" id="nav-fragment-<%= index %>">
         <a href="#fragment-<%= index %>"><h4 class="title"><%= lesson_row.title %></h4>
-          <span class="description">Added: <%= calculate_date_difference(Date.today() , lesson_row.created_at) %>
+          <span class="description">Added: <%= distance_of_time_in_words_to_now(lesson_row.created_at,false)%>
             <br/>Category: <%= lesson_row.category.name %>
           </span></a></li>
       <% end %>

@@ -33,8 +33,7 @@ class Lesson < ActiveRecord::Base
   scope :top4, order('created_at DESC').limit(4)
 
   scope :top_rated_4 ,lambda {
-    includes(:objectives, :references, :category)
-    .joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
+    joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
     .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
     .group('lessons.id').order('average_rating desc')
   }
