@@ -1,7 +1,7 @@
 <!-- /-Tabbed Area -->
-<script language="javascript">
-    user_connected = <%= session['user_name'].present? %>;
-</script>
+
+<%= javascript_tag "user_connected = " + session['user_name'].present?.to_s + " ;" %>
+
 <div id="main" class="grid_19 clearfix">
 
   <div id="tabs">
@@ -28,8 +28,9 @@
         <% end %>
       </div>
       <!-- \- Objective -->
-      <div class="script" id="lesson_script" lesson_id="<%= @lesson.id %>" >
+      <div class="script" id="lesson_script" lesson_id="<%= @lesson.id %>">
         <h4>Script of Lesson</h4>
+
         <div id="lesson_script_body">
           <%= @lesson.script.html_safe %>
         </div>
@@ -60,19 +61,19 @@
       </div>
       <!-- \- References -->
 
-      </div>
+    </div>
     <!--------------------------------------Main Script Content ------------------------------------>
 
     <!--------------------------------------Micro Blog Content ------------------------------------>
-    <%= render :partial=>"lesson/partial/microblog" %>
+    <%= render :partial => "lesson/partial/microblog" %>
     <!--------------------------------------Micro Blog Content ------------------------------------>
 
     <!--------------------------------------Q and A Content ------------------------------------>
-    <%= render :partial=>"lesson/partial/questions" %>
+    <%= render :partial => "lesson/partial/questions" %>
     <!--------------------------------------Q and A Content ------------------------------------>
 
     <!-- /- Discussion Content -->
-    <%= render :partial=>'lesson/partial/discussion' %>
+    <%= render :partial => 'lesson/partial/discussion' %>
     <!-- \- Discussion Content -->
 
     <div id="lastPostsLoader" style="display: none; text-align: center;">
