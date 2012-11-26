@@ -1,4 +1,9 @@
 module HomeHelper
+
+  def lesson_user_rated(lesson_id,user_id)
+
+    LessonRating.lesson_user_rated(lesson_id,user_id)
+  end
    def create_child_for_category(root_categories)
 
     # the string that is going to be returned

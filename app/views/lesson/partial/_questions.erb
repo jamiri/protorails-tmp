@@ -34,9 +34,7 @@
 
         <div id="qa<%= question_row.id %>" class="QAbody">
 
-          <% if session['user_name'].present? %>
-              <%= render :partial => "lesson/partial/question_rating", :locals => {:question_row => question_row} %>
-          <% end %>
+          <%= render :partial => "lesson/partial/question_rating", :locals => {:question_row => question_row} %>
 
           <div class="question">
             <span class="id"><%= question_row.user.name %></span>

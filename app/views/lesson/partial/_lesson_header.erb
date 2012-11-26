@@ -9,10 +9,6 @@
     <h1><%=@lesson.title %></h1>
     <span class="LessonInfo" onclick="location.href='#';" title="Lesson Info"></span>
   </div>
-  <% if session['user_name'].present? %>
-
-      <%= render :partial=> 'lesson/partial/rating' %>
-
-  <% end %>
+  <%= render :partial=> 'lesson/partial/rating' %>
 </div>
 <!--end of lesson header------------------------------------------------------->

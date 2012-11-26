@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 function vote(amnt) {
-    if (!lesson_voted) {
+    if (!lesson_voted && user_connected) {
         $.ajax({
             type:"GET",
             url:$('.script:first').attr('lesson_id') + "/rating/" + amnt,

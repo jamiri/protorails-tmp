@@ -1,7 +1,7 @@
-
-
-    <div class="rating">
-      <script language="javascript">
-          document.write(getTags_question_rating("<%= question_row.id  %>", "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>",<%=!QuestionRating.question_user_rated(question_row.id,session['user_id']) %>));
-      </script>
-    </div>
+<div class="rating">
+  <script language="javascript">
+      document.write(getTags_question_rating("<%= question_row.id  %>",
+              "<%= (question_row.rating_average.nil? ? 0 :  question_row.rating_average * 25) %>",
+              "<%=!question_user_rated(question_row.id,session['user_id']) %>"));
+  </script>
+</div>

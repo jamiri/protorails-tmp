@@ -1,6 +1,6 @@
-   <script language="javascript">
-      lesson_voted =<%= LessonRating.lesson_user_rated(@lesson.id,session['user_id']) %>;
-    </script>
+<script language="javascript">
+    lesson_voted = <%= lesson_user_rated(@lesson.id,session['user_id']) %>;
+</script>
 <ul class='star-rating'>
   <li class='current-rating' id='current-rating' style="width: 37px"></li>
   <li><a href="#" onclick="vote(1); return false;"
@@ -14,16 +14,11 @@
   <li><a href="#" onclick="vote(5); return false;"
          title='5 star out of 5' class='five-stars'>5</a></li>
 </ul>
-   <script language="javascript">
-       if(lesson_voted)
-       {
-//           $('#current-rating').addClass("not_clickable");
-       }
-   </script>
-<div id='current-rating-result'></div> <!-- used to show "success" message after vote -->
+
+<div id='current-rating-result'></div>
 <script language="javascript">
     <% if @lesson.average_rating %>
-    $('#current-rating').width(<%= @lesson.average_rating.round(3) * 25 %>  + 'px');
+    $('#current-rating').width(<%= @lesson.average_rating.round(3) * 25 %>  +'px');
     <% else %>
     $('#current-rating').width('0px');
     <% end %>
