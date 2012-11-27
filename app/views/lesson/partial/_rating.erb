@@ -1,4 +1,4 @@
-<%= javascript_tag "lesson_voted = " + lesson_user_rated(@lesson.id, session['user_id']).to_s + ";" %>
+<%= javascript_tag "lesson_voted = " << lesson_user_rated(@lesson.id, session['user_id']).to_s << ";" %>
 <ul class='star-rating'>
   <li class='current-rating' id='current-rating' style="width: 37px"></li>
   <li><a href="#" onclick="vote(1); return false;"
@@ -14,7 +14,7 @@
 </ul>
 <div id='current-rating-result'></div>
 <%= javascript_tag (if @lesson.average_rating.present?
-                      "$('#current-rating').width('" + (@lesson.average_rating.round(3) * 25).to_s + "px');"
+                      "$('#current-rating').width('" << (@lesson.average_rating.round(3) * 25).to_s << "px');"
                     else
                       "$('#current-rating').width('0px');"
                     end) %>

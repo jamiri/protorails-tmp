@@ -1,6 +1,6 @@
 <!-- /-Tabbed Area -->
 
-<%= javascript_tag "user_connected = " + session['user_name'].present?.to_s + " ;" %>
+<%= javascript_tag "user_connected = " << session['user_name'].present?.to_s << " ;" %>
 
 <div id="main" class="grid_19 clearfix">
 

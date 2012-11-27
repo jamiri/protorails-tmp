@@ -32,7 +32,7 @@
             <span class="id"><%= question_row.user.name %></span>
 
             <p>
-              <a href="<%= "/lesson/" + question_row.lesson_id.to_s + "/question/" + question_row.question.sub('?', '%3f') %>#tabs-3"><%= question_row.question %></a>
+              <a href="<%= "/lesson/" << question_row.lesson_id.to_s << "/question/" << question_row.question.sub('?', '%3f') %>#tabs-3"><%= question_row.question %></a>
             </p>
           </div>
           <div class="answer">
