@@ -20,3 +20,5 @@
 //= require modal_window
 //= require addthis_widget
 //= require validate
+//= require jquery.toastmessage
+//= require messages

@@ -14,4 +14,5 @@
  *= require modal_window
  *= require feedback
  *= require content_suggestion
+ *= require jquery.toastmessage
 */

@@ -1,0 +1,8 @@
+<% flash.each do |key, value| %>
+    <% next unless value.is_a?(Hash) %>
+    <% value.each_key do |second_key| %>
+        <% options = flash[key][second_key]%>
+        <%= javascript_tag ("showNotification(#{options.to_json});") %>
+    <% end %>
+<% end %>
+<% clear_flash_messages %>
