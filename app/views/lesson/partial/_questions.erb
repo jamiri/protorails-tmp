@@ -1,12 +1,5 @@
 <!--------------------------------------Q and A Content ------------------------------------>
-<script language="javascript">
-    if (<%= @lesson_questions_cnt < 6 %>) {
-        qa_pagination = false;
-    }
-    else {
-        qa_pagination = true;
-    }
-</script>
+<%= javascript_tag (@lesson_questions_cnt < 6 ? "qa_pagination = false;" : "qa_pagination = true;") %>
 <div id="tabs-3" class="QA body">
 
   <div class="items">
@@ -26,7 +19,6 @@
     <%
        if params[:question].present?
     %>
-
         <div align="right"><a href="/lesson/<%= @lesson.title.sub('?', '%3f') %>#tabs-3">Brows All Questions</a></div>
     <% end %>
     <% @lesson_questions.each do |question_row| %>
