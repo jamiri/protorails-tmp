@@ -6,6 +6,6 @@ function showNotification(options) {
             position:'top-center',
             stayTime:5000
         }, options));
-    }, 1000);
+    }, 500);
     });
 }

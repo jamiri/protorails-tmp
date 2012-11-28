@@ -1,3 +1,4 @@
+
 class UserController < ApplicationController
   def signup
     # TODO: requires refactoring!
