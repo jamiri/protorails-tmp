@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
 
   # Available options are as follows:
 
-  # in_effect_duration:   600,## in effect duration in miliseconds
+  # in_effect_duration:   600, ## in effect duration in miliseconds
   # stay_time:           3000, ## time in miliseconds before the item has to disappear
   # sticky:            false,  ## should the toast item sticky or not?
-  # type:           :notice,   ## notice, warning, error, success
+  # type:           :notice,  ## notice, warning, error, success
   # position:   'top-right',  ## top-left, top-center, top-right, middle-left, middle-center, middle-right
   #                            ## Position of the toast container holding different toast.
   #                            ## Position can be set only once at the very first call,
