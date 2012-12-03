@@ -6,11 +6,12 @@ class UserController < ApplicationController
     user = User.new(params[:user])
     user.enable = true
 
-    unless check_if_captcha_is_correct?(params[:random_text], params[:captcha])
-      show_message("Sorry", :type => :error)
-      redirect_to :home
-      return
-    end
+    # TODO: decide on server side checking vs client side
+    #unless check_if_captcha_is_correct?(params[:random_text], params[:captcha])
+    #  show_message("Sorry", :type => :error)
+    #  redirect_to :home
+    #  return
+    #end
 
     unless user.valid?
       render :nothing => true, :status => 403
