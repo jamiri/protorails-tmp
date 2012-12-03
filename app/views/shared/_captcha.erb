@@ -1,0 +1,7 @@
+<div class="captcha">
+  <%= image_tag(url, {:class => "captcha-image"}) %>
+  <%= hidden_field_tag(:random_text, random_text, :class => "captcha-random-text") %>
+  <%= link_to("get a new image", "", html_options = {:class => "refresh-captcha"}) %>
+  <%= label_tag(:captcha, "Enter text above") %>
+  <%= text_field_tag(:captcha) %>
+</div>
