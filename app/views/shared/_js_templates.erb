@@ -1,0 +1,7 @@
+<script id="captcha-template" type="text/x-handlebars-template">
+  <img class="captcha-image" src="{{{url}}}">
+  <input type="hidden" id="random_text" name="random_text" value="{{text}}" class="captcha-random-text">
+  <a class="refresh-captcha" onclick="refreshCaptcha();" href="#"> get a new image</a>
+  <%= label_tag(:captcha, "Enter text above") %>
+  <%= text_field_tag(:captcha) %>
+</script>

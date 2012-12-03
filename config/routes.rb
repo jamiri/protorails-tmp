@@ -25,6 +25,8 @@ Protorails::Application.routes.draw do
   match 'user/signin' => 'user#signin', :as => :user_login
   match 'user/signout' => 'user#signout'
 
+  match '/captcha' => 'home#captcha'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

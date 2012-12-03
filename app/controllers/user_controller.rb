@@ -9,6 +9,7 @@ class UserController < ApplicationController
     unless check_if_captcha_is_correct?(params[:random_text], params[:captcha])
       show_message("Sorry", :type => :error)
       redirect_to :home
+      return
     end
 
     unless user.valid?
