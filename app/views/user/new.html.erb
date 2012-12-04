@@ -1,0 +1,27 @@
+<%= form_for @user, :url => {:action => :new, :controller => :user},
+             :html => {:id => 'login', :name => 'sign_up_form'} do |f| %>
+    <h1>Sign up</h1>
+    <fieldset id="inputs">
+      <ul>
+        <li>
+          <%= f.label :mail_address %>
+          <%= f.text_field(:mail_address, {:id => :mail_address, :placeholder => 'Email Address',
+                                           :autofocus => true, :required => true
+          }) %>
+        </li>
+        <li>
+          <%= f.label :password %>
+          <%= f.password_field :password, {:id => :password, :placeholder => 'Password', :required => true} %>
+        </li>
+        <li>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, {:id => :password, :placeholder => 'Confirm Password',
+                                                        :required => true} %>
+        </li>
+
+    </fieldset>
+    </ul>
+    <fieldset id="actions">
+      <%= f.submit("Submit", :id => :submit) %>
+    </fieldset>
+<% end %>
