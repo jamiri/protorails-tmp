@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def captcha
-    return if request.xhr?
+    return unless request.xhr?
 
     random_text = Captcha.generate_random_text(15)
     user_name = Protorails::Application.config.captcha_user_name
