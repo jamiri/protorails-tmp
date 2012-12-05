@@ -34,4 +34,5 @@ function question_vote(question_id, amnt, enabled) {
         });
     }
     eval("question_" + question_id + "_not_rated = false");
+
 }

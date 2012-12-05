@@ -16,7 +16,6 @@
 //= require feedback
 //= require sign_up
 //= require jquery.form
-//= require content_suggestion
 //= require modal_window
 //= require addthis_widget
 //= require validate

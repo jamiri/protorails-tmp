@@ -1,0 +1,67 @@
+<div class="grid_19">
+  <h1>Suggest a Topic</h1>
+
+  <p class="window_txt">
+
+  </p>
+
+  <%= form_for @suggestion, :url => {:action => :suggestion, :controller => :home},
+               html: {id: 'suggestion_form', class: "suggest_form"} do |f| %>
+
+      <%= f.label :title, 'Title:', :autofocus => true, :required => true %>
+      <%= f.text_field :title, placeholder: "Title" %>
+
+      <%= f.label :subject, 'Subject & Categories:' %>
+      <%= f.text_field :subject, placeholder: 'Subject' %>
+      <%= f.label :subject, 'Categories:' -%>
+      <%= f.text_field :cat_1, placeholder: "Theology", style: ' width: 32%' %>
+      <%= f.text_field :cat_2, placeholder: "Ethics", style: ' width: 32%' %>
+      <%= f.text_field :cat_3, placeholder: "Philosophy", style: ' width: 32%' %>
+
+      <%= f.label :summary, 'Summary:' %>
+      <%= f.text_area :summary, placeholder: "Give a brief overview of the media production." %>
+
+      <%= f.label :goal, 'Goals & Objectives:' %>
+      <%= f.text_area :goal, placeholder: "Describe: why you are submitting your proposal?What do you hope this media production will accomplish?How will this media production help your target audience?" %>
+
+      <%= f.label :market, 'The Market:' %>
+      <%= f.text_area :market, placeholder: "Briefly describe who will buy (read or listen to) the media production and why. Who is your target audience (Muslim, non-Muslim, Shi’i, Sunni, etc.)?" %>
+
+      <%= f.label :audience, 'Audience:' %>
+      <%= f.text_area :audience, placeholder: "Use statistics about your audience to determine how many people would be interested in this product." %>
+
+      <%= f.label :other_available_product, 'Other Available Products:' %>
+      <%= f.text_area :other_available_product, placeholder: "Other Available Products (Books, Podcasts, etc.)" %>
+
+      <%= f.label :product, 'The Product:' %>
+      <%= f.text_area :product, placeholder: "You can write an introduction for your purposed product." %>
+
+      <%= f.label :content_overview, 'Content Overview:' %>
+      <%= f.text_area :content_overview, placeholder: "Content Overview (write this for Book proposals only)." %>
+
+      <%= f.label :illustration, 'Length, Illustrations, and Delivery:' %>
+      <%= f.text_area :illustration, placeholder: "How long will this product be? What type and quality of illustrations will it contain, if any? How long will it take you to produce this product?" %>
+
+      <%= f.label :marketing_promotion, 'Marketing and Promotion:' %>
+      <%= f.text_area :marketing_promotion, placeholder: "Tell us what activities you will undertake to promote your media project." %>
+
+      <%= f.label :author_qualification, 'Author’s Qualifications:' %>
+      <%= f.text_area :author_qualification, placeholder: "What is your name and what published work have you authored? What are your qualification for writing the contents of your proposed project? What motivates you to write this book?" %>
+
+      <%= f.label :appendice, 'Appendices and Supporting Material:' %>
+      <%= f.text_area :appendice, placeholder: "Appendices and Supporting Material" %>
+
+      <% unless session["user_name"].present? %>
+
+          <%= f.label :name, 'Name:' %>
+          <%= f.text_field :name, :placeholder => "Your Name" %>
+
+          <%= f.label :email, 'E-Mail:' %>
+          <%= f.text_field :email, :placeholder => "Your E-Mail" %>
+
+      <% end %>
+
+      <%= f.button 'Cancel', class: 'close' %>
+      <%= f.submit 'Submit' %>
+  <% end %>
+</div>

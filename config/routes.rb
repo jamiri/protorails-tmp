@@ -1,6 +1,7 @@
 Protorails::Application.routes.draw do
 
   root :to => 'home#index', :as => 'home'
+  match '/content_suggestion' , :to => 'home#content_suggestion', :as => :content_suggestion
 
   match '/lesson/:id/terms', :to => 'glossary#lookup_lesson_terms', :as => :lesson_terms
   match '/glossary/:term', :to => 'glossary#lookup_term', :as => :lookup_term
