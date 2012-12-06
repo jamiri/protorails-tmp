@@ -20,17 +20,21 @@ class HomeController < ApplicationController
 
       suggest_object = ContentSuggestion.new(params[:content_suggestion])
 
-      suggest_object.user_id = session["user_id"] and suggest_object.name = session["user_name"] and suggest_object.email =User.find(session["user_id"].to_i).mail_address if session["user_name"].present?
+      suggest_object.user_id = session["user_id"] and suggest_object.name = session["user_name"] and suggest_object.email = User.find(session["user_id"].to_i).mail_address if session["user_name"].present?
 
       begin
-        suggest_object.save
-        show_message("Your suggestion successfully saved!", :type => :notice)
+        show_message("Your suggestion successfully saved!", :type => :notice) if suggest_object.save
+        redirect_to :action => :index
       rescue => e
+        #TODO: redirect to error page or show friendly error message from messaging system.Need to design.
         #show_message(e.message, :type => :error)
+
       end
+    else
+      redirect_to :action => :index
     end
 
-    redirect_to :action => :index
+
 
   end
 
