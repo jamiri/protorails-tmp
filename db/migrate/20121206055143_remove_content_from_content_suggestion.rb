@@ -1,4 +1,4 @@
-class RemoveContenttFromContentSuggestion < ActiveRecord::Migration
+class RemoveContentFromContentSuggestion < ActiveRecord::Migration
   def up
     remove_column :content_suggestions, :content
       end
