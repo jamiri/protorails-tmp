@@ -44,5 +44,12 @@ class ApplicationController < ActionController::Base
     flash[:warnings] = nil
   end
 
+
+  def check_if_captcha_is_correct?(random_text, entered_text)
+    secret_key = Protorails::Application.config.captcha_secret_key
+    Captcha.get_text(secret_key, random_text) == entered_text
+  end
+
+
   helper_method :show_message, :clear_flash_messages
 end

@@ -42,4 +42,19 @@ class HomeController < ApplicationController
   end
 
 
+  def captcha
+    return unless request.xhr?
+
+    random_text = Captcha.generate_random_text(15)
+    user_name = Protorails::Application.config.captcha_user_name
+    url = "http://image.captchas.net/?client=#{user_name}&random=#{random_text}"
+    random_hash = {:url => url, :text => random_text}
+
+    respond_to do |format|
+      format.json { render :json => random_hash }
+    end
+
+
+  end
+
 end
