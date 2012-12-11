@@ -24,16 +24,15 @@ class HomeController < ApplicationController
 
       begin
         show_message("Your suggestion successfully saved!", :type => :notice) if suggest_object.save
-        redirect_to :action => :index
+
       rescue => e
         #TODO: redirect to error page or show friendly error message from messaging system.Need to design.
         #show_message(e.message, :type => :error)
 
       end
-    else
-      redirect_to :action => :index
     end
 
+    redirect_to :action => :index
 
 
   end
