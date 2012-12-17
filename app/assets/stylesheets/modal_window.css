@@ -47,7 +47,7 @@
 }
 
 .window p.thanks_msg {
-    display: none;
+    /*display: none;*/
     font-size: 16pt;
     text-align: center;
     background-color: #90ee90;

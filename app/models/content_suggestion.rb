@@ -1,16 +1,6 @@
-# == Schema Information
-#
-# Table name: content_suggestions
-#
-#  content    :string(255)
-#  created_at :datetime         not null
-#  email      :string(255)
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  subject    :string(255)
-#  updated_at :datetime         not null
-#
-
 class ContentSuggestion < ActiveRecord::Base
-  attr_accessible :name, :email, :subject, :content
+  attr_accessible :user_id, :name, :email, :subject,  :title, :cat_1, :cat_2, :cat_3, :summary, :goal, :market, :audience,
+                  :other_available_product, :product, :content_overview, :illustration, :marketing_promotion,
+                  :author_qualification, :appendice
+  belongs_to :user
 end

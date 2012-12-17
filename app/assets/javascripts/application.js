@@ -16,7 +16,6 @@
 //= require feedback
 //= require sign_up
 //= require jquery.form
-//= require content_suggestion
 //= require modal_window
 //= require addthis_widget
 //= require validate
@@ -24,3 +23,4 @@
 //= require messages
 //= require handlebars-1.0.rc.1
 //= require captcha
+//= require content_suggestion

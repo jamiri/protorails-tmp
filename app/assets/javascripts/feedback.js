@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    $("#feedback_thanks").hide();
     var feedback_form_options = {
         success: function() {
             $('#feedback_form_wrapper').hide();

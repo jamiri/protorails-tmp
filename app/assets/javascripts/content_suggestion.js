@@ -1,13 +1,12 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: mhasani
+ * Date: 12/17/12
+ * Time: 8:46 AM
+ * To change this template use File | Settings | File Templates.
+ */
 $(document).ready(function() {
-
-    var feedback_form_options = {
-        success: function() {
-            $('#cs_form_wrapper').hide()
-            $('#content_suggestion_thanks').show();
-            $('#mask, .window').delay(800).fadeOut(200);
-        }
-    };
-
-    $('#content_suggestion_form').ajaxForm(feedback_form_options);
-
+    $('.suggest_form .cancel').click(function(){
+        document.location.href = "/";
+    });
 });

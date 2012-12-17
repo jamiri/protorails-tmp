@@ -14,9 +14,31 @@ class HomeController < ApplicationController
   end
 
   def suggestion
-    ContentSuggestion.new(params[:content_suggestion]).save
-    render :nothing => true
+
+      suggest_object = ContentSuggestion.new(params[:content_suggestion])
+
+      if session["user_name"].present?
+        suggest_object.user_id = session["user_id"]
+        suggest_object.name = session["user_name"]
+        suggest_object.email = User.find(session["user_id"].to_i).mail_address
+      end
+
+      if suggest_object.save
+        show_message("Your suggestion successfully saved!", :type => :notice)
+      else
+        show_message("An error occurred, please try again later.", :type => :error)
+      end
+
+    redirect_to :action => :index
   end
+
+  def content_suggestion
+    @feedback = Feedback.new
+    @suggestion = ContentSuggestion.new
+    @user = User.new
+    @categories = Category.roots
+  end
+
 
   def captcha
     return unless request.xhr?
