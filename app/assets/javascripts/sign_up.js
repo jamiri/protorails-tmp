@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    var sign_up_form_options = {
+      $("#sign_up_thanks").hide();
+
+     var sign_up_form_options = {
         success: function() {
             $('#sign_up_form_wrapper').hide();
             $('#sign_up_thanks').show();
