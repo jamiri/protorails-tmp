@@ -20,13 +20,12 @@ class User < ActiveRecord::Base
   has_many :feedbacks
 
   validates :password, :confirmation => :true
-
+  
   public
 
   def enable?
     enable
   end
-
 
   before_save :encrypt_password
 

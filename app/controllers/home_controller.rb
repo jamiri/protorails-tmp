@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
     @feedback = Feedback.new
     @suggestion = ContentSuggestion.new
