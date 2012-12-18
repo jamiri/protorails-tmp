@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-      $("#sign_up_thanks").hide();
-
      var sign_up_form_options = {
         success: function() {
             $('#sign_up_form_wrapper').hide();
