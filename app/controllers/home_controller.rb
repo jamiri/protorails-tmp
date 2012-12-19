@@ -1,10 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @feedback = Feedback.new
-    @suggestion = ContentSuggestion.new
-    @user = User.new
     @top_lessons = Lesson.top4
-    @categories = Category.roots
     @lesson_top_rated = Lesson.top_rated_4
   end
 
@@ -33,10 +29,7 @@ class HomeController < ApplicationController
   end
 
   def content_suggestion
-    @feedback = Feedback.new
     @suggestion = ContentSuggestion.new
-    @user = User.new
-    @categories = Category.roots
   end
 
 

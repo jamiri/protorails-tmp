@@ -1,9 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :initialize_variables
+
+
   def not_found
     render :file => "#{Rails.root}/public/404.html", :status => :not_found
   end
+
+  def initialize_variables
+    @user = User.new
+    @categories = Category.roots
+    @feedback = Feedback.new
+  end
+
 
   # Available options are as follows:
 
