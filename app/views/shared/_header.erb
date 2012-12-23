@@ -1,40 +1,91 @@
-<div class="toolbar_bg">
-  <div id="container" class="container_24 clearfix">
-    <div id="header" class="grid_24 clearfix">
-      <div class="toolbar">
+<hgroup id="site-header">
+  <div id="row0">
+    <div id="towhid"></div>
+  </div>
+  <div id="row1">
 
-        <!--search form -------------------------------------------------------------------------------------------------------------->
-        <%= render 'shared/search_form' %>
-        <!--search form -------------------------------------------------------------------------------------------------------------->
+    <h1 id="title">
+      Integrated Online Services for Islamic Information Exchange and Education
+    </h1>
 
-        <!--login form -------------------------------------------------------------------------------------------------------------->
-        <%= render 'shared/login_form' %>
-        <!--login form -------------------------------------------------------------------------------------------------------------->
+    <div id="logo">
+    </div>
 
+    <div id="signing">
+
+      <a class="btn" name="Login" id="loginbtn">
+        Sign in
+      </a>
+
+
+      <a class="btn" name="Join" id="joinbtn">
+        Join Us
+      </a>
+
+
+
+      <div id="sign-in">
+        <div class="triangle"></div>
+        <form id="sign-in-form">
+
+          <input type="email" name="Email" placeholder="Email">
+          <input type="password" name="Password" placeholder="Password">
+
+          <button class="btn" type="submit" name="Sign in">Let me in!</button>
+
+          <input type="checkbox"  name="Keep me" value="Keep me">Keep me signed in for a while!
+          <a href="">I can't remember my password!</a>
+
+          <button class="btn" id="fb-login"></button>
+          <button class="btn" id="g-login"></button>
+
+          <button name="Cancel" class="btn cancel">Cancel</button>
+        </form>
       </div>
-      <!--toolbar -->
+
+      <div id="sign-up">
+        <div class="triangle"></div>
+        <form id="sign-up-form">
+          <input type="email" name="Email" placeholder="Email">
+          <input type="password" name="Password" placeholder="Password">
+          <input type="password" name="Password" placeholder="Repeat Password">
+
+
+          <!-----------------------------captcha-------------------------------------------->
+          <img id="captcha" src="http://image.captchas.net?client=demo&random=something">
+          <a id="refresh" href="">refresh image</a>
+          <input type="text" name="captcha" placeholder="Enter the text above">
+          <!-----------------------------captcha-------------------------------------------->
+
+
+          <button type="submit" name="Sign Up" class="btn joinbtn">Create my account!</button>
+          <button name="Cancel" class="btn cancel">Cancel</button>
+        </form>
+      </div>
+
     </div>
   </div>
 
-  <div class="head_bg">
-    <div id="container" class="container_24 clearfix">
-      <div>
-        <div id="logo"></div>
 
-        <!--Description in Header -------------------------------------------------------------------------------------------------------------->
-        <p id="about">The IslamIFC is a nonprofit, non governmental organization
-          that works in cooperation with North American Muslims,
-          non-Muslims and organizations to promote mutual understanding
-          and cultural exchange.
-          <a href="#">Watch the Video!</a>
-        </p>
-        <!--Description in Header -------------------------------------------------------------------------------------------------------------->
+  <div id="row2">
+    <div id="wrap">
+      <nav id="menu">
 
-      </div>
-      <!--sec body -->
+        <a class="nav active" href="#lessons" title="lessons">New Stuff</a>
+        <a class="nav" href="#categories" title="categories">Categories</a>
+        <a class="nav" href="#suggestions" title="suggestions">Suggestions</a>
+        <a class="nav" href="#about" title="about">About</a>
+
+      </nav>
+
+
+      <form id="search">
+        <input type="text" align="left" placeholder="Search..."/>
+        <button class="btn" type="submit" align="center">Website</button>
+        <button class="btn" type="submit" align="center">Glossary</button>
+
+      </form>
     </div>
-    <!--header -->
   </div>
-  <!--end of header container -->
-</div>
-<!--end of head bg -->
+
+</hgroup>
