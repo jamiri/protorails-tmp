@@ -10,17 +10,22 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery-1.7.2.min
-//= require jquery-ui-1.8.22.custom.min
-//= require menu
-//= require feedback
-//= require sign_up
-//= require jquery.form
-//= require modal_window
-//= require addthis_widget
-//= require validate
-//= require jquery.toastmessage
-//= require messages
-//= require handlebars-1.0.rc.1
-//= require captcha
-//= require content_suggestion
+//= require jquery-1.8.2.min
+//= require plugins
+//= require main
+//= require jquery.animate-colors-min
+//= require jquery-ui-1.9.2.custom.min
+
+// require jquery-ui-1.8.22.custom.min
+// require menu
+// require feedback
+// require sign_up
+// require jquery.form
+// require modal_window
+// require addthis_widget
+// require validate
+// require jquery.toastmessage
+// require messages
+// require handlebars-1.0.rc.1
+// require captcha
+// require content_suggestion
