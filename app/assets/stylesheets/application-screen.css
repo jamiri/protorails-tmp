@@ -8,11 +8,5 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require 960grid/960_24_col
- *= require 960grid/reset
- *= require personal
- *= require modal_window
- *= require feedback
- *= require content_suggestion
- *= require jquery.toastmessage
+ *= require screen
 */
