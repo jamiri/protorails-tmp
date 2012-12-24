@@ -22,9 +22,9 @@ $(document).ready(function() {
     $('a.nav').click(function (ev) {
         ev.preventDefault();
 
-        $('html, body').animate({
+        $('html, body').stop(true).animate({
             scrollTop:$('#' + this.title).offset().top - 215
-        }, 2000, 'easeOutQuint');
+        }, 1500, 'easeOutExpo');
 
         $('a.active').removeClass();
         $(this).addClass('active');
@@ -32,16 +32,9 @@ $(document).ready(function() {
     //----------------------------------smooth scrolling for navigation menu----------------------------------
 
     //---------------------------------------------scroll down signing forms --------------------------------------
-    $('#signing .btn').click(function(ev) {
-        var btn_id = $(ev.target).attr('id');
-        var box_id = btn_id.substr(0, btn_id.length - 3) + 'box';
-
-        $('.winbox:visible').animate({
-                height: 'toggle'
-            }, 300
-        );
-
-        $('#' + box_id).animate({
+    $('#loginbtn').click(function(ev) {
+        $('#joinbox').hide();
+        $('#loginbox').animate({
                 height: 'toggle'
             }, 300
         );
@@ -49,41 +42,20 @@ $(document).ready(function() {
         ev.stopPropagation();
     });
 
-//    $('#loginbtn').click(function(ev) {
-//        $('#sign-up').hide();
-//        $('#sign-in').animate({
-//                height: 'toggle'
-//            }, 300
-//        );
-//
-//        ev.stopPropagation();
-//    });
-//
-//
-//    $('#joinbtn').click(function(ev) {
-//        $('#sign-in').hide();
-//        $('#sign-up').animate({
-//                height: 'toggle'
-//            }, 300
-//        );
-//
-//        ev.stopPropagation();
-//    });
-
-    $('.cancel').click(function(ev) {
-        ev.preventDefault();
-        $(ev.target).parents('.winbox').animate({
+    $('#joinbtn').click(function(ev) {
+        $('#loginbox').hide();
+        $('#joinbox').animate({
                 height: 'toggle'
             }, 300
         );
+
+        ev.stopPropagation();
     });
 
-    $('body').click(function() {
-        $('#sign-in').animate({
-                height: 'hide'
-            }, 300
-        );
-        $('#sign-up').animate({
+    $('.cancel').click(function(ev) {
+        ev.preventDefault();
+
+        $(ev.target).parents('.winbox').animate({
                 height: 'hide'
             }, 300
         );
@@ -93,17 +65,14 @@ $(document).ready(function() {
         event.stopPropagation();
     });
 
+    $('body').click(function() {
+        hideWinboxes();
+    });
+
     $('body').keydown(function (keyEvent) {
 
         if (keyEvent.keyCode === 27) { // escape
-            $('#sign-in').animate({
-                    height: 'hide'
-                }, 300
-            );
-            $('#sign-up').animate({
-                    height: 'hide'
-                }, 300
-            );
+            hideWinboxes();
         }
     });
     //---------------------------------------------scroll down signing forms --------------------------------------
@@ -154,3 +123,10 @@ $(document).ready(function() {
     });
     //---------------------------------------------show and hide sign-up form----------------------------------
 });
+
+function hideWinboxes() {
+    $('.winbox:visible').animate({
+            height: 'hide'
+        }, 300
+    );
+}
