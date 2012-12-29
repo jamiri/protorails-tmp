@@ -2,14 +2,11 @@ class LessonController < ApplicationController
 
   def show
     #exception handling required!
-    @feedback = Feedback.new
-    @suggestion = ContentSuggestion.new
-    @user = User.new
-
     @categories = Category.roots
-
     @lesson = Lesson.single_show(params[:slug]).first
 
+    @lesson_category = @lesson.category
+    @lesson_parent_category = @lesson_category.parent
 
     unless @lesson.present?
       not_found and return

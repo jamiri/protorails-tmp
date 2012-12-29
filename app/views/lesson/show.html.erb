@@ -1,22 +1,9 @@
 <% title('iosie VISITOR - View Lesson') %>
 <!-- /-- Body -->
+<%= render :partial => "shared/header" %>
 
-<%= render :partial =>'shared/feedback' %>
-
-<%= render :partial =>"shared/header" %>
-
-<div id="content" class="container_24 clearfix">
-  <%= render :partial =>"lesson/partial/glossary" %>
-
-  <%= render :partial =>"lesson/partial/lesson_header" %>
-
-  <%= render :partial =>"lesson/partial/sidebar" %>
-
-  <%= render :partial =>"lesson/partial/tabbed_area" %>
+<div id="wrapper">
+  <section id="dummy"></section>
+  <%= render :partial => "lesson/partial/categories" %>
 </div>
-
-<%= render :partial =>"shared/footer" %>
-
-<%=link_to "Suggest a Topic",  '/content_suggestion' , :id => "content_suggestion_btn" %>
-
 <!-- \-- Body -->
