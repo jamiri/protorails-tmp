@@ -1,19 +1,21 @@
 <script id="lesson-template" type="text/x-handlebars-template">
-  {{#each lessons}}
-    <li>
-      <a><img src="{{image_file}}"></a>
+  <ul id="list_of_lessons">
+    {{#each lessons}}
+      <li>
+        <a><img src="{{image_file}}"></a>
 
-      <div class="description">
-        <p>
-          <b>Category:</b><br>
-          category-name<br>
-          <b>Date Added:</b> {{created_at}}<br>
-        </p>
-        <span>
-          <a>Play the Podcast</a>
-        </span>
-      </div>
-      <a href="{{url}}" class="lesson-title">{{title}}</a>
-    </li>
-  {{/each}}
+        <div class="description">
+          <p>
+            <b>Category:</b><br>
+            category-name<br>
+            <b>Date Added:</b> {{created_at}}<br>
+          </p>
+          <span>
+            <a>Play the Podcast</a>
+          </span>
+        </div>
+        <a href="{{url}}" class="lesson-title">{{title}}</a>
+      </li>
+    {{/each}}
+  </ul>
 </script>

@@ -59,7 +59,7 @@ class LessonController < ApplicationController
 
   def most_popular
     # the request must be an Ajax call
-    #not_found('forbidden!') unless request.xhr?
+    not_found('forbidden!') unless request.xhr?
 
     @lessons = Lesson.top_rated(5)
   end

@@ -3,16 +3,28 @@ var urls = {
     mostpop_lessons: '/lessons/mostpop'
 };
 
-$(document).ready(function() {
-    // ---- define button actions
-    $('#lessons .latest').click(function(ev) {
-        ev.preventDefault();
-        loadLatestLessons();
-    });
+var actionHandler = {
 
-    $('#lessons .hottest').click(function(ev) {
-        ev.preventDefault();
-        loadMostPopularLessons();
+    '#lessons .latest': { click: loadLatestLessons },
+
+    '#lessons .hottest': { click: loadMostPopularLessons },
+
+    'a.nav': { click: smoothScroll },
+
+    '#loginbtn': { click: clickLoginBtn },
+
+    '#joinbtn': { click: clickJoinBtn },
+
+    '.cancel': { click: clickCancelBtn },
+
+    'body': { click: hideWinboxes, keydown: keydownBody }
+};
+
+$(document).ready(function() {
+
+    // ---- define button actions
+    $.each(actionHandler, function(k, v) {
+        $(k).bind(v);
     });
 
     //---------------------------------------------set menu items active on scroll-to-----------------------------
@@ -34,70 +46,15 @@ $(document).ready(function() {
     });
     //---------------------------------------------set menu items active on scroll-to-----------------------------
 
-    //----------------------------------smooth scrolling for navigation menu----------------------------------
-    $('a.nav').click(function (ev) {
-        ev.preventDefault();
-
-        $('html, body').stop(true).animate({
-            scrollTop:$('#' + this.title).offset().top - 215
-        }, 1500, 'easeOutExpo');
-
-        $('a.active').removeClass();
-        $(this).addClass('active');
-    });
-    //----------------------------------smooth scrolling for navigation menu----------------------------------
-
-    //---------------------------------------------scroll down signing forms --------------------------------------
-    $('#loginbtn').click(function(ev) {
-        $('#joinbox').hide();
-        $('#loginbox').animate({
-                height: 'toggle'
-            }, 300
-        );
-
-        ev.stopPropagation();
-    });
-
-    $('#joinbtn').click(function(ev) {
-        $('#loginbox').hide();
-        $('#joinbox').animate({
-                height: 'toggle'
-            }, 300
-        );
-
-        ev.stopPropagation();
-    });
-
-    $('.cancel').click(function(ev) {
-        ev.preventDefault();
-
-        $(ev.target).parents('.winbox').animate({
-                height: 'hide'
-            }, 300
-        );
-    });
-
     $('.winbox').click(function(event){
         event.stopPropagation();
     });
-
-    $('body').click(function() {
-        hideWinboxes();
-    });
-
-    $('body').keydown(function (keyEvent) {
-
-        if (keyEvent.keyCode === 27) { // escape
-            hideWinboxes();
-        }
-    });
-    //---------------------------------------------scroll down signing forms --------------------------------------
 
     //---------------------------------- tab function in category section----------------------------------
     var items = $('#tabs>li').click(function (ev) {
             items.removeClass('current');
             $(this).addClass('current');
-        });
+    });
     //---------------------------------- tab function in category section----------------------------------
 
     //---------------------------------------------show and hide sign-up form----------------------------------
@@ -114,6 +71,7 @@ $(document).ready(function() {
     });
     //---------------------------------------------show and hide sign-up form----------------------------------
 
+    loadLatestLessons();
 
 });
 
@@ -147,24 +105,79 @@ function enableLessonHovers() {
     //----------------------------------show and hide lesson podcast----------------------------------
 }
 
-function loadLatestLessons() {
+function loadLatestLessons(ev) {
+    $('#lesson_view').empty().toggleClass('ajax_loader');
+
     $.getJSON(urls.latest_lessons, function(data) {
         var src = $('#lesson-template').html();
         var template = Handlebars.compile(src);
 
-        $('#list_of_lessons').empty().append(template(data));
+        $('#lesson_view').toggleClass('ajax_loader');
+
+        $('#lesson_view').append(template(data));
 
         enableLessonHovers();
     });
 }
 
-function loadMostPopularLessons() {
+function loadMostPopularLessons(ev) {
+    $('#lesson_view').empty().toggleClass('ajax_loader');
+
     $.getJSON(urls.mostpop_lessons, function(data) {
         var src = $('#lesson-template').html();
         var template = Handlebars.compile(src);
 
-        $('#list_of_lessons').empty().append(template(data));
+        $('#lesson_view').toggleClass('ajax_loader');
+
+        $('#lesson_view').empty().append(template(data));
 
         enableLessonHovers();
     });
+}
+
+//----------------------------------smooth scrolling for navigation menu----------------------------------
+function smoothScroll(ev) {
+    ev.preventDefault();
+
+    $('html, body').stop(true).animate({
+        scrollTop:$('#' + this.title).offset().top - 215
+    }, 1500, 'easeOutExpo');
+
+    $('a.active').removeClass();
+    $(this).addClass('active');
+}
+
+function clickLoginBtn(ev) {
+    $('#joinbox').hide();
+    $('#loginbox').animate({
+            height: 'toggle'
+        }, 300
+    );
+
+    ev.stopPropagation();
+}
+
+function clickJoinBtn(ev) {
+    $('#loginbox').hide();
+    $('#joinbox').animate({
+            height: 'toggle'
+        }, 300
+    );
+
+    ev.stopPropagation();
+}
+
+function clickCancelBtn(ev) {
+    ev.preventDefault();
+
+    $(ev.target).parents('.winbox').animate({
+            height: 'hide'
+        }, 300
+    );
+}
+
+function keydownBody(ev) {
+    if (ev.keyCode === 27) { // escape
+        hideWinboxes();
+    }
 }
