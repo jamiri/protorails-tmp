@@ -1,4 +1,20 @@
+var urls = {
+    latest_lessons: '/lessons/latest',
+    mostpop_lessons: '/lessons/mostpop'
+};
+
 $(document).ready(function() {
+    // ---- define button actions
+    $('#lessons .latest').click(function(ev) {
+        ev.preventDefault();
+        loadLatestLessons();
+    });
+
+    $('#lessons .hottest').click(function(ev) {
+        ev.preventDefault();
+        loadMostPopularLessons();
+    });
+
     //---------------------------------------------set menu items active on scroll-to-----------------------------
     $(document).scroll(function () {
 
@@ -77,36 +93,11 @@ $(document).ready(function() {
     });
     //---------------------------------------------scroll down signing forms --------------------------------------
 
-    //----------------------------------show and hide lesson details on hover----------------------------------
-    $('#lessons ul li').bind("mouseover", function () {
-        $(this).find('div.description').css("visibility", "visible");
-    });
-
-    $('#lessons ul li').bind("mouseout", function () {
-        $(this).find('div.description').css("visibility", "hidden");
-    });
-    //----------------------------------show and hide lesson details on hover----------------------------------
-
-    //----------------------------------show and hide lesson podcast----------------------------------
-    $('div.description span a').bind("click", function () {
-        $('div#player').css("display", "table");
-    });
-
-    $('a#close_player').bind("click", function () {
-        $('div#player').css("display", "none");
-    });
-    //----------------------------------show and hide lesson podcast----------------------------------
-
     //---------------------------------- tab function in category section----------------------------------
-    $(function () {
-        var items = $('#tabs>li').each(function () {
-            $(this).click(function () {
-                //remove previous class and add it to clicked tab
-                items.removeClass('current');
-                $(this).addClass('current');
-            });
+    var items = $('#tabs>li').click(function (ev) {
+            items.removeClass('current');
+            $(this).addClass('current');
         });
-    });
     //---------------------------------- tab function in category section----------------------------------
 
     //---------------------------------------------show and hide sign-up form----------------------------------
@@ -122,6 +113,8 @@ $(document).ready(function() {
         $('#join').attr('display', 'block');
     });
     //---------------------------------------------show and hide sign-up form----------------------------------
+
+
 });
 
 function hideWinboxes() {
@@ -129,4 +122,49 @@ function hideWinboxes() {
             height: 'hide'
         }, 300
     );
+}
+
+function enableLessonHovers() {
+    //----------------------------------show and hide lesson details on hover----------------------------------
+    $('#list_of_lessons li')
+        .bind("mouseover", function () {
+            $(this).find('div.description').css("visibility", "visible");
+        })
+        .bind("mouseout", function() {
+            $(this).find('div.description').css("visibility", "hidden");
+        });
+
+    //----------------------------------show and hide lesson details on hover----------------------------------
+
+    //----------------------------------show and hide lesson podcast----------------------------------
+    $('div.description span a').bind("click", function () {
+        $('div#player').css("display", "table");
+    });
+
+    $('a#close_player').bind("click", function () {
+        $('div#player').css("display", "none");
+    });
+    //----------------------------------show and hide lesson podcast----------------------------------
+}
+
+function loadLatestLessons() {
+    $.getJSON(urls.latest_lessons, function(data) {
+        var src = $('#lesson-template').html();
+        var template = Handlebars.compile(src);
+
+        $('#list_of_lessons').empty().append(template(data));
+
+        enableLessonHovers();
+    });
+}
+
+function loadMostPopularLessons() {
+    $.getJSON(urls.mostpop_lessons, function(data) {
+        var src = $('#lesson-template').html();
+        var template = Handlebars.compile(src);
+
+        $('#list_of_lessons').empty().append(template(data));
+
+        enableLessonHovers();
+    });
 }
