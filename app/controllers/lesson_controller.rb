@@ -9,7 +9,7 @@ class LessonController < ApplicationController
     @lesson_parent_category = @lesson_category.parent
 
     unless @lesson.present?
-      not_found and return
+      not_found('not found') and return
     end
 
     @lesson_questions = Question.for_lesson(@lesson.id).limit(5)
@@ -46,6 +46,20 @@ class LessonController < ApplicationController
 
     end
 
+  end
+
+  def latest
+    # the request must be an Ajax call
+    not_found('forbidden!') unless request.xhr?
+
+    @lessons = Lesson.latest(5)
+  end
+
+  def most_popular
+    # the request must be an Ajax call
+    not_found('forbidden!') unless request.xhr?
+
+    @lessons = Lesson.top_rated(5)
   end
 
 end

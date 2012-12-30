@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :initialize_variables
 
 
-  def not_found
-    render :file => "#{Rails.root}/public/404.html", :status => :not_found
+  def not_found(message)
+    raise ActionController::RoutingError.new(message)
   end
 
   def initialize_variables

@@ -12,7 +12,6 @@
 //
 //= require jquery-1.8.2.min
 //= require plugins
-//= require main
 //= require jquery.animate-colors-min
 //= require jquery-ui-1.9.2.custom.min
 //= require handlebars-1.0.rc.1
