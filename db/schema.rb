@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206055143) do
+ActiveRecord::Schema.define(:version => 20121230085227) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -112,6 +112,11 @@ ActiveRecord::Schema.define(:version => 20121206055143) do
 
   add_index "lessons", ["slug"], :name => "index_lessons_on_slug", :unique => true
 
+  create_table "lessons_tags", :id => false, :force => true do |t|
+    t.integer "lesson_id"
+    t.integer "tag_id"
+  end
+
   create_table "objectives", :force => true do |t|
     t.string   "title"
     t.integer  "lesson_id"
@@ -144,6 +149,12 @@ ActiveRecord::Schema.define(:version => 20121206055143) do
     t.integer  "lesson_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

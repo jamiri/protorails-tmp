@@ -4,10 +4,9 @@ class LessonController < ApplicationController
     #exception handling required!
     @categories = Category.roots
     @lesson = Lesson.single_show(params[:slug]).first
-
     @lesson_category = @lesson.category
     @lesson_parent_category = @lesson_category.parent
-
+    @tags = @lesson.tags
     unless @lesson.present?
       not_found and return
     end
