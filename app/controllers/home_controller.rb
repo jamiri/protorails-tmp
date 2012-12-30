@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @top_lessons = Lesson.top4
-    @lesson_top_rated = Lesson.top_rated_4
+    #@top_lessons = Lesson.top4
+    #@lesson_top_rated = Lesson.top_rated_4
   end
 
   def feedback

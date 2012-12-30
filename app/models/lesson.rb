@@ -31,12 +31,16 @@ class Lesson < ActiveRecord::Base
   has_and_belongs_to_many :glossary_entries
   has_and_belongs_to_many :tags
 
-  scope :top4, order('created_at DESC').limit(4)
+  scope :latest, lambda { |count|
+    select('id, title, slug, audio_file, image_file, created_at')
+    .order('created_at DESC').limit(count)
+  }
 
-  scope :top_rated_4 ,lambda {
+  scope :top_rated ,lambda { |count|
     joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
     .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
     .group('lessons.id').order('average_rating desc')
+    .limit(count)
   }
 
   scope :single_show, lambda { |slug|
