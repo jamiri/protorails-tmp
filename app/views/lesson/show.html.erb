@@ -8,8 +8,12 @@
   <section id="lessons">
     <header>
       <h1><%= @lesson.title %></h1>
-      <%= render :partial => "lesson/partial/header" %>
+      <%= render :partial => "lesson/partial/tags" %>
     </header>
+
+    <div id="lesson_header">
+        <%= render :partial => "lesson/partial/_header" %>
+    </div>
 
   </section>
 </div>
