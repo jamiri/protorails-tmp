@@ -6,7 +6,11 @@
   <section id="dummy"></section>
   <%= render :partial => "lesson/partial/categories" %>
   <section id="lessons">
-    <%= render :partial => "lesson/partial/header" %>
+    <header>
+      <h1><%= @lesson.title %></h1>
+      <%= render :partial => "lesson/partial/header" %>
+    </header>
+
   </section>
 </div>
 <!-- \-- Body -->
