@@ -1,84 +1,68 @@
-<script language="javascript">
-    if(<%= @lesson_microblogs_cnt < 6 %>  )
-    {
-        microblog_pagination = false;
-    }
-    else
-    {
-        microblog_pagination = true;
-    }
-</script>
-<div id="tabs-2" class="MicroBlog body">
-  <%= render :partial=>'lesson/partial/prototypes' %>
-  <% if @microblogs.any? %>
-      <%
-      if(params[:BlogTitle].present?)
-      %>
-          <div align="right"> <a  href="/lesson/<%=@lesson.title.sub('?','%3f') %>#tabs-2">Brows All MicroBlogs</a></div>
-      <%
-      end
-      %>
-    <% @microblogs.each do |mcblog| %>
-      <div class="post">
-        <h2>
-          <% if(!params[:BlogTitle].present?) %>
+<div id="MicroBlog"> <!-------------------------------------------------------------------- MicroBlog tab-->
 
-          <a href="<%= "/lesson/" + mcblog.lesson_id.to_s + "/microblog/" + mcblog.title  %>#tabs-2"><%= mcblog.title %></a>
+  <!--post summary-->
+  <ul id="summaries">
 
-          <%
-             else
-          %>
-              <%= mcblog.title %>
-          <%
-           end
-          %>
-        </h2>
-        <span class="date">posted on <%= mcblog.posted_on.strftime('%B %e, %Y') %></span>
-            <span class="comments">
-              <a href="#dialog<%= mcblog.id %>">
-                <% if mcblog.comments.any? %>
-                  <%= mcblog.comments.size %> comment(s)
-                <% else %>
-                  Post a new comment
-                <% end %>
-              </a>
-            </span>
-        <p>
-          <% if(!params[:BlogTitle].present?) %>
-              <a href="<%= "/lesson/" + mcblog.lesson_id.to_s + "/microblog/" + mcblog.title  %>#tabs-2"><%= mcblog.content  %></a>
-          <% else %>
-              <%= mcblog.content  %>
-          <% end %>
-        </p>
+    <% @lesson.blog_posts.each_with_index do |post, i| %>
 
-        <div class="microblog_comment" id="dialog<%= mcblog.id %>" title="Comments on <%=mcblog.title %>">
-          <% if mcblog.comments.any? %>
-            <% mcblog.comments.each do |comment| %>
-              <div class="comment_post">
-                <span class="id"><%= comment.user.name %></span> <small>says:</small>
-                <p><%= comment.comment %></p>
-              </div>
-            <% end %>
-          <% end %>
 
-          <!------ Comment form ------>
-          <%= form_tag :create_microblog, :method => :post,
-                       :class => 'blog_post_comment_form' do %>
-            <div class="comment_post">
-              <%= label_tag 'comment[body]' do %>
-                Comment:
-                <%= text_area_tag 'comment[body]' %>
-              <% end %>
+        <li data-order="<%= i %>">
+          <h2><%= post.title %>
+            <a class="vote-up" title="vote up this!">&nbsp;</a>
+            <a class="vote-down" title="vote down this!">&nbsp;</a>
+          </h2>
 
-              <div style="text-align: right;">
-                <%= hidden_field_tag 'comment[blog_post_id]', "#{mcblog.id}" %>
-                <%= submit_tag 'Submit' %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
+          <div>
+            <span class="date">posted on <%= post.created_at.strftime("%d %b %Y") %></span>&nbsp|
+            <span class="comments"><%= pluralize(post.comments.count, "comment") %></span>
+
+            <p>
+              <%= summary(post.content) %>
+            </p>
+            <a class="switch">&nbsp;
+              <!--<div>Details</div>-->
+            </a>
+          </div>
+        </li>
     <% end %>
-  <% end %>
+  </ul>
+  <!--post summary end-->
 
-</div>
+  <!--post detail-->
+  <ul id="details">
+    <% @lesson.blog_posts.each_with_index do |post, i| %>
+        <li data-order="<%= i %>">
+          <h2><%= post.title %>
+            <a class="vote-up" title="vote up this!">&nbsp;</a>
+            <a class="vote-down" title="vote down this!">&nbsp;</a>
+          </h2>
+
+          <div>
+            <span class="date">posted on <%= post.created_at.strftime("%d %b %Y") %></span>&nbsp|
+            <span class="comments"><%= pluralize(post.comments.count, "comment") %></span>
+
+            <p><%= post.content %></p>
+
+            <h3>Comments</h3>
+            <% post.comments.each do |cmnt| %>
+                <ul class="comment">
+                  <li> <span class="id"><%= cmnt.user.name %>
+                    <a class="vote-up" title="vote up this!">&nbsp;</a>
+                  <a class="vote-down" title="vote down this!">&nbsp;</a>
+                  <a class="reply-button" title="reply to this post!">&nbsp;</a>
+                 </span>
+
+                    <p><%= cmnt.comment %></p>
+            <% end %>
+
+            </ul>
+
+            <a class="switch">&nbsp;</a>
+
+
+          </div>
+    <% end %>
+  </ul>
+  <!--post detail end-->
+
+</div>  <!---------------------------------------------------------------------------end of MicroBlog tab-->

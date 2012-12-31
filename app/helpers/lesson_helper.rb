@@ -22,6 +22,6 @@ module LessonHelper
   end
 
   def summary(input)
-     input[0..SUMMARY_LENGTH]
+     input[0..SUMMARY_LENGTH] << "..."
   end
 end

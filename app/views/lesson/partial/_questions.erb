@@ -1,48 +1,32 @@
-<!--------------------------------------Q and A Content ------------------------------------>
-<%= javascript_tag (@lesson_questions_cnt < 6 ? "qa_pagination = false;" : "qa_pagination = true;") %>
-<div id="tabs-3" class="QA body">
+<div id="QandA">  <!--------------------------------------------------------------------------Q and A tab-->
 
-  <div class="items">
-    <div class="QAbody">
-      <div class="rating">__rating__</div>
-      <div class="question">
-        <span class="id">__user_name__</span>
+  <div class="QAbody">
 
-        <p> __question__</p>
-      </div>
-      <div class="answer">
-        <span class="id">__answered_by__</span>
+    <% @lesson.questions.each do |question| %>
 
-        <p>__answer__ </p>
-      </div>
-    </div>
-    <%
-       if params[:question].present?
-    %>
-        <div align="right"><a href="/lesson/<%= @lesson.title.sub('?', '%3f') %>#tabs-3">Brows All Questions</a></div>
-    <% end %>
-    <% @lesson_questions.each do |question_row| %>
-        <a name="qa<%= question_row.id %>"></a>
+        <div class="question">
+                            <span class="id"><%= question.user.name %>
+                              <a class="vote-up" title="vote up this!">&nbsp;</a>
+                                <a class="vote-down" title="vote down this!">&nbsp;</a>
+                            </span>
 
-        <div id="qa<%= question_row.id %>" class="QAbody">
-
-          <%= render :partial => "lesson/partial/question_rating", :locals => {:question_row => question_row} %>
-
-          <div class="question">
-            <span class="id"><%= question_row.user.name %></span>
-
-            <p>
-              <a href="<%= "/lesson/" << question_row.lesson_id.to_s << "/question/" << question_row.question.sub('?', '%3f') %>#tabs-3"><%= question_row.question %></a>
-            </p>
-          </div>
-          <div class="answer">
-            <span class="id"><%= question_row.answered_by %></span>
-
-            <p><%= question_row.answer %> </p>
-          </div>
+          <p><%= question.question %></p>
         </div>
+
+        <div class="answer">
+                            <span class="id"><%= question.answered_by %>
+                              <a class="vote-up" title="vote up this!">&nbsp;</a>
+                                <a class="vote-down" title="vote down this!">&nbsp;</a>
+                            </span>
+
+          <p><%= question.answer %></p>
+        </div>
+
+
     <% end %>
+
+
   </div>
-  <div id="lastPostsLoader"></div>
+
+
 </div>
-<!--------------------------------------Q and A Content ------------------------------------>
