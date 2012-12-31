@@ -5,14 +5,30 @@
 <div id="wrapper">
   <section id="dummy"></section>
   <%= render :partial => "lesson/partial/categories" %>
+
   <section id="lessons">
+
     <header>
       <h1><%= @lesson.title %></h1>
       <%= render :partial => "lesson/partial/tags" %>
     </header>
 
     <div id="lesson_header">
-        <%= render :partial => "lesson/partial/_header" %>
+      <%= render :partial => "lesson/partial/header" %>
+      <%= render :partial => "lesson/partial/audio" %>
+    </div>
+
+    <ul class="nav">
+      <li><a title="Script" href="javascript:void(0);">Main Script</a></li>
+      <li><a title="MicroBlog" href="javascript:void(0);">Micro Blog</a></li>
+      <li><a title="QandA" href="javascript:void(0);">Q and A</a></li>
+      <li><a title="Discussion" href="javascript:void(0);" class="current">Discussion</a></li>
+      <li><a title="Presentation" href="javascript:void(0);">Presentation</a></li>
+      <li><a title="References" href="javascript:void(0);">References</a></li>
+    </ul>
+
+    <div id="Tab_Content">
+        <%= render :partial => "lesson/partial/script" %>
     </div>
 
   </section>

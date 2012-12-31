@@ -1,5 +1,7 @@
 module LessonHelper
 
+  SUMMARY_LENGTH = 250
+
   def create_navbar(id)
 
     # the string that is going to be returned
@@ -17,5 +19,9 @@ module LessonHelper
 
     end
 
+  end
+
+  def summary(input)
+     input[0..SUMMARY_LENGTH]
   end
 end

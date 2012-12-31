@@ -1,0 +1,31 @@
+<div id="Script" >
+
+  <p>&nbsp</p>
+  <table id="meta-data">
+    <tr class="titles">
+      <td>After completion of this lesson you will know:</td>
+      <td>Lesson Info:</td>
+    </tr>
+    <tr>
+      <td id="objectives">
+        <ol>
+          <% @lesson.objectives.each do |objective| %>
+            <li><%= objective.title %></li>
+          <% end  %>
+        </ol>
+      </td>
+
+      <td id="lesson-info">
+        <ul>
+          <li>Lecturer: <%= @lesson.author %></li>
+          <li>Description: <%= @lesson.description %></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <div>
+    <%= raw @lesson.script %>
+  </div>
+
+</div>
