@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230085227) do
+ActiveRecord::Schema.define(:version => 20121231140126) do
 
   create_table "blog_posts", :force => true do |t|
     t.string   "title"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(:version => 20121230085227) do
     t.string   "marketing_promotion"
     t.string   "author_qualification"
     t.string   "appendice"
+  end
+
+  create_table "discussion_posts", :force => true do |t|
+    t.string   "content"
+    t.integer  "replied_post_id"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "feedbacks", :force => true do |t|

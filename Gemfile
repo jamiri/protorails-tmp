@@ -29,6 +29,7 @@ group :development do
 	gem 'rspec-rails'
   gem 'faker'
   gem 'rails-erd'
+  gem 'hirb'
 end
 
 group :test do

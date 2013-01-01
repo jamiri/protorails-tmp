@@ -27,6 +27,7 @@ class Lesson < ActiveRecord::Base
   has_many :questions, :foreign_key => 'lesson_id', :limit => 5
   has_many :references, :foreign_key => 'lesson_id'
   has_many :lesson_ratings, :foreign_key => 'lesson_id'
+  has_many :discussion_posts, :foreign_key => 'lesson_id', :include => :user
 
   has_and_belongs_to_many :glossary_entries
   has_and_belongs_to_many :tags
@@ -50,6 +51,7 @@ class Lesson < ActiveRecord::Base
     .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
     .group('lessons.id')
   }
+
 
 
   def should_generate_new_friendly_id?

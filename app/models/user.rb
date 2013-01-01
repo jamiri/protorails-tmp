@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :lesson_ratings, :foreign_key => 'user_id'
   has_many :feedbacks
   has_many :content_suggestions,:foreign_key => 'user_id'
+  has_many :discussion_posts, :foreign_key => :user_id
 
   validates :password, :confirmation => :true
   

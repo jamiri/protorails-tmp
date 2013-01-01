@@ -7,6 +7,8 @@ class LessonController < ApplicationController
     @lesson_category = @lesson.category
     @lesson_parent_category = @lesson_category.parent
     @tags = @lesson.tags
+    @root_discussion_posts = DiscussionPost.root_posts_for(@lesson.id)
+
     unless @lesson.present?
       not_found('not found') and return
     end

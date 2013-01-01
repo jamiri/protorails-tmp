@@ -1,7 +1,20 @@
-<div id="Discussion" class="activeTab">  <!------------------------------------------------------------------Discussion tab-->
-  <div class="post-body">
+<div id="Discussion">  <!------------------------------------------------------------------Discussion tab-->
 
 
+  <% @root_discussion_posts.each do |post| %>
+      <div class="post-body">
+      <span class="id"><%= post.user.name %>
+        <a class="vote-up" title="vote up this!">&nbsp;</a>
+                            <a class="vote-down" title="vote down this!">&nbsp;</a>
+                            <a class="reply-button" title="reply to this post!">&nbsp;</a>
+                        </span>
 
-  </div>
-</div>
+
+        <%= raw replies_for(post) %>
+
+
+      </div>
+  <% end %>
+
+
+</div> <!---------------------------------------------------------------------------end of Discussion tab-->
