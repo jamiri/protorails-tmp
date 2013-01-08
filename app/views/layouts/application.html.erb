@@ -21,9 +21,9 @@
   <%= favicon_link_tag '/apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
 
   <!-- Main Styles -->
-  <%= stylesheet_link_tag 'application-all',    :media => 'all' %>
+  <%= stylesheet_link_tag 'application-all', :media => 'all' %>
   <%= stylesheet_link_tag 'application-screen', :media => 'screen' %>
-  <%= stylesheet_link_tag 'application-print',  :media => 'print' %>
+  <%= stylesheet_link_tag 'application-print', :media => 'print' %>
 
   <!--[if IE]>
   <%= stylesheet_link_tag 'ie', :media => 'screen' %>
@@ -38,13 +38,17 @@
 <body>
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
-  improve your experience.</p>
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
 <![endif]-->
 
-  <!-- Main Content Begins Here -->
+<!-- Main Content Begins Here -->
+<%= render 'shared/header' %>
+<div id="wrapper">
   <%= yield %>
-  <!-- Main Content Ends Here -->
+</div>
+<%= render 'shared/footer' %>
+<!-- Main Content Ends Here -->
 
 </body>
 </html>

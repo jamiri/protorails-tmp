@@ -1,4 +1,4 @@
-<div id="Script" class="activeTab">
+<div id="Script" class="activeTab"> <!--------------------------------------------------------Script tab-->
 
   <p>&nbsp</p>
   <table id="meta-data">
@@ -10,8 +10,8 @@
       <td id="objectives">
         <ol>
           <% @lesson.objectives.each do |objective| %>
-            <li><%= objective.title %></li>
-          <% end  %>
+              <li><%= objective.title %></li>
+          <% end %>
         </ol>
       </td>
 
@@ -28,4 +28,4 @@
     <%= raw @lesson.script %>
   </div>
 
-</div>
+</div> <!------------------------------------------------------------------------------end of Script tab-->

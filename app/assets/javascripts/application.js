@@ -15,6 +15,8 @@
 //= require jquery.animate-colors-min
 //= require jquery-ui-1.9.2.custom.min
 //= require handlebars-1.0.rc.1
+//= require global
+
 
 // require jquery-ui-1.8.22.custom.min
 // require menu
@@ -29,3 +31,4 @@
 // require handlebars-1.0.rc.1
 // require captcha
 // require content_suggestion
+

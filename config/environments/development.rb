@@ -34,4 +34,10 @@ Protorails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Enable Hirb by default
+  silence_warnings do
+    Hirb.enable
+  end
+
 end

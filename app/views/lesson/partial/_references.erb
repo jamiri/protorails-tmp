@@ -2,26 +2,13 @@
   References used for this lesson:
 
   <ol>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
-    <li>
-      some text here as an address to this reference
-    </li>
+
+    <% @references.each do |reference| %>
+        <li>
+          reference.tile <br/>
+          reference.description
+        </li>
+    <% end %>
+
   </ol>
 </div>  <!--------------------------------------------------------------------------end of References tab-->

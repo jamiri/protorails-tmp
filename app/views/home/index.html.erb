@@ -1,25 +1,15 @@
 <% title 'IOSIE :: Learning Portal' %>
 
-<%#= render 'shared/feedback' %>
 
-<%= render 'shared/header' %>
+<%= render 'lessons' %>
 
-<div id="wrapper">
-  <section id="dummy"></section>
+<%= render 'question_discussion' %>
 
-  <%= render 'lessons' %>
+<%= render 'category' %>
 
-  <%= render 'question_discussion' %>
+<%= render 'suggestions' %>
 
-  <%= render 'category' %>
-
-  <%= render 'suggestions' %>
-
-  <%= render 'about' %>
-
-  <%= render 'shared/footer' %>
-
-</div>
+<%= render 'about' %>
 
 <%= render 'js_template' %>
 <%#=link_to "Suggest a Topic",  '/content_suggestion' , :id => "content_suggestion_btn" %>

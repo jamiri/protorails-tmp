@@ -44,23 +44,24 @@
             <p><%= post.content %></p>
 
             <h3>Comments</h3>
-            <% post.comments.each do |cmnt| %>
+            <% post.comments.each do |comment| %>
                 <ul class="comment">
-                  <li> <span class="id"><%= cmnt.user.name %>
-                    <a class="vote-up" title="vote up this!">&nbsp;</a>
-                  <a class="vote-down" title="vote down this!">&nbsp;</a>
-                  <a class="reply-button" title="reply to this post!">&nbsp;</a>
-                 </span>
+                  <li>
 
-                    <p><%= cmnt.comment %></p>
+                    <span class="id"><%= comment.user.name %>
+                      <a class="vote-up" title="vote up this!">&nbsp;</a>
+                      <a class="vote-down" title="vote down this!">&nbsp;</a>
+                      <a class="reply-button" title="reply to this post!">&nbsp;</a>
+                    </span>
+
+                    <p><%= comment.comment %></p>
+                  </li>
+                </ul>
             <% end %>
-
-            </ul>
-
             <a class="switch">&nbsp;</a>
 
-
           </div>
+        </li>
     <% end %>
   </ul>
   <!--post detail end-->
