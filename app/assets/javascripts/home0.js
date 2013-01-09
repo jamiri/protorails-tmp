@@ -27,6 +27,7 @@ $(document).ready(function() {
         $(k).bind(v);
     });
 
+    //done
     //---------------------------------------------set menu items active on scroll-to-----------------------------
     $(document).scroll(function () {
 
@@ -46,10 +47,12 @@ $(document).ready(function() {
     });
     //---------------------------------------------set menu items active on scroll-to-----------------------------
 
+    //done
     $('.winbox').click(function(event){
         event.stopPropagation();
     });
 
+    //done
     //---------------------------------- tab function in category section----------------------------------
     var items = $('#tabs>li').click(function (ev) {
             items.removeClass('current');
@@ -57,6 +60,7 @@ $(document).ready(function() {
     });
     //---------------------------------- tab function in category section----------------------------------
 
+    //done
     //---------------------------------------------show and hide sign-up form----------------------------------
     $('a.join').click(function () {
         $('#sign-in').attr('display', 'none');
@@ -64,6 +68,7 @@ $(document).ready(function() {
         $('#sign-up').attr('display', 'block');
     });
 
+    //done
     $('button#joincancel').click(function () {
         $('#sign-up').attr('display', 'none');
         $('#sign-in').attr('display', 'table-cell');
@@ -75,6 +80,7 @@ $(document).ready(function() {
 
 });
 
+//done
 function hideWinboxes() {
     $('.winbox:visible').animate({
             height: 'hide'
@@ -82,6 +88,7 @@ function hideWinboxes() {
     );
 }
 
+// renamed to toggleLessonDescription
 function enableLessonHovers() {
     //----------------------------------show and hide lesson details on hover----------------------------------
     $('#list_of_lessons li')
@@ -105,6 +112,7 @@ function enableLessonHovers() {
     //----------------------------------show and hide lesson podcast----------------------------------
 }
 
+// shall stay here
 function loadLatestLessons(ev) {
     $('#lesson_view').empty().toggleClass('ajax_loader');
 
@@ -120,6 +128,7 @@ function loadLatestLessons(ev) {
     });
 }
 
+// shall stay here
 function loadMostPopularLessons(ev) {
     $('#lesson_view').empty().toggleClass('ajax_loader');
 
