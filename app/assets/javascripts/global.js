@@ -34,7 +34,6 @@ jQuery(function ($) {
 //-------------------------------------------------------------------------------------------
     $('.winbox').click(function (event) {
         event.stopPropagation();
-        hideWinboxes();
     });
 
     //---------------------------------- tab function in category section----------------------------------
