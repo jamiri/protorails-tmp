@@ -1,5 +1,6 @@
 //Ensures that functions are run when DOM is ready and $ refers to jQuery
 jQuery(function ($) {
+
     // Adds border-bottom to fixed header on scroll down
     function addBorderBottom() {
         var top = $("body").scrollTop() > 0 ? $("body").scrollTop() : $("html").scrollTop();
@@ -33,6 +34,7 @@ jQuery(function ($) {
 //-------------------------------------------------------------------------------------------
     $('.winbox').click(function (event) {
         event.stopPropagation();
+        hideWinboxes();
     });
 
     //---------------------------------- tab function in category section----------------------------------
@@ -75,8 +77,8 @@ jQuery(function ($) {
     //----------------------------------smooth scrolling for navigation menu----------------------------------
 
     $('#loginbtn').click(function (ev) {
-        $('#joinbox').hide();
-        $('#loginbox').animate({
+        $('#sign-up').hide();
+        $('#sign-in').animate({
                 height: 'toggle'
             }, 300
         );
@@ -85,8 +87,8 @@ jQuery(function ($) {
     });
 
     $('#joinbtn').click(function (ev) {
-        $('#loginbox').hide();
-        $('#joinbox').animate({
+        $('#sign-in').hide();
+        $('#sign-up').animate({
                 height: 'toggle'
             }, 300
         );
@@ -103,10 +105,17 @@ jQuery(function ($) {
         );
     })
 
+    $('body').keydown(function (ev) {
+        if (ev.keyCode === 27) { // escape
+            hideWinboxes();
+        }
+    })
+
+    $('body').click(hideWinboxes);
+
     $(document).scroll(function () {
         addBorderBottom();
         setActiveMenu();
     });
     toggleLessonDescription();
-
 });
