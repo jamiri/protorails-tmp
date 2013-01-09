@@ -6,6 +6,11 @@ $wrapper-width: 960px
   -o-transition: $what $duration ease-out
   transition: $what $duration ease-out
 
+@mixin delay($duration)
+  -webkit-animation-dealay: $duration
+  -moz-animation-dealay:  $duration
+  -o-animation-dealay: $duration
+  animation-dealay: $duration
 
 @mixin round($corner, $size)
   border-#{$corner}-radius: $size
@@ -312,6 +317,7 @@ a.reply-button
 
       a, a:visited
         @include trans(background, 1.2s)
+        @include delay(200ms)
         color: #222
         display: inline-block
         background: #fff

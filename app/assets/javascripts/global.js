@@ -7,29 +7,6 @@ jQuery(function ($) {
         top > 150 ? $('#row2').addClass("border-bottom") : $('#row2').removeClass("border-bottom");
     }
 
-    // Sets active menu on scroll based on visible section of page
-    function setActiveMenu() {
-        $('a.nav').each(function () {
-            var divTop = $('#' + this.title).offset().top;
-            var top = $("body").scrollTop() > 0 ? $("body").scrollTop() : $("html").scrollTop();
-            var distance = divTop - top;
-            if (distance > 150 && distance < 300) {
-                $('a.active').removeClass('active');
-                $(this).addClass('active');
-            }
-        });
-    }
-
-    // Shows and hides lesson description
-    function toggleLessonDescription() {
-        $('#lessons ul li').bind("mouseenter", function () {
-            $(this).find('div.description').delay(200).fadeIn();
-        });
-
-        $('#lessons ul li').bind("mouseleave", function () {
-            $(this).find('div.description').stop(true).fadeOut();
-        });
-    }
 
 //-------------------------------------------------------------------------------------------
     $('.winbox').click(function (event) {
@@ -78,7 +55,7 @@ jQuery(function ($) {
     $('#loginbtn').click(function (ev) {
         $('#sign-up').hide();
         $('#sign-in').animate({
-                height: 'toggle'
+                height:'toggle'
             }, 300
         );
 
@@ -88,7 +65,7 @@ jQuery(function ($) {
     $('#joinbtn').click(function (ev) {
         $('#sign-in').hide();
         $('#sign-up').animate({
-                height: 'toggle'
+                height:'toggle'
             }, 300
         );
 
@@ -99,7 +76,7 @@ jQuery(function ($) {
         ev.preventDefault();
 
         $(ev.target).parents('.winbox').animate({
-                height: 'hide'
+                height:'hide'
             }, 300
         );
     })
@@ -114,7 +91,34 @@ jQuery(function ($) {
 
     $(document).scroll(function () {
         addBorderBottom();
-        setActiveMenu();
     });
-    toggleLessonDescription();
+    globals.toggleLessonDescription();
 });
+
+
+var globals = {
+    toggleLessonDescription:function () {
+        jQuery(function ($) {
+            $('#lessons ul li').bind("mouseenter", function () {
+                $(this).find('div.description').delay(200).fadeIn();
+            });
+
+            $('#lessons ul li').bind("mouseleave", function () {
+                $(this).find('div.description').stop(true).fadeOut();
+            });
+        });
+    },
+
+    setActiveMenu:function () {
+        // Sets active menu on scroll based on visible section of page
+        $('a.nav').each(function () {
+            var divTop = $('#' + this.title).offset().top;
+            var top = $("body").scrollTop() > 0 ? $("body").scrollTop() : $("html").scrollTop();
+            var distance = divTop - top;
+            if (distance > 150 && distance < 300) {
+                $('a.active').removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+    }
+};
