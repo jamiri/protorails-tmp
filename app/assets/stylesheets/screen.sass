@@ -29,10 +29,34 @@ div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, aud
   -moz-border-radius: 5px
   -webkit-border-radius: 5px
 
+body:before
+  content: ""
+  position: absolute
+  z-index: -1
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: -webkit-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
+  background: -moz-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
+  background: -ms-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
+  background: -o-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
+  background: radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
 
 body
-  background: rgb(232, 232, 232)
   font-family: Segoe UI, Calibri
+  position: relative
+
+body:after
+  content: ""
+  position: absolute
+  z-index: -1
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: url(bg-pattern.jpg) repeat
+  opacity: 0.8
 
 
 .hidden
@@ -780,18 +804,6 @@ section
       display: block
 
 
-
-
-
-//----------Lesson Content Tabbed Area-----------------------------------------------
-
-
-
-
-
-
-
-
 //----------Lesson Content - Script Tab-----------------------------------------------
 
 #Script
@@ -863,15 +875,6 @@ section
       span
         color: #176200
 
-//----------Lesson Content - Script Tab-----------------------------------------------
-
-
-
-
-
-
-
-
 
 //----------Lesson Content - Microblog Tab-----------------------------------------------
 #MicroBlog
@@ -899,6 +902,7 @@ section
     li
       padding: 10px 10px 0
 
+
       h2
         @extend .not-round
         padding: 10px 0 2px 10px
@@ -909,6 +913,7 @@ section
       div
         position: relative
         padding: 10px
+        min-height: 100px
 
         p
           text-align: justify
@@ -1002,13 +1007,6 @@ section
   position: absolute
   top: 0
   left: 950px
-
-//----------Lesson Content - Microblog Tab-----------------------------------------------
-
-
-
-
-
 
 
 //----------Lesson Content - Q-and-A Tab-----------------------------------------------

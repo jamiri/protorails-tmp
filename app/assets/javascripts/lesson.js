@@ -37,7 +37,7 @@ jQuery(function ($) {
         tabContentUtil.detailsHeight = h;
         $('#details').addClass('microblog-details-hidden');
         $('#details li[data-order="' + id + '"]').css("display", "block");
-        $('#Tab_Content').height(h);
+        $('#Tab_Content').height(h+10);
 
         $('#details').css("left", "940px");
         $('#details').animate({
@@ -67,20 +67,20 @@ jQuery(function ($) {
         $('#Discussion div.post-body').append('' +
             '<div class="reply">' +
             '<span class="id">' +
-            $user
-            + '<a class="vote-up" title="vote up this!">&nbsp;</a>' +
+            $user +
+            '<a class="vote-up" title="vote up this!">&nbsp;</a>' +
             '<a class="vote-down" title="vote down this!">&nbsp;</a>' +
             '<a class="reply-button" title="reply to this post!">&nbsp;</a>' +
             '</span>' +
             '<p>' +
-            $postText
-            + '</p>'
-            + '</div>'
-            + '');
+            $postText +
+            '</p>' +
+            '</div>' +
+            '');
     }
 });
 
-// The purpose of this object is to overcome problem of switching tabs when microblog summaries are displayed
+// This object helps to overcome problem of switching tabs when microblog summaries are displayed
 var tabContentUtil = {
     detailsHeight: null,
     DetailsAreDisplayed: false

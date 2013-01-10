@@ -17,9 +17,18 @@ Hijab or the Islamic modest dress is a way of covering the body according to cer
 principles in order to make Muslim women identifiable in society and to minimise the social influence of sexual stimuli.
 Now let's look at the most comprehensive verses on hijab or modest dress in the Qur'an.
 These are verses 30 and 31 of surah al Nur.</p>
-<p style="font-family: 'B Badr'; direction: rtl; text-align: center; font-size: 22px; font-weight: bold;">
+<table class="verse">
+<tr>
+    <td>
 قُلْ لِلْمُؤْمِنينَ يَغُضُّوا مِنْ أَبْصارِهِمْ وَ يَحْفَظُوا فُرُوجَهُمْ ذلِكَ أَزْكى‏ لَهُمْ إِنَّ اللَّهَ خَبيرٌ بِما يَصْنَعُونَ
-</p>
+</td>
+  <td>
+      <span>
+        (Q, Nur/24:30)
+  </td>
+<td><a class="play-button button"><img src="/assets/play.png"></a></td>
+</tr>
+</table>
 <p>Tell the believing men to lower their gaze and protect their private parts. That is purer for them.
 Indeed, Allah is All-aware of what they do. (Q, Nur/24:30)</p>
 <p style="font-family: 'B Badr'; direction: rtl; text-align: center; font-size: 22px; font-weight: bold;">

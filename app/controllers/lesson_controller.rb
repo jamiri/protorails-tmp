@@ -4,8 +4,8 @@ class LessonController < ApplicationController
     #exception handling required!
     @categories = Category.roots
     @lesson = Lesson.single_show(params[:slug]).first
-    @lesson_sub_category = @lesson.category
-    @lesson_category = @lesson_sub_category.parent
+    @lesson_category = @lesson.category
+    @lesson_parent_category = @lesson_category.parent
     @tags = @lesson.tags
     @root_discussion_posts = DiscussionPost.root_posts_for(@lesson.id)
     @references = @lesson.references
