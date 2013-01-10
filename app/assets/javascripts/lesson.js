@@ -1,58 +1,63 @@
 jQuery(function ($) {
 
+    //---------------------------------------------lesson content tabbed area-----------------------------
     $('#Lesson_Content ul.nav li a').click(function (e) {
         e.preventDefault();
+
         if ($(this).hasClass('current'))
             return;
-        else
-        {
+        else {
             $('#Lesson_Content ul.nav li a').removeClass('current');
             $(this).addClass('current');
+            // This variable is used to cache selected jQuery object
+            var activatingTab = $('#Tab_Content >div#' + this.title);
+            var h;
+            if (this.title == 'MicroBlog' && tabContentUtil.DetailsAreDisplayed)
+               h = tabContentUtil.detailsHeight;
+            else h = activatingTab.height();
+
+            $('#Tab_Content').animate({
+                'height':h
+            });
             $.when($('#Tab_Content >div').fadeOut()).done(function () {
-                $('#Tab_Content >div#' + this.title).fadeIn();
-            }.bind(this));
+                activatingTab.fadeIn();
+            });
         }
     });
 
-    //---------------------------------------------switch post view in Micro Blog----------------------------------
-    $('#summaries li a.switch').click(function(){
+    //---------------------------------------------Show detailed view in Micro Blog----------------------------------
+    $('#summaries li a.switch').click(function () {
 
         $('#summaries').css("display", "none");
+        tabContentUtil.DetailsAreDisplayed = true;
 
         var id = $(this).parent().parent().attr("data-order");
-        var h =  $('#details li[data-order="' + id + '"]').height();
-
+        var h = $('#details li[data-order="' + id + '"]').height();
+        tabContentUtil.detailsHeight = h;
         $('#details').addClass('microblog-details-hidden');
         $('#details li[data-order="' + id + '"]').css("display", "block");
-        $('#Tab_Content').css("height", h );
+        $('#Tab_Content').height(h);
 
         $('#details').css("left", "940px");
         $('#details').animate({
-            left: '0'
-        }, 200);
-
+            left:'0'
+        }, 800);
     });
 
-    $('#details a.switch').click(function(){
-
+    //---------------------------------------------Return to summaries view in Micro Blog----------------------------------
+    $('#details a.switch').click(function () {
         $(this).parent().parent().css("display", "none");
-        $('#Tab_Content').css("height", "");
+        tabContentUtil.DetailsAreDisplayed = false;
+        var summaries = $('#summaries');
+        var h = summaries.height();
+        $('#Tab_Content').height(h);
         $('#details').removeClass('microblog-details-hidden');
-
-
-
-        $('#summaries').animate({
-            width: 'toggle'}, 200);
-
-//        $(this).parent().parent().css("display", "none");
-//        $('#summaries').css("display", "block");
-
+        summaries.animate({
+            width:'toggle'}, 800);
     });
-    //---------------------------------------------switch post view in Micro Blog----------------------------------
 
     //---------------------------------------------append reply post to it's parent post----------------------------------
-    function reply(){
-
+    function reply() {
         var $user = $('#reply-form input[type=text]').val();
         var $postText = $('#reply-form textarea').val();
 
@@ -60,16 +65,21 @@ jQuery(function ($) {
             '<div class="reply">' +
             '<span class="id">' +
             $user
-            +'<a class="vote-up" title="vote up this!">&nbsp;</a>' +
+            + '<a class="vote-up" title="vote up this!">&nbsp;</a>' +
             '<a class="vote-down" title="vote down this!">&nbsp;</a>' +
             '<a class="reply-button" title="reply to this post!">&nbsp;</a>' +
-            '</span>'+
-            '<p>'+
+            '</span>' +
+            '<p>' +
             $postText
-            +'</p>'
-            +'</div>'
+            + '</p>'
+            + '</div>'
             + '');
     }
-    //---------------------------------------------append reply post to it's parent post----------------------------------
 });
-    
+
+// The purpose of this object is to overcome problem of switching tabs when microblog summaries are displayed
+var tabContentUtil = {
+    detailsHeight: null,
+    DetailsAreDisplayed: false
+};
+
