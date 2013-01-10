@@ -26,7 +26,8 @@ jQuery(function ($) {
     });
 
     //---------------------------------------------Show detailed view in Micro Blog----------------------------------
-    $('#summaries li a.switch').click(function () {
+    $('#summaries li a.switch').click(function (e) {
+        e.preventDefault();
 
         $('#summaries').css("display", "none");
         tabContentUtil.DetailsAreDisplayed = true;
@@ -45,7 +46,9 @@ jQuery(function ($) {
     });
 
     //---------------------------------------------Return to summaries view in Micro Blog----------------------------------
-    $('#details a.switch').click(function () {
+    $('#details a.switch').click(function (e) {
+        e.preventDefault();
+
         $(this).parent().parent().css("display", "none");
         tabContentUtil.DetailsAreDisplayed = false;
         var summaries = $('#summaries');
