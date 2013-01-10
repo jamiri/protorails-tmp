@@ -11,7 +11,7 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible :name, :description
+  attr_accessible :name, :description, :parent
 
   has_many :sub_categories, :class_name => "Category",
            :foreign_key => "parent_id"

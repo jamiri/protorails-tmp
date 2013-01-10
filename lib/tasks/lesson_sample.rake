@@ -5,7 +5,9 @@ namespace :lesson do
   desc "Create sample lesson"
   task :create_sample => :environment do
 
-    category = Category.new(:name => "Obligatory Acts")
+
+    parent = Category.new(:name => "Obligatory Acts")
+    category = Category.new(:name => "Hijab", :parent => parent)
 
     lesson = Lesson.new(
         :title => "Hijab in the Qur'an",
