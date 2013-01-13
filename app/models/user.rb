@@ -8,6 +8,7 @@
 #  mail_address :string(255)
 #  name         :string(255)
 #  password     :string(255)
+#  salt         :string(255)
 #  updated_at   :datetime         not null
 #
 

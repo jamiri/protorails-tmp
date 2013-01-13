@@ -27,15 +27,20 @@ These are verses 30 and 31 of surah al Nur.</p>
   <td>
       <span>
         (Q, Nur/24:30)
+      </span>
   </td>
 <td><a class="play-button button"><img src="/assets/play.png"></a></td>
 </tr>
 </table>
 <p>Tell the believing men to lower their gaze and protect their private parts. That is purer for them.
 Indeed, Allah is All-aware of what they do. (Q, Nur/24:30)</p>
-<p style="font-family: 'B Badr'; direction: rtl; text-align: center; font-size: 22px; font-weight: bold;">
+<table class="verse">
+<tr>
+    <td>
 وَ قُلْ لِلْمُؤْمِناتِ يَغْضُضْنَ مِنْ أَبْصارِهِنَّ وَ يَحْفَظْنَ فُرُوجَهُنَّ
-</p>
+</td>
+</tr>
+</table>
 <p>And tell the believing women to lower their gaze and protect their private parts</p>
 <p style="text-align: justify;">
 These two commands indicate the spirit of hijab. It is first and foremost, an attitude and response
@@ -48,9 +53,13 @@ fornication as is encapsulated in the phrase, "protect their private parts."</p>
 The spirit of hijab, which includes both men and women alike, is then followed by rules on
 clothing which are the outward or physical aspect of hijab. These are exclusively directed
 to women, indicated by the gender of the verbs involved,</p>
-<p style="font-family: 'B Badr'; direction: rtl; text-align: center; font-size: 22px; font-weight: bold;">
+<table class="verse">
+<tr>
+    <td>
  وَ لا يُبْدينَ زينَتَهُنَّ إِلاَّ ما ظَهَرَ مِنْها
-</p>
+</td>
+</tr>
+</table>
 <p>and do not show off their adornments except that which is apparent.</p>
 <p style="text-align: justify;">
 This could be because, as has been scientifically proven, men are sexually more
@@ -74,9 +83,13 @@ his wife and all the accessories that go along with it.</p>
 <p style="text-align: justify;">
 This shows that Islam is not a prudish religion at all, but is just restrictive about
 sexual expressions and enticements in the public sphere. The verse continues:</p>
-<p style="font-family: 'B Badr'; direction: rtl; text-align: center; font-size: 22px; font-weight: bold;">
-  وَ لْيَضْرِبْنَ بِخُمُرِهِنَّ عَلى‏ جُيُوبِهِنَّ
-</p>
+<table class="verse">
+<tr>
+    <td>
+وَ لْيَضْرِبْنَ بِخُمُرِهِنَّ عَلى‏ جُيُوبِهِنَّ
+</td>
+</tr>
+</table>
 <p>and to draw their head coverings (khumurihinna) over their bosoms (juyubihinna).</p>
 <p style="text-align: justify;">
 This phrase indicates the origin of the classical hijab look: A head covering or khimaar,
@@ -172,6 +185,9 @@ of the most potent forces that threaten social stability and civilization. By
 destroying trust, respect and commitment between the sexes, fornication and
 adultery destroy the fundamental building block of the society, the family.
 BLOG
+    ).comments.build(
+        :comment => "Sample comment",
+        :user => User.new(:name => "Sample user")
     )
 
     lesson.blog_posts.build(
@@ -270,6 +286,22 @@ sons, etc.",
         :pronun_file => "miraaj.mp3"
     )
 
+    #----------discussion---------
+    lesson.discussion_posts.build(
+       :content => "How was Hijab enacted in Islam?",
+       :user => User.new(:name => "Ali")
+    ).replies.build(
+        :content => "I don't know! :)",
+        :user => User.new(:name => "Alex")
+    ).replies.build(
+        :content => "Please don't post irrelevant answers!",
+        :user => User.new(:name => "Sohaib")
+    )
+
+#----------tags---------
+    lesson.tags.build(:name => "Ahkam")
+    lesson.tags.build(:name => "Hijab")
+    lesson.tags.build(:name => "Women")
 
     lesson.save
 
