@@ -26,11 +26,12 @@ $(document).ready(function(){
 	player.jPlayer({
 			ready: function () {
       		$(this).jPlayer("setMedia", {
-				mp3: "http://robtowns.com/music/come_thou_fount.mp3"
+				mp3: "/assets/01.mp3",
+                oga: "/assets/01.ogg"
       		});
     	},
     	swfPath: "",
-		supplied: "mp3"
+		supplied: "mp3, oga"
   	});  
 
 
