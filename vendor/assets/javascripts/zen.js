@@ -26,7 +26,7 @@ $(document).ready(function(){
 	player.jPlayer({
 			ready: function () {
       		$(this).jPlayer("setMedia", {
-				mp3: "/assets/01.mp3",
+				mp3: "/assets/hijab-0.mp3",
                 oga: "/assets/01.ogg"
       		});
     	},
