@@ -23,6 +23,11 @@ $wrapper-width: 960px
   -moz-border-radius: 0
   -webkit-border-radius: 0
 
+.all-round
+  border-radius: 5px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+
 
 div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, audio, span, table
   border-radius: 5px
@@ -280,6 +285,7 @@ a.reply-button
 
         #g-login
           background: url("g-login.png")
+
     #sign-in
       .triangle
         margin: -108px 20px 0 0
@@ -1429,6 +1435,89 @@ form#suggest-something
 
   a:hover
     background: #ffd813
+
+
+//------updates-------------------------------------------------------
+
+
+header
+  h1, h3
+    display: inline-block
+    margin: 20px 10px 0
+
+  h1
+    margin-right: 350px
+
+section#updates
+  padding-top: 0
+  position: relative
+
+  ul
+    list-style-type: none
+    padding: 0 0 0 5px
+
+    li.selected
+      background-color: rgba(0,0,0,0.1)
+      border-left: 1px solid #888
+
+    li
+      @extend .not-round
+      @include trans(background, 0.5s)
+      background-image: url(lesson_icon.png)
+      background-position: left
+      background-repeat: no-repeat
+      padding: 5px 20px
+      padding-left: 70px
+      border-bottom: 1px solid #888
+      width: 500px
+
+      &:hover
+        background-color: rgba(0,0,0,0.05)
+
+      &:first-of-type
+        border-top: 1px solid #888
+
+
+      div.date
+        p
+          @extend .all-round
+          background: rgba(0,0,0,0.2)
+          padding: 5px
+          width: 140px
+          text-align: center
+          margin: 0 20px
+
+      div
+        display: inline-block
+        vertical-align: middle
+        padding-top: 5px
+        padding-bottom: 5px
+
+        h2, p
+          margin: 2px auto
+
+  aside
+    @include round(top-right, 5px)
+    @include round(bottom-right, 5px)
+    position: absolute
+    width: 344px
+    background: rgba(0,0,0,0.1)
+    right: 5px
+    top: 5px
+    bottom: 5px
+    padding: 10px
+
+    a.more
+      background: #99c000
+      font-size: 0.8em
+      font-weight: bold
+      padding: 0.5em 1em
+      border: none
+      position: absolute
+      right: 10px
+      bottom: 10px
+
+
 
 //------footer--------------------------------------------------------
 

@@ -59,26 +59,9 @@ jQuery(function ($) {
             width:'toggle'}, 800);
     });
 
-    //---------------------------------------------append reply post to it's parent post----------------------------------
-    function reply() {
-        var $user = $('#reply-form input[type=text]').val();
-        var $postText = $('#reply-form textarea').val();
-
-        $('#Discussion div.post-body').append('' +
-            '<div class="reply">' +
-            '<span class="id">' +
-            $user +
-            '<a class="vote-up" title="vote up this!">&nbsp;</a>' +
-            '<a class="vote-down" title="vote down this!">&nbsp;</a>' +
-            '<a class="reply-button" title="reply to this post!">&nbsp;</a>' +
-            '</span>' +
-            '<p>' +
-            $postText +
-            '</p>' +
-            '</div>' +
-            '');
-    }
 });
+
+
 
 // This object helps to overcome problem of switching tabs when microblog summaries are displayed
 var tabContentUtil = {
