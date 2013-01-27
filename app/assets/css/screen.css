@@ -1,9 +1,9 @@
-.not-round, #site-header, #row1 #logo, #row1 #signing #sign-up #refresh, #row2, section header, section header a.title, #lessons #player, #lessons #lesson_header, #MicroBlog ul li, #MicroBlog #summaries li h2, #MicroBlog #summaries li div a.switch, #MicroBlog #details > li h2, #MicroBlog #details > li a.switch, #MicroBlog #details h3, #QandA div, #Discussion div.post-body, #Discussion div.post-body div.reply, #Questions ul li, #Discussions ul li, #Questions ul li a.profile, #Discussions ul li a.profile, #categories .tab-content ul.sub > li h3 p, #categories .tab-content ul.sub > li > a, form#suggest-something h2, section#updates ul li {
+.not-round, #site-header, #row1 #logo, #row1 #signing #sign-up #refresh, #row2, section header, section header a.title, #lessons #player, #lessons #lesson_header, #MicroBlog ul li, #MicroBlog #summaries li h2, #MicroBlog #summaries li div a.switch, #MicroBlog #details > li h2, #MicroBlog #details > li a.switch, #MicroBlog #details h3, #QandA div, #Discussion div.post-body, #Discussion div.post-body div.reply, #Questions ul li, #Discussions ul li, #Questions ul li a.profile, #Discussions ul li a.profile, #categories .tab-content ul.sub > li h3 p, #categories .tab-content ul.sub > li > a, form#suggest-something h2, section#all-content ul li {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0; }
 
-.all-round, section#updates ul li div.date p {
+.all-round, section#all-content ul li div.date p {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px; }
@@ -1057,69 +1057,74 @@ header h1, header h3 {
   display: inline-block;
   margin: 20px 10px 0; }
 header h1 {
-  margin-right: 350px; }
+  margin-right: 300px; }
 
-section#updates {
+section#all-content {
   padding-top: 0;
   position: relative; }
-  section#updates ul {
+  section#all-content ul {
     list-style-type: none;
-    padding: 0 0 0 5px; }
-    section#updates ul li.selected {
-      background-color: rgba(0, 0, 0, 0.1);
-      border-left: 1px solid #888888; }
-    section#updates ul li {
+    padding: 0; }
+    section#all-content ul li.micro-blog {
+      background: url(material_icons.png) 0 -59px;
+      background-repeat: no-repeat; }
+    section#all-content ul li.discussion {
+      background: url(material_icons.png) 0 -123px;
+      background-repeat: no-repeat; }
+    section#all-content ul li.q-and-a {
+      background: url(material_icons.png) 0 -187px;
+      background-repeat: no-repeat; }
+    section#all-content ul li.lesson {
+      background: url(material_icons.png) 0 5px;
+      background-repeat: no-repeat; }
+    section#all-content ul li {
       -webkit-transition: background 0.5s ease-out;
       -moz-transition: background 0.5s ease-out;
       -o-transition: background 0.5s ease-out;
       transition: background 0.5s ease-out;
-      background-image: url(lesson_icon.png);
-      background-position: left;
-      background-repeat: no-repeat;
-      padding: 5px 20px;
+      padding: 0;
       padding-left: 70px;
-      border-bottom: 1px solid #888888;
-      width: 500px; }
-      section#updates ul li:hover {
-        background-color: rgba(0, 0, 0, 0.05); }
-      section#updates ul li:first-of-type {
-        border-top: 1px solid #888888; }
-      section#updates ul li div.date p {
-        background: rgba(0, 0, 0, 0.2);
-        padding: 5px;
-        width: 140px;
-        text-align: center;
-        margin: 0 20px; }
-      section#updates ul li div {
+      border-bottom: 1px solid #dddddd;
+      opacity: 0.7; }
+      section#all-content ul li:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        opacity: 1; }
+        section#all-content ul li:hover div.date {
+          opacity: 0; }
+        section#all-content ul li:hover a.more {
+          display: inline-block; }
+      section#all-content ul li:last-of-type {
+        border: none; }
+      section#all-content ul li div {
         display: inline-block;
         vertical-align: middle;
         padding-top: 5px;
         padding-bottom: 5px; }
-        section#updates ul li div h2, section#updates ul li div p {
-          margin: 2px auto; }
-  section#updates aside {
-    border-top-right-radius: 5px;
-    -moz-border-top-right-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    -moz-border-bottom-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    position: absolute;
-    width: 344px;
-    background: rgba(0, 0, 0, 0.1);
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
-    padding: 10px; }
-    section#updates aside a.more {
-      background: #99c000;
-      font-size: 0.8em;
-      font-weight: bold;
-      padding: 0.5em 1em;
-      border: none;
-      position: absolute;
-      right: 10px;
-      bottom: 10px; }
+        section#all-content ul li div h2, section#all-content ul li div p {
+          margin: 2px 0; }
+      section#all-content ul li div.date p {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 5px;
+        width: 120px;
+        text-align: center;
+        margin: 0; }
+      section#all-content ul li div.description {
+        width: 730px;
+        margin-left: 10px; }
+        section#all-content ul li div.description a.title {
+          color: #55a1ff; }
+      section#all-content ul li a.more {
+        float: right;
+        background: #99c000;
+        font-weight: bold;
+        text-align: center;
+        padding: 5px;
+        border: none;
+        position: absolute;
+        width: 120px;
+        right: 19px;
+        margin-top: 20px;
+        display: none; }
 
 footer p {
   margin: 10px;

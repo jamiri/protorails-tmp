@@ -44,11 +44,9 @@ class HomeController < ApplicationController
     respond_to do |format|
       format.json { render :json => random_hash }
     end
-
-
   end
 
-  def test
+  def all_content
   end
 
 end
