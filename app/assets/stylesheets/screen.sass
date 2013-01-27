@@ -23,6 +23,11 @@ $wrapper-width: 960px
   -moz-border-radius: 0
   -webkit-border-radius: 0
 
+.all-round
+  border-radius: 5px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+
 
 div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, audio, span, table
   border-radius: 5px
@@ -280,6 +285,7 @@ a.reply-button
 
         #g-login
           background: url("g-login.png")
+
     #sign-in
       .triangle
         margin: -108px 20px 0 0
@@ -1429,6 +1435,103 @@ form#suggest-something
 
   a:hover
     background: #ffd813
+
+
+//------ all-content -------------------------------------------------------
+
+header
+  h1, h3
+    display: inline-block
+    margin: 20px 10px 0
+
+  h1
+    margin-right: 300px
+
+section#all-content
+  padding-top: 0
+  position: relative
+
+  ul
+    list-style-type: none
+    padding: 0
+
+    li.lesson
+      background: url(material_icons.png) 0 5px
+      background-repeat: no-repeat
+
+    li.micro-blog
+      background: url(material_icons.png) 0 -59px
+      background-repeat: no-repeat
+
+    li.discussion
+      background: url(material_icons.png) 0 -123px
+      background-repeat: no-repeat
+
+    li.q-and-a
+      background: url(material_icons.png) 0 -187px
+      background-repeat: no-repeat
+
+    li
+      @extend .not-round
+      @include trans(background, 0.5s)
+      padding: 0
+      padding-left: 70px
+      border-bottom: 1px solid #ddd
+      opacity: 0.7
+
+      &:hover
+        background-color: rgba(0,0,0,0.05)
+        opacity: 1
+
+        div.date
+          opacity: 0
+
+        a.more
+          display: inline-block
+
+      &:last-of-type
+        border: none
+
+      div
+        display: inline-block
+        vertical-align: middle
+        padding-top: 5px
+        padding-bottom: 5px
+
+        h2, p
+          margin: 2px 0
+
+      div.date
+        p
+          @extend .all-round
+          background: rgba(0,0,0,0.2)
+          padding: 5px
+          width: 120px
+          text-align: center
+          margin: 0
+
+      div.description
+        width: 730px
+        margin-left: 10px
+
+        a.title
+          color: #55a1ff
+
+
+
+      a.more
+        float: right
+        background: #99c000
+        font-weight: bold
+        text-align: center
+        padding: 5px
+        border: none
+        position: absolute
+        width: 120px
+        right: 19px
+        margin-top: 20px
+        display: none
+
 
 //------footer--------------------------------------------------------
 
