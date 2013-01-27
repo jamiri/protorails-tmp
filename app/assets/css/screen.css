@@ -1065,6 +1065,9 @@ section#all-content {
   section#all-content ul {
     list-style-type: none;
     padding: 0; }
+    section#all-content ul li.lesson {
+      background: url(material_icons.png) 0 5px;
+      background-repeat: no-repeat; }
     section#all-content ul li.micro-blog {
       background: url(material_icons.png) 0 -59px;
       background-repeat: no-repeat; }
@@ -1073,9 +1076,6 @@ section#all-content {
       background-repeat: no-repeat; }
     section#all-content ul li.q-and-a {
       background: url(material_icons.png) 0 -187px;
-      background-repeat: no-repeat; }
-    section#all-content ul li.lesson {
-      background: url(material_icons.png) 0 5px;
       background-repeat: no-repeat; }
     section#all-content ul li {
       -webkit-transition: background 0.5s ease-out;
