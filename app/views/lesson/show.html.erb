@@ -2,10 +2,10 @@
 <!-- /-- Body -->
 <%= render :partial => "lesson/partial/categories" %>
 
-
-<section id="lessons">
+<section id="current-lesson">
 
   <header>
+    <div id="current-rating"></div>
     <h1><%= @lesson.title %></h1>
     <%= render :partial => "lesson/partial/tags" %>
     <%= render :partial => "lesson/partial/audio" %>
@@ -13,7 +13,7 @@
     <%= render :partial => "lesson/partial/rating" %>
   </header>
 
-  <div id="Lesson_Content">
+  <div id="lesson-content">
 
     <ul class="nav">
       <li><a title="Script" class="current">Main Script</a></li>

@@ -1,4 +1,7 @@
 $wrapper-width: 960px
+$green: #99c000
+$blue: #67bbff
+$orange: #e8ae00
 
 @mixin trans($what, $duration)
   -webkit-transition: $what $duration ease-out
@@ -34,10 +37,11 @@ div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, aud
   -moz-border-radius: 5px
   -webkit-border-radius: 5px
 
+
 body:before
   content: ""
   position: absolute
-  z-index: -1
+  z-index: -2
   top: 0
   bottom: 0
   left: 0
@@ -55,7 +59,7 @@ body
 body:after
   content: ""
   position: absolute
-  z-index: -1
+  z-index: -2
   top: 0
   bottom: 0
   left: 0
@@ -68,7 +72,7 @@ body:after
   display: none
 
 
-#wrapper, section, footer
+#wrapper, section
   width: $wrapper-width
   margin-right: auto
   margin-left: auto
@@ -89,12 +93,12 @@ body:after
 
 
 .btn
-  background: #99c000
+  background: $green
   font-size: 0.8em
   font-weight: bold
   padding: 0.5em 1em
   border: none
-  @include trans(background, 1s)
+  @include trans(background, 0.3s)
 
 
 a, a:visited
@@ -103,11 +107,11 @@ a, a:visited
   outline: 0
   cursor: pointer
   cursor: hand
-  @include trans(background, 1s)
+  @include trans(background, 0.3s)
 
 
 .btn:hover
-  background: #c9ef00
+  background: lighten($green, 5%)
 
 form
 
@@ -124,7 +128,7 @@ form
     color: #444
 
 .active, .current-cat, .current-sub
-  background: #67bbff !important
+  background: $blue !important
 
 a.vote-up, a.vote-down, a.reply-button
   display: inline-block
@@ -182,7 +186,7 @@ a.reply-button
 
   #title
     font-size: 1.2em
-    color: #b3d900
+    color: $green
     display: table-cell
     width: 390px
     padding: 10px
@@ -218,11 +222,11 @@ a.reply-button
 
 
     #joinbtn, .cancel
-      background: #e8ae00
+      background: $orange
 
 
       &:hover
-        background: #ffc600
+        background: lighten($orange, 5%)
 
     p
       font-size: 0.9em
@@ -357,7 +361,8 @@ a.reply-button
         font-weight: bold
 
       a:hover, a:active, a:focus
-        background: rgba(103, 187, 255, 0.5)
+        background: $blue
+        //rgba(103, 187, 255, 0.5)
 
     #search
       display: table-cell
@@ -416,67 +421,62 @@ section
     display: table
     width: 98%
     margin: 1px auto 0
-    border-bottom: 1px groove #888
+    border-bottom: 1px inset #aaa
     padding: 0
+    padding-top: 5px
+
 
 
     a:not(.title)
       display: inline-block
-      margin: 7px 1px
-      padding: 3px 20px
-      vertical-align: middle
-      text-align: center
+      margin: 5px 0 15px 5px
+      text-align: top
       color: #000000
+      font-size: 14px
+      height: 22px
+      padding: 1px  24px
       text-decoration: none
       border: 1px solid rgba(0,0,0, .2)
-      -moz-box-shadow: inset 0 0 5px #888
-      -webkit-box-shadow: inset 0 0 5px#888
-      box-shadow: inset 0 0 5px #888
 
 
 
     a.title
       @extend .not-round
-      color: rgb(69, 168, 255)
-      width: 135px
+      color: darken($blue, 10%)
+      width: 175px
+      height: 30px
       font-weight: bold
       font-size: 20px
       display: inline-block
-      margin: 2px 5px
-      padding: 3px 17px
-      vertical-align: middle
       text-align: center
+      vertical-align: middle
       border-right: 2px solid rgba(0,0,0, 0.7)
 
-
-
-    //a.title:hover
-      background: rgba(103, 187, 255, 1)
+    a.title:hover
+      text-decoration: underline
 
 
 
     a.latest
-      background: rgba(179, 217, 0, 0.5)
-    //width: 50px
+      background: lighten($green, 5%)
 
     a.latest:hover
-      background: rgba(179, 217, 0, 1)
+      background: lighten($green, 10%)
 
 
 
     a.hottest
-      background: rgba(255, 198, 0, 0.5)
-    //width: 70px
+      background: lighten($orange, 5%)
 
     a.hottest:hover
-      background: rgba(255, 198, 0, 1)
+      background: lighten($orange, 15%)
 
 
     a.rss
       background: url("rss.png") center
-      opacity: 0.7
-      width: 28px
-      height: 28px
+      opacity: 0.8
+      width: 22px
+      height: 22px
       padding: 0
 
 
@@ -507,6 +507,7 @@ section
 //--------about-----------------------------------------------------------
 #about
   background: rgb(246, 246, 246)
+  margin-bottom: 630px
 
   .article
     display: table-cell
@@ -550,14 +551,14 @@ section
 //----------lessons-------------------------------------------------------
 
 #lessons
-  background: transparent
-  border: none
-  -moz-box-shadow: none
-  box-shadow: none
-  -webkit-box-shadow: none
+  //background: transparent
+  //border: none
+  //-moz-box-shadow: none
+  //box-shadow: none
+  //-webkit-box-shadow: none
 
   header
-    border: none
+    //border: none
 
     h1
       float: left
@@ -757,7 +758,7 @@ section
 
 
 //----------Lesson Content Tabbed Area-----------------------------------------------
-#Lesson_Content
+#lesson-content
   overflow: hidden
 
   ul
@@ -1540,12 +1541,123 @@ section#all-content
         margin-top: 20px
         display: none
 
+//------ current lesson ----------------------------------------------
+
+section#current-lesson
+  background: transparent
+  border: none
+  box-shadow: none
+
+  header
+    border: none
+    background: url(lesson-header.png) center center no-repeat
+    width: $wrapper-width
+    height: 160px
+    position: relative
+    margin-bottom: 50px
+
+    div#current-rating
+      position: absolute
+      left: 0
+      top: 0
+      background: url(rating-circle.png) top left no-repeat
+      width: 42px
+      height: 42px
+      margin-right: 5px
+
+    h1
+      margin: -7px 0 0 50px
+      color: darken($blue, 10%)
+
+    ul#tags
+      margin-left: 10px
+      list-style-type: none
+      background: url(tags.png) center left no-repeat
+
+      li
+        display: inline-block
+        margin: 9px 5px 0 0
+        text-align: left
+        padding: 0
+
+        a
+          border: none
+          padding: 0
+          color: #eee
+
+        a:hover
+          text-decoration: underline
+
+      li:after
+        content: ","
+        font-weight: bold
+        color: #eee
+  
+    div.track
+      position: absolute
+      top: 0
+      left: 400px
+      height: 160px
+      width: 160px
+      background: url(player.png) center center no-repeat
+
+
+    div#rate-this-lesson
+      position: absolute
+      top: 0
+      right: 0
+
+      div#rate-this-circle
+        background: url(rating-circle.png) top right no-repeat
+        width: 177px
+        height: 42px
+        margin-left: 5px
+        padding-top: 8px
+
+
+        &:before
+          content: "Rate this lesson: "
+          font-size: 18px
+          color: #444
+
+
+    div.description
+      position: absolute
+      right: 0
+      top: 70px
+
+      a
+        border: none
+        //display: block
+        margin: 0
+        color: #eee
+
+
+
+
+
+
+
+
+
+
+
+
 
 //------footer--------------------------------------------------------
 
 
 footer
+  width: 100%
+  background: url(footer.png) bottom left repeat-x
+  height: 560px
+  position: fixed
+  z-index: -1
+  bottom: 0
+  opacity: 0.3
+
   p
-    margin: 10px
-    text-align: center
-    color: #888
+    position: absolute
+    bottom: 1px
+    left: 5px
+    color: #ccc
