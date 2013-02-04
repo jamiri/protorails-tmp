@@ -2,8 +2,6 @@ require "digest/md5"
 
 # This module currently works with http://captchas.net
 module Captcha
-
-
   def Captcha.get_text(secret, random, alphabet = 'abcdefghijklmnopqrstuvwxyz', character_count = 6)
     if character_count < 1 || character_count > 16
       raise "Character count of #{character_count} is outside the range of 1-16"
@@ -28,5 +26,4 @@ module Captcha
   def Captcha.generate_random_text(size)
     (0...size).map{ ('a'..'z').to_a[rand(26)] }.join
   end
-
 end

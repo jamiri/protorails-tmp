@@ -19,3 +19,10 @@
 
 # Ignore asset files
 /public/assets/*
+
+# Ignore vim temporary files
+*~
+*.swp
+*.swo
+# Ignore ctags tags
+tags
