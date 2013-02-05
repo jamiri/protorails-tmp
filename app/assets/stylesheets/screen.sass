@@ -1,7 +1,13 @@
 $wrapper-width: 960px
-$green: #99c000
-$blue: #67bbff
-$orange: #e8ae00
+
+$header-nav-color: #e8ae00
+$links-color: #99c000
+$buttons-color: #67bbff
+
+//e8ae00
+//67bbff
+//b3d837
+//99c000
 
 @mixin trans($what, $duration)
   -webkit-transition: $what $duration ease-out
@@ -93,7 +99,7 @@ body:after
 
 
 .btn
-  background: $green
+  background: $buttons-color
   font-size: 0.8em
   font-weight: bold
   padding: 0.5em 1em
@@ -111,7 +117,7 @@ a, a:visited
 
 
 .btn:hover
-  background: lighten($green, 5%)
+  background: lighten($buttons-color, 5%)
 
 form
 
@@ -128,7 +134,7 @@ form
     color: #444
 
 .active, .current-cat, .current-sub
-  background: $blue !important
+  background: $header-nav-color !important
 
 a.vote-up, a.vote-down, a.reply-button
   display: inline-block
@@ -166,8 +172,9 @@ a.reply-button
 //---------slogan,logo,signing----------------------------------------------------
 
 #row0
-  background: url("hr.png")
+  background: url("dhr.png")
   width: 100%
+  display: none
 
   #towhid
     background: url("towhid.png") top center no-repeat
@@ -186,7 +193,7 @@ a.reply-button
 
   #title
     font-size: 1.2em
-    color: $green
+    color: $links-color
     display: table-cell
     width: 390px
     padding: 10px
@@ -222,11 +229,11 @@ a.reply-button
 
 
     #joinbtn, .cancel
-      background: $orange
+      background: $links-color
 
 
       &:hover
-        background: lighten($orange, 5%)
+        background: lighten($links-color, 5%)
 
     p
       font-size: 0.9em
@@ -361,7 +368,7 @@ a.reply-button
         font-weight: bold
 
       a:hover, a:active, a:focus
-        background: $blue
+        background: $header-nav-color
         //rgba(103, 187, 255, 0.5)
 
     #search
@@ -442,7 +449,7 @@ section
 
     a.title
       @extend .not-round
-      color: darken($blue, 10%)
+      color: $header-nav-color
       width: 175px
       height: 30px
       font-weight: bold
@@ -458,18 +465,18 @@ section
 
 
     a.latest
-      background: lighten($green, 5%)
+      background: $buttons-color
 
     a.latest:hover
-      background: lighten($green, 10%)
+      background: lighten($buttons-color, 10%)
 
 
 
     a.hottest
-      background: lighten($orange, 5%)
+      background: lighten($links-color, 5%)
 
     a.hottest:hover
-      background: lighten($orange, 15%)
+      background: lighten($links-color, 15%)
 
 
     a.rss
@@ -517,7 +524,7 @@ section
     top: -20px
 
     h3
-      color: #67bbff
+      color: $header-nav-color
     p
       text-align: justify
       padding-right: 40px
@@ -525,7 +532,7 @@ section
 
       a
         text-decoration: none
-        color: #99c000
+        color: $buttons-color
         //background: #ffffe0
         padding: 1px 5px
         font-weight: bold
@@ -1349,10 +1356,10 @@ section#QD, section#suggestions
           text-align: center
           @include round(top-right, 0)
           @include round(top-left, 0)
-          background: rgba(153, 192, 0, 0.50)
+          background: desaturate(lighten($links-color, 30%), 50%)
 
         >a:hover
-          background: rgba(153, 192, 0, 1)
+          background: $links-color
 
 
 
@@ -1412,7 +1419,7 @@ form#suggest-something
     border-bottom: 1px solid #ccc
     margin: 5px 0 10px
     padding-left: 10px
-    color: #67bbff
+    color: $header-nav-color
 
   input, textarea
     color: #888
@@ -1440,10 +1447,10 @@ form#suggest-something
     margin-top: 5px
     padding-left: 19px
     padding-right: 19px
-    background: #ffc600
+    background: $links-color
 
   a:hover
-    background: #ffd813
+    background: lighten($links-color, 10%)
 
 
 //------ all-content -------------------------------------------------------
@@ -1530,10 +1537,10 @@ section#all-content
 
       a.more
         float: right
-        background: #99c000
+        background: $links-color
         font-weight: bold
         text-align: center
-        padding: 5px
+        padding: 1px
         border: none
         position: absolute
         width: 120px
@@ -1567,7 +1574,7 @@ section#current-lesson
 
     h1
       margin: -7px 0 0 50px
-      color: darken($blue, 10%)
+      color: darken($header-nav-color, 10%)
 
     ul#tags
       margin-left: 10px
