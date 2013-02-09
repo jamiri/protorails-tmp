@@ -424,7 +424,7 @@ section
     a.title
       @extend .not-round
       color: $header-nav-color
-      width: 175px
+      width: 275px
       height: 30px
       font-weight: bold
       font-size: 20px
@@ -1023,7 +1023,6 @@ section
       display: block
 
 
-
     .question
       background: rgba(0,0,0,0.2)
       padding: 20px
@@ -1526,17 +1525,19 @@ section#all-content
 div#breadcrumb
   @extend .not-round
   border-bottom: 1px inset
-  margin: 0px 0px 70px
+  margin: 0px 10px 70px
   padding: 5px
+  padding-left: 0
 
   a
-    padding: 0px 10px
+    padding: 0 5px
+    color: #444
 
   a:hover
     background: $header-nav-color
 
   span:after
-    color: #000000
+    color: #444
     background: transparent
     content: " ► "
     font-size: 22px
