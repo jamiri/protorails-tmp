@@ -2,24 +2,19 @@ class LessonController < ApplicationController
 
   def show
     #exception handling required!
-    @categories = Category.roots
     @lesson = Lesson.single_show(params[:slug]).first
+    unless @lesson.present?
+      not_found('not found') and return
+    end
+    @categories = Category.roots
     @lesson_category = @lesson.category
     @lesson_parent_category = @lesson_category.parent
     @tags = @lesson.tags
     @root_discussion_posts = DiscussionPost.root_posts_for(@lesson.id)
     @references = @lesson.references
-
-    unless @lesson.present?
-      not_found('not found') and return
-    end
-
     @lesson_questions = Question.for_lesson(@lesson.id).limit(5)
-
     @lesson_questions_cnt = Question.where(:lesson_id => @lesson.id).count
-
     @microblogs = BlogPost.recent_paged(@lesson.id, 0)
-
     @lesson_microblogs_cnt = BlogPost.where(:lesson_id => @lesson.id).count
   end
 

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.3'
 
@@ -30,6 +30,9 @@ group :development do
   gem 'faker'
   gem 'rails-erd'
   gem 'hirb'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test do
