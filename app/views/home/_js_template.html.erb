@@ -19,3 +19,38 @@
     {{/each}}
   </ul>
 </script>
+
+<script id="question-template" type="text/x-handlebars-template">
+  <ul id="list_of_questions">
+    {{#each questions}}
+    <li>
+      <a href="#" class="profile">
+        <img src="">
+
+        {{user.name}}
+      </a>
+
+      <a href="#" class="post">
+        <p>{{question}}</p>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+</script>
+
+<script id="discussion-template" type="text/x-handlebars-template">
+  <ul id="list_of_discussion_posts">
+    {{#each posts}}
+    <li>
+      <a href="#" class="profile">
+        <img src="">
+        {{user.name}}
+      </a>
+
+      <a href="#" class="post">
+        <p>{{content}}</p>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+</script>

@@ -45,7 +45,6 @@ class HomeController < ApplicationController
       format.json { render :json => random_hash }
     end
 
-
   end
 
 end

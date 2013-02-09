@@ -22,6 +22,11 @@ Protorails::Application.routes.draw do
 
   match '/microblog/create', :to => 'microblog#create', :as => :create_microblog
 
+  match '/questions/latest', :to => 'question#latest', :as => :latest_questions
+  match '/questions/mostpop', :to => 'question#most_popular', :as => :mostpop_questions
+
+  match '/discussions/latest', :to => 'discussion_post#latest', :as => :latest_discussions
+
   match 'feedback' => 'home#feedback'
   match 'suggestion' => 'home#suggestion'
 
