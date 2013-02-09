@@ -1,20 +1,20 @@
 <% title("iosie VISITOR - #{@lesson.title}") %>
 <!-- /-- Body -->
-<%= render :partial => "lesson/partial/categories" %>
+<%= render :partial => "lesson/partial/breadcrumb" %>
 
-<section id="lessons">
+<section id="current-lesson">
 
   <header>
+    <div id="current-rating"></div>
     <h1><%= @lesson.title %></h1>
     <%= render :partial => "lesson/partial/tags" %>
+    <%= render :partial => "lesson/partial/audio" %>
+    <%= render :partial => "lesson/partial/description" %>
+    <%= render :partial => "lesson/partial/rating" %>
   </header>
 
-  <div id="lesson_header">
-    <%= render :partial => "lesson/partial/header" %>
-    <%= render :partial => "lesson/partial/audio" %>
-  </div>
+  <div id="lesson-content">
 
-  <div id="Lesson_Content">
     <ul class="nav">
       <li><a title="Script" class="current">Main Script</a></li>
       <li><a title="MicroBlog">Micro Blog</a></li>
@@ -31,8 +31,6 @@
       <%= render :partial => "lesson/partial/discussion" %>
       <%= render :partial => "lesson/partial/presentation" %>
       <%= render :partial => "lesson/partial/references" %>
-
-
     </div>
 
   </div> <!-- END Organic Tabs (Lesson Content) -->

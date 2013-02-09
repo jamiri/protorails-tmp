@@ -1,5 +1,14 @@
 $wrapper-width: 960px
 
+$header-nav-color: #e8ae00
+$links-color: #99c000
+$buttons-color: #67bbff
+
+//e8ae00
+//67bbff
+//b3d837
+//99c000
+
 @mixin trans($what, $duration)
   -webkit-transition: $what $duration ease-out
   -moz-transition:  $what $duration ease-out
@@ -34,10 +43,11 @@ div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, aud
   -moz-border-radius: 5px
   -webkit-border-radius: 5px
 
+
 body:before
   content: ""
   position: absolute
-  z-index: -1
+  z-index: -2
   top: 0
   bottom: 0
   left: 0
@@ -55,7 +65,7 @@ body
 body:after
   content: ""
   position: absolute
-  z-index: -1
+  z-index: -2
   top: 0
   bottom: 0
   left: 0
@@ -68,7 +78,7 @@ body:after
   display: none
 
 
-#wrapper, section, footer
+#wrapper, section
   width: $wrapper-width
   margin-right: auto
   margin-left: auto
@@ -89,12 +99,12 @@ body:after
 
 
 .btn
-  background: #99c000
+  background: $buttons-color
   font-size: 0.8em
   font-weight: bold
   padding: 0.5em 1em
   border: none
-  @include trans(background, 1s)
+  @include trans(background, 0.3s)
 
 
 a, a:visited
@@ -103,11 +113,11 @@ a, a:visited
   outline: 0
   cursor: pointer
   cursor: hand
-  @include trans(background, 1s)
+  @include trans(background, 0.3s)
 
 
 .btn:hover
-  background: #c9ef00
+  background: lighten($buttons-color, 5%)
 
 form
 
@@ -124,7 +134,7 @@ form
     color: #444
 
 .active, .current-cat, .current-sub
-  background: #67bbff !important
+  background: $header-nav-color !important
 
 a.vote-up, a.vote-down, a.reply-button
   display: inline-block
@@ -162,8 +172,9 @@ a.reply-button
 //---------slogan,logo,signing----------------------------------------------------
 
 #row0
-  background: url("hr.png")
+  background: url("dhr.png")
   width: 100%
+  display: none
 
   #towhid
     background: url("towhid.png") top center no-repeat
@@ -182,7 +193,7 @@ a.reply-button
 
   #title
     font-size: 1.2em
-    color: #b3d900
+    color: $links-color
     display: table-cell
     width: 390px
     padding: 10px
@@ -218,11 +229,11 @@ a.reply-button
 
 
     #joinbtn, .cancel
-      background: #e8ae00
+      background: $links-color
 
 
       &:hover
-        background: #ffc600
+        background: lighten($links-color, 5%)
 
     p
       font-size: 0.9em
@@ -357,7 +368,8 @@ a.reply-button
         font-weight: bold
 
       a:hover, a:active, a:focus
-        background: rgba(103, 187, 255, 0.5)
+        background: $header-nav-color
+        //rgba(103, 187, 255, 0.5)
 
     #search
       display: table-cell
@@ -369,32 +381,6 @@ a.reply-button
 
       button
         height: 25px
-
-
-
-//-----------category and sub toolbar-------------------------------------------------
-
-#row3, #row4
-  width: $wrapper-width
-  margin: 5px auto
-  padding: 0
-
-  a, a:visited
-    display: inline-block
-    background: #747474
-    padding: 2px 10px
-    text-align: center
-    border: 1px #444 solid
-
-  a:hover, a:active, a.active
-    background: #cfcfcf
-    border: 1px  #444 solid
-
-#row4
-  margin-bottom: 30px
-
-#dummy_lessons
-  height: 240px
 
 
 
@@ -416,67 +402,62 @@ section
     display: table
     width: 98%
     margin: 1px auto 0
-    border-bottom: 1px groove #888
+    border-bottom: 1px inset #aaa
     padding: 0
+    padding-top: 5px
+
 
 
     a:not(.title)
       display: inline-block
-      margin: 7px 1px
-      padding: 3px 20px
-      vertical-align: middle
-      text-align: center
+      margin: 5px 0 15px 5px
+      text-align: top
       color: #000000
+      font-size: 14px
+      height: 22px
+      padding: 1px  24px
       text-decoration: none
       border: 1px solid rgba(0,0,0, .2)
-      -moz-box-shadow: inset 0 0 5px #888
-      -webkit-box-shadow: inset 0 0 5px#888
-      box-shadow: inset 0 0 5px #888
 
 
 
     a.title
       @extend .not-round
-      color: rgb(69, 168, 255)
-      width: 135px
+      color: $header-nav-color
+      width: 275px
+      height: 30px
       font-weight: bold
       font-size: 20px
       display: inline-block
-      margin: 2px 5px
-      padding: 3px 17px
-      vertical-align: middle
       text-align: center
+      vertical-align: middle
       border-right: 2px solid rgba(0,0,0, 0.7)
 
-
-
-    //a.title:hover
-      background: rgba(103, 187, 255, 1)
+    a.title:hover
+      text-decoration: underline
 
 
 
     a.latest
-      background: rgba(179, 217, 0, 0.5)
-    //width: 50px
+      background: $buttons-color
 
     a.latest:hover
-      background: rgba(179, 217, 0, 1)
+      background: lighten($buttons-color, 10%)
 
 
 
     a.hottest
-      background: rgba(255, 198, 0, 0.5)
-    //width: 70px
+      background: lighten($links-color, 5%)
 
     a.hottest:hover
-      background: rgba(255, 198, 0, 1)
+      background: lighten($links-color, 15%)
 
 
     a.rss
       background: url("rss.png") center
-      opacity: 0.7
-      width: 28px
-      height: 28px
+      opacity: 0.8
+      width: 22px
+      height: 22px
       padding: 0
 
 
@@ -507,6 +488,7 @@ section
 //--------about-----------------------------------------------------------
 #about
   background: rgb(246, 246, 246)
+  margin-bottom: 630px
 
   .article
     display: table-cell
@@ -516,7 +498,7 @@ section
     top: -20px
 
     h3
-      color: #67bbff
+      color: $header-nav-color
     p
       text-align: justify
       padding-right: 40px
@@ -524,7 +506,7 @@ section
 
       a
         text-decoration: none
-        color: #99c000
+        color: $buttons-color
         //background: #ffffe0
         padding: 1px 5px
         font-weight: bold
@@ -550,7 +532,15 @@ section
 //----------lessons-------------------------------------------------------
 
 #lessons
+  //background: transparent
+  //border: none
+  //-moz-box-shadow: none
+  //box-shadow: none
+  //-webkit-box-shadow: none
+
   header
+    //border: none
+
     h1
       float: left
       width: 380px
@@ -749,7 +739,7 @@ section
 
 
 //----------Lesson Content Tabbed Area-----------------------------------------------
-#Lesson_Content
+#lesson-content
   overflow: hidden
 
   ul
@@ -795,7 +785,7 @@ section
 
   div#Tab_Content
     margin-top: 0
-    background: #b3b3b3
+    background: #aaa
     padding: 0
     border-top: 15px solid #444
     border-bottom: 15px solid #666
@@ -1031,7 +1021,6 @@ section
       font-weight: bold
       width: 100%
       display: block
-
 
 
     .question
@@ -1340,10 +1329,10 @@ section#QD, section#suggestions
           text-align: center
           @include round(top-right, 0)
           @include round(top-left, 0)
-          background: rgba(153, 192, 0, 0.50)
+          background: desaturate(lighten($links-color, 30%), 50%)
 
         >a:hover
-          background: rgba(153, 192, 0, 1)
+          background: $links-color
 
 
 
@@ -1403,7 +1392,7 @@ form#suggest-something
     border-bottom: 1px solid #ccc
     margin: 5px 0 10px
     padding-left: 10px
-    color: #67bbff
+    color: $header-nav-color
 
   input, textarea
     color: #888
@@ -1431,10 +1420,10 @@ form#suggest-something
     margin-top: 5px
     padding-left: 19px
     padding-right: 19px
-    background: #ffc600
+    background: $links-color
 
   a:hover
-    background: #ffd813
+    background: lighten($links-color, 10%)
 
 
 //------ all-content -------------------------------------------------------
@@ -1519,10 +1508,10 @@ section#all-content
 
       a.more
         float: right
-        background: #99c000
+        background: $links-color
         font-weight: bold
         text-align: center
-        padding: 5px
+        padding: 1px
         border: none
         position: absolute
         width: 120px
@@ -1530,12 +1519,133 @@ section#all-content
         margin-top: 20px
         display: none
 
+//------ current lesson ----------------------------------------------
+div#breadcrumb
+  @extend .not-round
+  border-bottom: 1px inset
+  margin: 0px 10px 70px
+  padding: 5px
+  padding-left: 0
+
+  a
+    padding: 0 5px
+    color: #444
+
+  a:hover
+    background: $header-nav-color
+
+  span:after
+    color: #444
+    background: transparent
+    content: " ► "
+    font-size: 22px
+    vertical-align: -10%
+    padding: 2px
+
+section#current-lesson
+  background: transparent
+  border: none
+  box-shadow: none
+
+  header
+    border: none
+    background: url(lesson-header.png) center center no-repeat
+    width: $wrapper-width
+    height: 160px
+    position: relative
+    margin-bottom: 50px
+
+    div#current-rating
+      position: absolute
+      left: 0
+      top: 0
+      background: url(rating-circle.png) top left no-repeat
+      width: 42px
+      height: 42px
+      margin-right: 5px
+
+    h1
+      margin: -7px 0 0 50px
+      color: darken($buttons-color, 10%)
+
+    ul#tags
+      margin-left: 10px
+      list-style-type: none
+      background: url(tags.png) center left no-repeat
+
+      li
+        display: inline-block
+        margin: 9px 5px 0 0
+        text-align: left
+        padding: 0
+
+        a
+          border: none
+          padding: 0
+          color: #eee
+
+        a:hover
+          color: $header-nav-color
+
+      li:after
+        content: ","
+        font-weight: bold
+        color: #eee
+  
+    div.track
+      position: absolute
+      top: 0
+      left: 400px
+      height: 160px
+      width: 160px
+      background: url(player.png) center center no-repeat
+
+
+    div#rate-this-lesson
+      position: absolute
+      top: 0
+      right: 0
+
+      div#rate-this-circle
+        background: url(rating-circle.png) top right no-repeat
+        width: 177px
+        height: 42px
+        margin-left: 5px
+        padding-top: 8px
+
+
+        &:before
+          content: "Rate this lesson: "
+          font-size: 18px
+          color: #444
+
+
+    div.description
+      position: absolute
+      right: 0
+      top: 70px
+
+      a
+        border: none
+        //display: block
+        margin: 0
+        color: #eee
+
 
 //------footer--------------------------------------------------------
 
 
 footer
+  width: 100%
+  background: url(footer.png) bottom left repeat-x
+  height: 560px
+  position: fixed
+  z-index: -1
+  bottom: 0
+  opacity: 0.3
+
   p
-    margin: 10px
-    text-align: center
-    color: #888
+    position: absolute
+    bottom: 1px
+    left: 5px
+    color: #ccc

@@ -1,13 +1,13 @@
 jQuery(function ($) {
 
     //---------------------------------------------lesson content tabbed area-----------------------------
-    $('#Lesson_Content ul.nav li a').click(function (e) {
+    $('#lesson-content ul.nav li a').click(function (e) {
         e.preventDefault();
 
         if ($(this).hasClass('current'))
             return;
         else {
-            $('#Lesson_Content ul.nav li a').removeClass('current');
+            $('#lesson-content ul.nav li a').removeClass('current');
             $(this).addClass('current');
             // This variable is used to cache selected jQuery object
             var activatingTab = $('#Tab_Content >div#' + this.title);
