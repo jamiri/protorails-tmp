@@ -29,6 +29,8 @@ Protorails::Application.routes.draw do
 
   match '/discussions/latest', :to => 'discussion_post#latest', :as => :latest_discussions
 
+  match '/suggestions/latest', :to => 'suggestion#latest', :as => :latest_suggestions
+
   match 'feedback' => 'home#feedback'
   match 'suggestion' => 'home#suggestion'
 

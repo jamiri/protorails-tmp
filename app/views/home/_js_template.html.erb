@@ -54,3 +54,14 @@
     {{/each}}
   </ul>
 </script>
+
+<script id="suggestion-template" type="text/x-handlebars-template">
+  <ol id="list_of_suggestions">
+    {{#each suggestions}}
+    <li>{{title}}
+      <a class="vote-up">&nbsp;</a>
+      <a class="vote-down">&nbsp;</a>
+    </li>
+    {{/each}}
+  </ol>
+</script>

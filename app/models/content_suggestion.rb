@@ -27,8 +27,15 @@
 #
 
 class ContentSuggestion < ActiveRecord::Base
-  attr_accessible :user_id, :name, :email, :subject,  :title, :cat_1, :cat_2, :cat_3, :summary, :goal, :market, :audience,
+  attr_accessible :user_id, :name, :email, :subject, :title, :cat_1, :cat_2, :cat_3, :summary, :goal, :market, :audience,
                   :other_available_product, :product, :content_overview, :illustration, :marketing_promotion,
                   :author_qualification, :appendice
+
   belongs_to :user
+
+  scope :latest, lambda { |count|
+    select('id, title, created_at')
+    .order('created_at DESC').limit(count)
+  }
+
 end
