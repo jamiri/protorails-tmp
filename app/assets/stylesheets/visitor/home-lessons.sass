@@ -1,0 +1,202 @@
+
+
+//----------lessons-------------------------------------------------------
+
+#lessons
+  //background: transparent
+  //border: none
+  //-moz-box-shadow: none
+  //box-shadow: none
+  //-webkit-box-shadow: none
+
+  header
+    //border: none
+
+    h1
+      float: left
+      width: 380px
+      margin: 5px auto 10px
+      padding: 0 10px 10px
+
+
+    ul#tag_bar
+      list-style-type: none
+      padding: 10px 0
+      margin: 5px auto 10px
+
+
+      li
+        display: inline-block
+        padding: 0
+
+        a, a:visited
+          display: block
+          background: #ddd
+          width: 60px
+          text-align: center
+          transform: rotate(15deg)
+          -ms-transform: rotate(15deg) /* IE 9 */
+          -webkit-transform: rotate(15deg) /* Safari and Chrome */
+          -o-transform: rotate(15deg) /* Opera */
+          -moz-transform: rotate(15deg) /* Firefox */
+
+        a:hover
+          background: #b3b3b3
+
+  #player
+    display: none
+    margin: 20px auto 10px
+
+  #lesson_header
+    display: table
+    margin: 0 auto 10px
+
+  #player, #lesson_header
+    @extend .not-round
+    position: relative
+    width: 100%
+    background: #444
+
+    div
+      float: left
+
+      ul
+        li
+          display: inline-block
+          border: 1px groove
+
+    .image
+      padding: 20px
+      width: 160px
+      margin-right: 30px
+
+      img
+        margin-bottom: 5px
+        border: 1px solid #888
+
+      a
+        display: block
+        text-decoration: none
+        width: 144px
+        text-align: center
+        background: #ddd
+        font-size: 14px
+        padding: 3px
+        border: 1px solid #888
+
+
+    .description
+      padding: 25px 20px 20px
+      width: 300px
+
+      a
+        display: block
+        background: #ddd
+        width: 250px
+        padding: 5px
+        margin-top: 5px
+        text-align: center
+        border: 1px solid #888
+
+    .track
+      padding: 40px 40px 0
+
+      a#close_player
+        display: block
+        position: absolute
+        top: 0
+        right: 0
+        width: 24px
+        height: 24px
+        background: url("close.png") center center
+
+
+      ul#lesson_sections
+        padding: 2px
+
+        li
+          border: none
+          margin: 0 8px
+          display: inline-block
+
+          .icon
+            display: block
+            background: #eee
+            width: 40px
+            height: 40px
+            border: none
+
+
+  ul#list_of_lessons
+    list-style: none
+    display: table
+    width: inherit
+    margin: 0 auto
+    padding: 10px 0
+
+    li
+      display: inline-block
+      height: 120px
+      padding: 10px 0
+      margin: 0 18px 10px
+      position: relative
+
+      a
+        display: block
+        text-decoration: none
+        width: 150px
+        margin: 0 auto
+        text-align: center
+        border: 1px solid #888
+
+      img
+        height: 100px
+        width: 150px
+
+
+      div.description
+        display: none
+        background: rgba(0, 0, 0, 0.7)
+        height: 100px
+        width: 150px
+        position: absolute
+        top: 10px
+        left: 0
+        border: 1px solid #888
+
+        p
+          font-size: 11px
+          color: #fcfcfc
+          margin: 10px 10px 7px 10px
+
+          b
+            color: #59c5ff
+
+        span
+          display: block
+          background: #eee url("play.png") center left no-repeat
+          height: 30px
+          width: 122px
+          margin: 0 10px
+          text-align: right
+          padding-left: 8px
+
+          a, a:hover, a:active, a:visited
+            font-size: 11px
+            color: #222
+            width: 110px
+            padding: 8px
+            border: none
+
+
+      a.lesson-title
+        margin: 5px auto
+        padding: 3px 0
+        color: #000
+        background: #ccc
+        font-size: 12px
+        font-weight: bold
+
+      a.lesson-title:hover
+        background: #555
+        color: #fff

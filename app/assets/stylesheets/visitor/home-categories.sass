@@ -1,0 +1,114 @@
+
+//---------------categories section----------------------------------
+
+#categories
+  ul#tabs
+    height: 100%
+    list-style: none
+    float: left
+    width: 200px
+    display: block
+    position: relative
+    top: 25px
+    margin: auto 0 10px !important
+    padding:  0
+
+
+    li
+      @include round(top-right, 0)
+      @include round(bottom-right, 0)
+      width: 155px
+      background: #dcdcdc
+      color: #666
+      text-decoration: none
+      padding: 5px
+      margin: 7px 0 5px 25px
+      text-align: center
+      position: relative
+      cursor: pointer
+      cursor: hand
+
+
+      a
+        display: block
+
+    li:first-of-type
+      margin-top: 15px
+
+    li.current
+      z-index: 10
+      background: #bbb
+      font-weight: bold
+      border: 1px solid #777
+      border-right: none
+      text-align: left
+      padding-left: 10px
+      width: 160px
+      margin-left: 15px
+      color: #000000
+
+
+  .tab-content
+    background: #bbb
+    margin: 15px 10px 20px 190px
+    position: relative
+    z-index: 9
+    padding: 10px 10px 5px 20px
+    border: 1px solid #777
+
+    ul.sub
+      padding: 0px
+      -moz-column-count: 3
+      -moz-column-gap: 5px
+      -webkit-column-count: 3
+      -webkit-column-gap: 5px
+      column-count: 3
+      column-gap: 5px
+
+      >li
+        display: inline-block
+        background: #fcfcfc
+        width: 225px
+        margin: 0 0 10px 0
+        border: 1px solid #555
+
+        h3
+          text-align: left
+          padding: 5px 10px
+          height: 20px
+          font-size: .9em
+          margin: 2px
+          background: rgba(0,0,0,.6)
+          color: #faffc5
+          position: relative
+
+          p
+            @extend .not-round
+            @include round(top-right, 5px)
+            @include round(bottom-right, 5px)
+            height: 20px
+            display: block
+            position: absolute
+            top: 0
+            right: 0
+            padding: 5px
+            text-align: center
+            background: rgba(0,0,0,.5)
+
+            margin-top: 0
+
+        >a
+          @extend .not-round
+          display: block
+          font-weight: normal
+          text-align: center
+          @include round(top-right, 0)
+          @include round(top-left, 0)
+          background: desaturate(lighten($links-color, 30%), 50%)
+
+        >a:hover
+          background: $links-color
+
+
+
+
