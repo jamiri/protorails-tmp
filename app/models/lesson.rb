@@ -47,13 +47,11 @@ class Lesson < ActiveRecord::Base
 
   scope :single_show, lambda { |slug|
     where(:slug => slug)
-    .includes(:objectives, :references, :category)
+    .includes(:objectives, :references, :category, :tags)
     .joins('LEFT OUTER JOIN lesson_ratings ON lesson_ratings.lesson_id = lessons.id')
     .select('lessons.*, avg(lesson_ratings.rating) as average_rating')
     .group('lessons.id')
   }
-
-
 
   def should_generate_new_friendly_id?
     new_record?
