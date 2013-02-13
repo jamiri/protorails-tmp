@@ -8,8 +8,8 @@ Protorails::Application.routes.draw do
   match '/lesson/:id/terms', :to => 'glossary#lookup_lesson_terms', :as => :lesson_terms
   match '/glossary/:term', :to => 'glossary#lookup_term', :as => :lookup_term
 
-  match '/lessons/latest', :to => 'lesson#latest', :as => :latest_lessons
-  match '/lessons/mostpop', :to => 'lesson#most_popular', :as => :mostpop_lessons
+  match '/less.sass/latest', :to => 'lesson#latest', :as => :latest_lessons
+  match '/less.sass/mostpop', :to => 'lesson#most_popular', :as => :mostpop_lessons
 
   match '/lesson/:slug', :to => 'lesson#show', :as => :lesson
   match '/lesson/:lesson_id/rating/:rate_val', :to => 'lesson#rate'

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: lessons
+# Table name: less.sass
 #
 #  audio_file  :string(255)
 #  author      :string(255)

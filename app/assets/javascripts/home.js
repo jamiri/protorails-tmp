@@ -1,6 +1,6 @@
 var urls = {
-    latest_lessons: '/lessons/latest',
-    mostpop_lessons: '/lessons/mostpop'
+    latest_lessons: '/less.sass/latest',
+    mostpop_lessons: '/less.sass/mostpop'
 };
 
 var actionHandler = {

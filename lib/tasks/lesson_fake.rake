@@ -1,7 +1,7 @@
 
 namespace :lesson do
 
-  desc "Create fake lessons"
+  desc "Create fake less.sass"
   task :create_fake => :environment do
 
     require 'faker'
