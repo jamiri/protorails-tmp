@@ -1,0 +1,97 @@
+
+//----------QA and Discussions-----------------------------------------------
+
+section#QD, section#suggestions
+  background: transparent
+  border: none
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  box-shadow: none
+  padding: 0
+
+#Questions, #Discussions, #topics
+  background: rgb(246, 246, 246)
+  border: 1px solid rgba(255, 255, 255, 0.50)
+  -moz-box-shadow: 0 0 5px #888
+  -webkit-box-shadow: 0 0 5px#888
+  box-shadow: 0 0 5px #888
+  padding: 5px
+  width: 48%
+
+  header
+    margin: 0 5px
+
+#suggest
+  width: 49.4%
+
+#Questions, #topics
+  float: left
+
+#Discussions, #suggest
+  float: right
+
+
+#Questions, #Discussions
+  ul
+    list-style: none
+    width: 100%
+    padding: 0
+
+    li
+      @extend .not-round
+      padding: 10px
+      height: 80px
+      overflow: hidden
+      margin: 2px
+      background: #f7f7f7
+      border-bottom: 1px groove #888
+      @include trans(background, 0.8s)
+
+      a
+        text-decoration: none
+        display: table-cell
+        color: #000000
+
+      img
+        width: 48px
+        height: 48px
+        margin-bottom: 15px
+
+      a.profile
+        @extend .not-round
+        width: 20%
+        text-align: center
+        font-weight: bold
+        border-right: 2px dashed #67bbff
+        font-size: 0.7em
+
+
+      a.post
+        text-align: justify
+        line-height: 1.2
+
+
+        p
+          padding: 0 10px
+
+    li:first-of-type
+      margin-top: -15px
+
+
+    li:last-of-type
+      @include round(bottom-left, 5px)
+      @include round(bottom-right, 5px)
+      border-bottom: none
+      margin-bottom: -5px
+
+    li:hover
+      background: #dfdfdf
+
+
+
+
+
+
+
+
+

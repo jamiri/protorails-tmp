@@ -1,0 +1,207 @@
+
+
+//---------slogan,logo,signing----------------------------------------------------
+
+#row0
+  background: url("dhr.png")
+  width: 100%
+  display: none
+
+  #towhid
+    background: url("towhid.png") top center no-repeat
+    width: 600px
+    height: 40px
+    margin-left: auto
+    margin-right: auto
+
+
+#row1
+  font-size: .9em
+  display: table
+  width: $wrapper-width
+  margin: 0 auto
+  position: relative
+
+  #title
+    font-size: 1.2em
+    color: $links-color
+    display: table-cell
+    width: 390px
+    padding: 10px
+    vertical-align: middle
+    margin-left: auto
+    margin-right: auto
+
+  #logo
+    @extend .not-round
+    display: table-cell
+    width: 120px
+    height: 100px
+    padding-right: 20px
+    background: url("logo3.png") no-repeat top
+
+
+
+  #signing
+    display: table-cell
+    position: relative
+    vertical-align: middle
+    text-align: center
+
+    #loginbtn, #joinbtn
+      display: inline-block
+      width: 120px
+      margin-left: 10px
+      text-align: center
+      padding: 10px
+      cursor: hand
+      cursor: pointer
+
+
+
+    #joinbtn, .cancel
+      background: $links-color
+
+
+      &:hover
+        background: lighten($links-color, 5%)
+
+    p
+      font-size: 0.9em
+      font-weight: normal
+      line-height: 0
+
+
+    div
+      width: 263px
+      position: absolute
+      right: 52px
+      top: 85px
+      background: rgba(0,0,0,0.5)
+      border: 1px groove #efefef
+      padding: 15px
+      display: none
+      z-index: 11
+
+      .triangle
+        background: url("triangle.png") center center no-repeat
+        border: none
+        display: block
+
+      form
+        background: #efefef
+        padding: 10px
+
+        input[type='checkbox']
+          width: 30px
+          vertical-align: middle
+
+        input[type='email']
+          background: #ffffff url("usr.png")center left no-repeat
+
+        input[type='password']
+          background: #ffffff url("pwd.png")center left no-repeat
+
+        input[type='text']
+          background: #ffffff url("cpt.png")center left no-repeat
+
+        input
+          width: 210px
+          height: 30px
+          margin: 2px auto
+          padding-left: 30px
+
+
+        a
+          display: block
+          text-decoration: underline
+          margin: 10px 0
+
+        button
+          width: 243px
+          height: 30px
+          margin: 2px auto
+
+        #fb-login
+          background: url("fb-login.png")
+
+        #g-login
+          background: url("g-login.png")
+
+    #sign-in
+      .triangle
+        margin: -108px 20px 0 0
+
+    #sign-up
+      .triangle
+        margin: -108px -130px 0 0
+
+      #captcha
+        width: 243px
+        height: 70px
+        margin-top: 10px
+
+      #refresh
+        @extend .not-round
+        margin-top: 0
+        background: #c0c0c0
+        text-decoration: none
+
+
+
+
+//----------navigation-and-search-------------------------------------------
+.border-bottom
+  border-bottom: 2px solid #666
+
+#row2
+  @extend .not-round
+  width: 100%
+  background: #fcfcfc
+  padding: 0
+  position: fixed
+  z-index: 9999
+  margin: 0
+
+
+  #wrap
+    font-size: .9em
+    display: table
+    width: $wrapper-width
+    margin: 0 auto
+
+
+    nav
+      margin: 1px 0
+      display: table-cell
+      width: 560px
+      padding-left: 10px
+
+
+      a, a:visited
+        @include trans(background, 1.2s)
+        @include delay(200ms)
+        color: #222
+        display: inline-block
+        background: #fff
+        padding: 3px 10px
+        margin: 10px 0px
+        text-decoration: none
+        font-weight: bold
+
+      a:hover, a:active, a:focus
+        background: $header-nav-color
+    //rgba(103, 187, 255, 0.5)
+
+    #search
+      display: table-cell
+      padding-left: 19px
+
+
+      input
+        width: 205px
+
+      button
+        height: 25px
+
+

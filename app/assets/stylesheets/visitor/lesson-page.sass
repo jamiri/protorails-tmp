@@ -1,0 +1,509 @@
+
+//------ current lesson header----------------------------------------------
+
+div#breadcrumb
+  @extend .not-round
+  border-bottom: 1px inset
+  margin: 0px 10px 70px
+  padding: 5px
+  padding-left: 0
+
+  a
+    padding: 0 5px
+    color: #444
+
+  a:hover
+    background: $header-nav-color
+
+  span:after
+    color: #444
+    background: transparent
+    content: " ► "
+    font-size: 22px
+    vertical-align: -10%
+    padding: 2px
+
+section#current-lesson
+  background: transparent
+  border: none
+  box-shadow: none
+
+  header
+    border: none
+    background: url(lesson-header.png) center center no-repeat
+    width: $wrapper-width
+    height: 160px
+    position: relative
+    margin-bottom: 50px
+
+    div#current-rating
+      position: absolute
+      left: 0
+      top: 0
+      background: url(rating-circle.png) top left no-repeat
+      width: 42px
+      height: 42px
+      margin-right: 5px
+
+    h1
+      margin: -7px 0 0 50px
+      color: darken($buttons-color, 10%)
+
+    ul#tags
+      margin-left: 10px
+      list-style-type: none
+      background: url(tags.png) center left no-repeat
+
+      li
+        display: inline-block
+        margin: 9px 5px 0 0
+        text-align: left
+        padding: 0
+
+        a
+          border: none
+          padding: 0
+          color: #eee
+
+        a:hover
+          color: $header-nav-color
+
+      li:after
+        content: ","
+        font-weight: bold
+        color: #eee
+
+    div.track
+      position: absolute
+      top: 0
+      left: 400px
+      height: 160px
+      width: 160px
+      background: url(player.png) center center no-repeat
+
+
+    div#rate-this-lesson
+      position: absolute
+      top: 0
+      right: 0
+
+      div#rate-this-circle
+        background: url(rating-circle.png) top right no-repeat
+        width: 177px
+        height: 42px
+        margin-left: 5px
+        padding-top: 8px
+
+
+        &:before
+          content: "Rate this lesson: "
+          font-size: 18px
+          color: #444
+
+
+    div.description
+      position: absolute
+      right: 0
+      top: 70px
+
+      a
+        border: none
+        //display: block
+        margin: 0
+        color: #eee
+
+
+
+//----------Lesson Content Tabbed Area-----------------------------------------------
+#lesson-content
+  overflow: hidden
+
+  ul
+    list-style-type: none
+
+  ul.nav
+    padding: 0
+    margin: 5px 24px 0
+
+    li
+      display: inline-block
+      text-align: center
+
+      a, a:visited, a:active
+        display: block
+        background: #aaa
+        padding: 1px 5px 4px
+        width: 120px
+        margin: auto 0
+        height: 20px
+        @include round(bottom-right, 0)
+        @include round(bottom-left, 0)
+        @include trans(width, 1s)
+
+
+      a:hover, a:focus, a.current
+        background: #666
+        color: #ffc600
+        border: none
+        outline: 0
+
+
+      a.current
+        width: 228px
+        font-weight: bold
+        background: #444
+        font-size: 18px
+        height: 23px
+        padding-top: 5px
+        text-decoration: underline
+
+
+
+  div#Tab_Content
+    margin-top: 0
+    background: #aaa
+    padding: 0
+    border-top: 15px solid #444
+    border-bottom: 15px solid #444
+
+
+    >div
+      display: none
+      margin: 0 auto
+      padding: 0
+
+    >div.activeTab
+      display: block
+
+
+//----------Lesson Content - Script Tab-----------------------------------------------
+
+#Script
+  p
+    margin: 0
+
+  table#meta-data
+    width: 910px
+    margin: 0 auto 25px
+    background: #f7f7f7
+    -moz-box-shadow: 0 0 5px #888
+    -webkit-box-shadow: 0 0 5px#888
+    box-shadow: 0 0 5px #888
+    border: 0
+
+    tr.titles
+      color: #f0f0f0
+      font-weight: bold
+
+      td
+        padding: 5px 0 5px 20px
+        background: #666
+
+    tr:first-of-type td:first-child
+      @include round(top-left, 5px)
+      border-right: 2px solid #f0f0f0
+
+    tr:first-of-type td:last-child
+      @include round(top-right, 5px)
+
+
+    td#objectives
+      border-right: 2px solid #888
+      width: 580px
+
+    ul
+      list-style-type: circle
+
+  hr
+    margin-bottom: 0
+
+  div
+    position: relative
+
+    p
+      padding: 10px 30px
+      text-align: justify
+
+    p:first-of-type
+      padding-top: 20px
+
+  table.verse
+    direction: rtl
+    margin: 20px auto
+    width: 800px
+    background: #f7f7f7
+    -moz-box-shadow: 0 0 5px #888
+    -webkit-box-shadow: 0 0 5px#888
+    box-shadow: 0 0 5px #888
+    border: 0
+    font-family: Traditional Arabic, Traditional Arabic, Simplified Arabic, Verdana, Tahoma
+    font-size: 16pt
+    font-style: normal
+    line-height: normal
+    font-weight: normal
+    font-variant: normal
+    color: rgb(0, 0, 0)
+
+
+    td
+      padding: 2px 10px
+      text-align: center
+      border-right: 1px solid #bbb
+
+      span
+        color: #176200
+
+
+//----------Lesson Content - Microblog Tab-----------------------------------------------
+#MicroBlog
+  padding: 0
+  position: relative
+
+
+  ul
+    padding: 0
+    margin: 0
+
+    li
+      @extend .not-round
+      padding: 0
+      margin: 0
+
+
+
+  #summaries
+    display: block
+
+    li:nth-child(odd)
+      background: rgba(0,0,0,0.2)
+
+    li
+      padding: 10px 10px 0
+
+
+      h2
+        @extend .not-round
+        padding: 10px 0 2px 10px
+        margin: 0
+        border-bottom: 1px solid rgba(0,0,0,0.2)
+
+
+      div
+        position: relative
+        padding: 10px
+        min-height: 100px
+
+        p
+          text-align: justify
+          padding-right: 40px
+
+        a.switch
+          @extend .not-round
+          opacity: 0
+          width: 38px
+          position: absolute
+          right: 0
+          top: 0
+          bottom: 0
+          background: rgba(0,0,0,0.2) url("details.png") center center no-repeat
+          height: 100%
+          padding: 0 auto
+          @include trans(opacity, 1s)
+
+
+
+    li:hover
+      a.switch
+        opacity: 0.9
+
+
+  #details
+    >li
+      display: none
+      width: 920px
+      padding: 10px 0 0 40px
+      position: relative
+
+      h2
+        @extend .not-round
+        padding: 10px 10px 2px 10px
+        margin: 0
+        margin-right: 10px
+        border-bottom: 1px solid rgba(0,0,0,0.2)
+
+
+      div
+        span
+          padding-left: 10px
+
+        p
+          text-align: justify
+          padding: 10px 30px 10px 10px
+
+      a.switch
+        @extend .not-round
+        opacity: 0
+        width: 38px
+        position: absolute
+        left: 0
+        top: 0
+        bottom: 0
+        background: rgba(0,0,0,0.2) url("return.png") top center no-repeat
+        height: 100%
+        @include trans(opacity, 0.7s)
+
+
+    >li:hover
+      a.switch
+        opacity: 0.9
+
+    h3
+      @extend .not-round
+      border-bottom: 1px solid #fff
+      margin: 50px 0 0 0
+      padding-bottom: 5px
+      padding-left: 10PX
+
+    .comment
+      margin: 0
+
+      li
+        margin: 0
+        padding: 18px 5px 10px 30px
+        background: rgba(0,0,0,0.1)
+        text-align: justify
+
+        .id
+          font-weight: bold
+
+
+      li:nth-child(odd)
+        background: rgba(0,0,0,0.2)
+
+
+.microblog-details-hidden
+  position: absolute
+  top: 0
+  left: 950px
+
+
+//----------Lesson Content - Q-and-A Tab-----------------------------------------------
+
+#QandA
+  div
+    @extend .not-round
+    padding: 0
+
+  .QAbody
+    margin: 0 auto
+    padding: 0
+    border-bottom: 1px solid white
+
+    .id
+      font-weight: bold
+      width: 100%
+      display: block
+
+
+    .question
+      background: rgba(0,0,0,0.2)
+      padding: 20px
+      text-align: justify
+
+    .answer
+      margin-left: 10px
+      padding: 18px 20px 20px 50px
+      background: url("reply1.png") top left no-repeat
+      text-align: justify
+
+
+
+  a.more
+    display: block
+    text-align: center
+    width: 100%
+    height: 30px
+    background: #666
+    color: #fff
+    border: none
+    @include round(top-right, 0)
+    @include round(top-left, 0)
+
+
+
+//----------Lesson Content - Q-and-A Tab-----------------------------------------------
+
+
+
+
+
+
+
+//----------Lesson Content - Discussion Tab-----------------------------------------------
+#Discussion
+
+  p
+    padding-bottom: 15px
+
+  div.post-body
+    @extend .not-round
+    padding: 20px 30px 0
+    border-bottom: 1px solid #eee
+
+    span.id
+      font-weight: bold
+
+    div.reply
+      @extend .not-round
+      background: rgba(0,0,0,0) url(reply1.png) top left no-repeat
+      padding-top: 15px
+      padding-left: 50px
+      border-top: 1px solid #eee
+
+  div.post-body:nth-child(even)
+    background: rgba(0,0,0,0.1)
+
+//----------Lesson Content - Discussion Tab-----------------------------------------------
+
+
+
+
+
+
+
+
+//----------Lesson Content - Presentation Tab-----------------------------------------------
+#Presentation
+  p
+    padding: 10px 0
+    margin-top: 0
+
+  div#lesson-video
+    padding: 30px 0
+
+    video
+      display: block
+      margin: 0 auto
+
+//----------Lesson Content - Presentation Tab-----------------------------------------------
+
+
+
+
+
+
+//----------Lesson Content - References Tab-----------------------------------------------
+
+//----------Lesson Content - Presentation Tab-----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

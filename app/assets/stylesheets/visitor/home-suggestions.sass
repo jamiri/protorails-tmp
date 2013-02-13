@@ -1,0 +1,87 @@
+
+//----------suggestions--------------------------------------------------
+
+#topics
+  min-height: 300px
+
+  ol
+    padding: 10px
+    margin: 5px
+    list-style-position: inside
+
+    li
+      padding: 2px 15px
+      margin: 5px 1px
+      height: 30px
+      background: #cfcfcf
+      cursor: hand
+      cursor: pointer
+      @include trans(background, 0.8s)
+
+
+      a
+        display: inline-block
+        margin-left: 10px
+        vertical-align: middle
+        width: 20px
+        height: 20px
+        display: none
+
+    li:hover
+      background: rgba(140, 140, 140, 1)
+      color: #efefef
+
+      a
+        display: inline-block
+        float: right
+        margin: 5px 0 0 0
+
+
+
+form#suggest-something
+  padding: 5px 20px
+  color: #444
+
+  p
+    padding-left: 10px
+    margin: 0
+
+  h2
+    @extend .not-round
+    width: 100%
+    border-bottom: 1px solid #ccc
+    margin: 5px 0 10px
+    padding-left: 10px
+    color: $header-nav-color
+
+  input, textarea
+    color: #888
+    margin: 5px
+    height: 35px
+    padding: 1px
+    width: 97%
+
+  textarea
+    height: 70px
+    -moz-resize: none
+    -webkit-resize: none
+    resize: none
+
+  button
+    margin-top: 5px
+    width: 117px
+
+  button[type='submit']
+    margin-left: 6px
+
+  a
+    text-decoration: none
+    color: #444
+    margin-top: 5px
+    padding-left: 19px
+    padding-right: 19px
+    background: $links-color
+
+  a:hover
+    background: lighten($links-color, 10%)
+
