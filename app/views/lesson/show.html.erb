@@ -5,7 +5,7 @@
 <section id="current-lesson">
 
   <header>
-    <div id="current-rating"></div>
+    <%= render :partial => "lesson/partial/current_rating" %>
     <h1><%= @lesson.title %></h1>
     <%= render :partial => "lesson/partial/tags" %>
     <%= render :partial => "lesson/partial/audio" %>

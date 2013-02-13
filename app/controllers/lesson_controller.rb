@@ -20,29 +20,25 @@ class LessonController < ApplicationController
 
 
   def rate
-
     unless request.xhr?
       render :file => "#{Rails.root}/public/404.html", :status => :not_found and return
     end
-
-    lesson_id = params[:lesson_id]
-    rate_val = params[:rate_val]
+    lesson_id = params.fetch(:lesson_id)
+    rate_value = params.fetch(:rate_val)
 
     if session['user_id'].present?
 
       vote = LessonRating.new
       vote.lesson_id = lesson_id
       vote.user_id = session['user_id']
-      vote.rating = rate_val
+      vote.rating = rate_value
 
       vote.save
 
       respond_to do |format|
         format.json { render :json => LessonRating.where(:lesson_id => lesson_id).average("rating") }
       end
-
     end
-
   end
 
   def latest

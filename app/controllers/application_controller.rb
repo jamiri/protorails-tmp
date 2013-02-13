@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   def show_message(message, options = {:type => :notice})
     flash_with_options = {:text => ERB::Util.h(message)}
 
-    # Convert Ruby-style key names to Javascript-style key names
+    # Convert Ruby-styled key names to Javascript-styled key names
     options.each do |key, value|
       new_key = key.to_s.camelize(:lower).to_sym
       flash_with_options.merge!(new_key => value)
