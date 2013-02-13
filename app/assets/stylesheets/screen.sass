@@ -1,126 +1,5 @@
-$wrapper-width: 960px
-
-$header-nav-color: #e8ae00
-$links-color: #99c000
-$buttons-color: #67bbff
-
-//e8ae00
-//67bbff
-//b3d837
-//99c000
-
-@mixin trans($what, $duration)
-  -webkit-transition: $what $duration ease-out
-  -moz-transition:  $what $duration ease-out
-  -o-transition: $what $duration ease-out
-  transition: $what $duration ease-out
-
-@mixin delay($duration)
-  -webkit-animation-dealay: $duration
-  -moz-animation-dealay:  $duration
-  -o-animation-dealay: $duration
-  animation-dealay: $duration
-
-@mixin round($corner, $size)
-  border-#{$corner}-radius: $size
-  -moz-border-#{$corner}-radius: $size
-  -webkit-border-#{$corner}-radius: $size
-
-
-.not-round
-  border-radius: 0
-  -moz-border-radius: 0
-  -webkit-border-radius: 0
-
-.all-round
-  border-radius: 5px
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-
-
-div, section, button, a, li, h1, h2, h3, h4, h5, h6, input, textarea, video, audio, span, table
-  border-radius: 5px
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-
-
-body:before
-  content: ""
-  position: absolute
-  z-index: -2
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-  background: -webkit-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
-  background: -moz-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
-  background: -ms-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
-  background: -o-radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
-  background: radial-gradient(center center, circle cover, rgba(0,0,0,0), rgba(0,0,0,.5))
-
-body
-  font-family: Segoe UI, Calibri
-  position: relative
-
-body:after
-  content: ""
-  position: absolute
-  z-index: -2
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-  background: url(bg-pattern.jpg) repeat
-  opacity: 0.8
-
-
-.hidden
-  display: none
-
-
-#wrapper, section
-  width: $wrapper-width
-  margin-right: auto
-  margin-left: auto
-  position: relative
-  display: table
-
-
-#site-header
-  @extend .not-round
-  background: rgb(68, 68, 68)
-  padding-bottom: 0
-  //position: fixed
-  width: 100%
-  -moz-box-shadow: 0 0 10px #444
-  -webkit-box-shadow: 0 0 10px #444
-  box-shadow: 0 0 10px #444
-
-
-
-.btn
-  background: $buttons-color
-  font-size: 0.8em
-  font-weight: bold
-  padding: 0.5em 1em
-  border: none
-  @include trans(background, 0.3s)
-
-
-a, a:visited
-  color: #000000
-  text-decoration: none
-  outline: 0
-  cursor: pointer
-  cursor: hand
-  @include trans(background, 0.3s)
-
-
-.btn:hover
-  background: lighten($buttons-color, 5%)
 
 form
-
   input, textarea
     border: 2px solid #ccc
     padding: 1px
@@ -315,15 +194,6 @@ a.reply-button
         margin-top: 0
         background: #c0c0c0
         text-decoration: none
-
-
-
-
-
-
-
-
-
 
 
 
@@ -529,7 +399,7 @@ section
 
 
 
-//----------lessons-------------------------------------------------------
+//----------less.sass-------------------------------------------------------
 
 #lessons
   //background: transparent
@@ -788,7 +658,7 @@ section
     background: #aaa
     padding: 0
     border-top: 15px solid #444
-    border-bottom: 15px solid #666
+    border-bottom: 15px solid #444
 
 
     >div
@@ -808,7 +678,7 @@ section
 
   table#meta-data
     width: 910px
-    margin: 0 auto
+    margin: 0 auto 25px
     background: #f7f7f7
     -moz-box-shadow: 0 0 5px #888
     -webkit-box-shadow: 0 0 5px#888
@@ -838,17 +708,23 @@ section
     ul
       list-style-type: circle
 
-
+  hr
+    margin-bottom: 0
 
   div
+    position: relative
+
     p
-      text-indent: 15px
-      padding: 30px
+      padding: 10px 30px
       text-align: justify
+
+    p:first-of-type
+      padding-top: 20px
 
   table.verse
     direction: rtl
     margin: 20px auto
+    width: 800px
     background: #f7f7f7
     -moz-box-shadow: 0 0 5px #888
     -webkit-box-shadow: 0 0 5px#888
@@ -1630,6 +1506,7 @@ section#current-lesson
         //display: block
         margin: 0
         color: #eee
+
 
 
 //------footer--------------------------------------------------------
