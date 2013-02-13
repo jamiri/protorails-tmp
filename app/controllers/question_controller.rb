@@ -43,4 +43,16 @@ class QuestionController < ApplicationController
 
   end
 
+  def latest
+    not_found('forbidden!') unless request.xhr?
+
+    @questions = Question.latest(5)
+  end
+
+  def most_popular
+    not_found('forbidden') unless request.xhr?
+
+    @questions = Question.top_rated(5)
+  end
+
 end
