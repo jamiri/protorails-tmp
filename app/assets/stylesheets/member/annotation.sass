@@ -1,0 +1,82 @@
+//-----member--------------------------------------------------------
+
+#Script
+  div
+    margin-right: 250px //overrides visitor rules
+
+  table.verse
+    width: 600px  //overrides visitor rules
+
+  div#annotations
+    width: 250px
+    min-height: 100%
+    position: absolute
+    right: -500px
+    background: #444
+    @extend .not-round
+    color: #ddd
+
+    a#add-note
+      display: block
+      //position: absolute
+      width: 48px
+      height: 48px
+      background: url("add-note.png")
+
+    h3
+      border-bottom: 1px solid #a1cc3d
+      @extend .not-round
+      margin: 5px 5px 20px
+      color: #a1cc3d
+      text-align: center
+
+    div.note
+      width: 220px
+      margin: 20px auto
+      background: #a1cc3d
+      //89c010
+      padding: 0
+
+      div.header
+        @include round(bottom-right, 0)
+        @include round(bottom-left, 0)
+        background: rgba(0,0,0,0.2)
+        line-height: 1
+        margin: 0
+        padding: 5px 5px 6px
+        height: 24px
+        width: 210px
+        border: 0
+
+        .button
+          display: inline-block
+          width: 24px
+          height: 24px
+
+        .minimize
+          background: transparent url("note-icons.png") -24px
+          margin-left: 40px
+
+
+        .delete
+          background: transparent url("note-icons.png") -48px
+
+        .red
+          background: #ff6d4d
+
+        .yellow
+          background: #ffff80
+
+        .blue
+          background: #80c8ff
+
+        .green
+          background: #a1cc3d
+
+      p
+        margin: 0
+        text-indent: 0
+        padding: 10px
+        text-align: left
+        color: #000
+

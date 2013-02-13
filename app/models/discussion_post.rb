@@ -21,4 +21,10 @@ class DiscussionPost < ActiveRecord::Base
 
   scope :root_posts_for, lambda { |lesson_id| where(:replied_post_id => nil, :lesson_id => lesson_id)}
 
+  scope :latest, lambda { |count|
+    select('id, content, created_at, user_id')
+    includes(:user)
+    .order('created_at DESC').limit(count)
+  }
+
 end

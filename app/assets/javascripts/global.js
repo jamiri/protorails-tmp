@@ -1,7 +1,7 @@
 //Ensures that functions are run when DOM is ready and $ refers to jQuery
 jQuery(function ($) {
 
-    // Adds border-bottom to fixed header on scroll down
+    // Adds border-bottom to fixed header.sass on scroll down
     function addBorderBottom() {
         var top = $("body").scrollTop() > 0 ? $("body").scrollTop() : $("html").scrollTop();
         top > 150 ? $('#row2').addClass("border-bottom") : $('#row2').removeClass("border-bottom");
@@ -99,11 +99,11 @@ jQuery(function ($) {
 var globals = {
     toggleLessonDescription:function () {
         jQuery(function ($) {
-            $('#lessons ul li').bind("mouseenter", function () {
+            $('#less.sass ul li').bind("mouseenter", function () {
                 $(this).find('div.description').delay(200).fadeIn();
             });
 
-            $('#lessons ul li').bind("mouseleave", function () {
+            $('#less.sass ul li').bind("mouseleave", function () {
                 $(this).find('div.description').stop(true).fadeOut();
             });
         });

@@ -1,0 +1,27 @@
+$wrapper-width: 960px
+
+$header-nav-color: #e8ae00
+$links-color: #99c000
+$buttons-color: #67bbff
+
+//e8ae00
+//67bbff
+//b3d837
+//99c000
+
+@mixin trans($what, $duration)
+  -webkit-transition: $what $duration ease-out
+  -moz-transition:  $what $duration ease-out
+  -o-transition: $what $duration ease-out
+  transition: $what $duration ease-out
+
+@mixin delay($duration)
+  -webkit-animation-dealay: $duration
+  -moz-animation-dealay:  $duration
+  -o-animation-dealay: $duration
+  animation-dealay: $duration
+
+@mixin round($corner, $size)
+  border-#{$corner}-radius: $size
+  -moz-border-#{$corner}-radius: $size
+  -webkit-border-#{$corner}-radius: $size

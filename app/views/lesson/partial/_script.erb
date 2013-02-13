@@ -23,8 +23,12 @@
       </td>
     </tr>
   </table>
-
+  <hr>
   <div>
+    <!--if logged in-->
+    <%= render :partial => "lesson/partial/annotations" %>
+    <!--end if logged in-->
+
     <%= raw @lesson.script %>
   </div>
 

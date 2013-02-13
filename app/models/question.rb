@@ -26,4 +26,18 @@ class Question < ActiveRecord::Base
     .joins('left outer join question_ratings ON question_ratings.question_id = questions.id')
     .group('questions.id')
   }
+
+  scope :latest, lambda { |count|
+    select('id, question, created_at, user_id')
+    .includes(:user)
+    .order('created_at DESC').limit(count)
+  }
+
+  scope :top_rated ,lambda { |count|
+    select('questions.id, questions.question, questions.user_id, avg(question_ratings.rating) as average_rating')
+    .joins('LEFT OUTER JOIN question_ratings ON question_ratings.question_id = questions.id')
+    .group('questions.id').order('average_rating DESC')
+    .limit(count)
+  }
+
 end
