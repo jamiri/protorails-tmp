@@ -1,0 +1,274 @@
+/**
+ * RatingChart is used to generate a pie chart-like rating gadget.
+ * @param {string} domID Id of the dom element that gadget will be attached to.
+ * @param {number} width A positive number indicating width of canvas for drawing the gadget.
+ * @param {number} height A positive number indicating height of canvas for drawing the gadget.
+ * @return {arguments.callee} Returns an object of type RatingChart.
+ * @constructor
+ */
+function RatingChart(domID, width, height) {
+
+    if (!(this instanceof arguments.callee)) {
+        return new arguments.callee(arguments)
+    }
+
+    var self = this;
+    var value = undefined;
+    var selectedValue = undefined;
+
+    self.getValue = function () {
+        if (value === undefined) {
+            throw new Error("The value is not set yet, use setValue() to set.");
+        }
+        return value;
+    }
+
+    self.getSelectedValue = function () {
+        if (selectedValue === undefined) {
+            throw new Error("Selected value is accessible when user selects a rating.");
+        }
+        return selectedValue;
+    }
+
+
+    /**
+     * Initializes the canvas and assigns initial values.
+     * @param {number} numOfSegments Indicates number of segments that chart circle should be divided into.
+     * @param {number} segmentSpacing Indicates space between sections.
+     */
+    self.init = function (numOfSegments, segmentSpacing) {
+
+        self.paper = Raphael(domID, width, height);
+        self.centerX = 200;
+        self.centerY = 200;
+        self.radius = 36;
+        self.segmentSize = (360 / numOfSegments) || 72;
+        self.segmentSpacing = segmentSpacing || 2;
+        self.radian = Math.PI / 180;
+        self.colors = self.generateColors(numOfSegments);
+        self.cover = null;
+
+    }
+
+
+    self.clear = function () {
+        self.paper.clear();
+        self.pie = self.paper.set();
+        self.txt = self.paper.text(self.centerX, self.centerY, "");
+    }
+
+    self.generateColors = function (numOfSegments) {
+
+        var colors = [];
+        var r = [];
+        var g = [];
+
+        for (var i = 0; i <= 240; i += 480 / numOfSegments) {
+            g.push(i);
+        }
+
+        for (var i = 240 - (300 / numOfSegments); i >= 90; i -= 300 / numOfSegments) {
+            g.push(i);
+        }
+
+        for (var i = 205; i <= 255; i += 100 / numOfSegments) {
+            r.push(i);
+        }
+
+        for (var i = (250 - 400 / numOfSegments); i >= 55; i -= 400 / numOfSegments) {
+            r.push(i);
+        }
+
+        for (var i = 0; i < numOfSegments; i += 1) {
+            colors.push(Raphael.rgb(r[i], g[i], 0));
+        }
+        return colors;
+
+    }
+
+
+    self.enableRating = function () {
+        self.clear();
+        var arcFromX, arcFromY, arcToX, arcToY;
+        var index = 0;
+
+        for (var i = 90; i > -270; i -= self.segmentSize) {
+            arcFromX = (Math.cos((i - self.segmentSpacing) * self.radian) * self.radius);
+            arcFromY = (-Math.sin((i - self.segmentSpacing) * self.radian) * self.radius);
+
+            arcToX = self.centerX + (Math.cos((i - self.segmentSize) * self.radian) * self.radius);
+            arcToY = self.centerY + (-Math.sin((i - self.segmentSize) * self.radian) * self.radius);
+
+            var pathStr = self.getPath(arcFromX, arcFromY, arcToX, arcToY);
+            var p = self.paper.path(pathStr);
+            p.index = index;
+            index += 1;
+            self.addEffectsToSection(p);
+            self.pie.push(p);
+        }
+        self.addEffectsToPie(self.pie);
+    }
+
+    self.getPath = function (arcFromX, arcFromY, arcToX, arcToY) {
+        return [
+            "M",
+            self.centerX,
+            self.centerY,
+            "l",
+            arcFromX,
+            arcFromY,
+            "A",
+            self.radius,
+            self.radius,
+            0, 0, 1,
+            arcToX,
+            arcToY,
+            "z"
+        ].join(" ");
+    }
+
+    self.addEffectsToSection = function (path) {
+        path.mouseover(function () {
+            var i = 0;
+            for (; i <= path.index; i++) {
+                self.pie[i].stop().animate({transform:"s1.2 1.2 " + self.centerX + " " + self.centerY}, 200, ">");
+                self.pie[i].attr({fill:self.colors[i]});
+            }
+
+            self.changeText(i);
+
+            for (; i < self.pie.length; i++) {
+                self.pie[i].stop().animate({transform:""}, 100, "<");
+                self.pie[i].attr({fill:"#aaa"});
+            }
+        });
+
+        path.click(function () {
+            selectedValue = path.index + 1;
+        });
+
+    }
+
+    self.changeText = function (changeTo) {
+
+        self.txt.remove();
+        self.txt = self.paper.text(self.centerX, self.centerY, changeTo).attr({"font-size":35});
+        self.txt.mouseover(function () {
+            self.txt.stop();
+            self.pie.stop();
+        });
+
+    }
+
+    self.addEffectsToPie = function (pieSet) {
+
+        pieSet.attr({
+            fill:"#aaa",
+            "stroke-width":0
+        });
+
+        pieSet.mouseout(function () {
+
+            var anim = Raphael.animation({transform:"", fill:"#aaa"}, 200, "<>");
+            pieSet.stop().animate(anim.delay(200));
+            anim = Raphael.animation({opacity:"0"}, 200, "<>");
+            self.txt.animate(anim.delay(200), function () {
+                self.txt.remove();
+            });
+        }).toBack();
+
+    }
+
+    self.drawCentralCircle = function (circleSize) {
+        self.paper.circle(self.centerX, self.centerY, circleSize).attr({fill:"#aaa", "stroke-width":0})
+            .insertBefore(self.txt);
+    }
+
+
+    self.disableInteraction = function () {
+        self.cover = self.paper.circle(self.centerX, self.centerY, self.radius * 1.2)
+            .attr({opacity:0, fill:"white"});
+    }
+
+    self.enableInteraction = function () {
+        self.cover.remove();
+    }
+
+
+    /**
+     * This function is subject to removal since setValue replaces it
+     * @param value
+     */
+    self.setChartValue = function (value) {
+
+        var i = 0;
+        for (; i < value; i++) {
+            self.pie[i].attr({transform:"s1.2 1.2 " + self.centerX + " " + self.centerY, fill:self.colors[i]});
+        }
+
+        self.changeText(i);
+
+        for (; i < self.pie.length; i++) {
+            self.pie[i].attr({transform:"", fill:"#aaa"});
+        }
+
+    }
+
+    self.setValue = function (val) {
+
+        self.clear();
+        var intPart = Math.floor(val);
+        var decimalValue = val - intPart;
+        var theta = self.segmentSize * decimalValue;
+        var pathStr = "";
+
+        var counter = 0;
+        var arcFromX, arcFromY, arcToX, arcToY;
+        var color = self.generateColors(360)[(val * self.segmentSize).toFixed(0)];
+
+
+        for (var i = 90; i > -270; i -= self.segmentSize) {
+
+            arcFromX = (Math.cos((i - self.segmentSpacing) * self.radian) * self.radius);
+            arcFromY = (-Math.sin((i - self.segmentSpacing) * self.radian) * self.radius);
+
+            if (counter === intPart && decimalValue !== 0) {
+                arcToX = self.centerX + (Math.cos((i - theta) * self.radian) * self.radius);
+                arcToY = self.centerY + (-Math.sin((i - theta) * self.radian) * self.radius);
+
+                pathStr = self.getPath(arcFromX, arcFromY, arcToX, arcToY);
+                self.paper.path(pathStr).attr({fill:color, "stroke-width":0});
+                color = "#AAA";
+
+                arcFromX = (Math.cos((i - theta) * self.radian) * self.radius);
+                arcFromY = (-Math.sin((i - theta) * self.radian) * self.radius);
+
+                arcToX = self.centerX + (Math.cos((i - self.segmentSize) * self.radian) * self.radius);
+                arcToY = self.centerY + (-Math.sin((i - self.segmentSize) * self.radian) * self.radius);
+
+                pathStr = self.getPath(arcFromX, arcFromY, arcToX, arcToY);
+                self.paper.path(pathStr).attr({fill:color, "stroke-width":0});
+            }
+            else {
+                arcToX = self.centerX + (Math.cos((i - self.segmentSize) * self.radian) * self.radius);
+                arcToY = self.centerY + (-Math.sin((i - self.segmentSize) * self.radian) * self.radius);
+                pathStr = self.getPath(arcFromX, arcFromY, arcToX, arcToY);
+                self.paper.path(pathStr).attr({fill:color, "stroke-width":0});
+            }
+
+            counter += 1;
+            if (counter >= intPart && decimalValue === 0) {
+                color = "#AAA";
+            }
+
+        }
+
+        self.txt = self.paper.text(self.centerX, self.centerY, val);
+        self.drawCentralCircle(13 * self.radius / 36);
+        value = val;
+    }
+
+    self.init(10);
+
+
+}

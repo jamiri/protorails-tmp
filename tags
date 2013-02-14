@@ -1,0 +1,128 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddColumnsToContentSuggestion	db/migrate/20121205105546_add_columns_to_content_suggestion.rb	/^class AddColumnsToContentSuggestion < ActiveRecord::Migration$/;"	c
+AddImageFileToLesson	db/migrate/20121122071541_add_image_file_to_lesson.rb	/^class AddImageFileToLesson < ActiveRecord::Migration$/;"	c
+AddSaltToUser	db/migrate/20121021145844_add_salt_to_user.rb	/^class AddSaltToUser < ActiveRecord::Migration$/;"	c
+AddSlugToLesson	db/migrate/20121014145843_add_slug_to_lesson.rb	/^class AddSlugToLesson < ActiveRecord::Migration$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Protorails
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+BlogPost	app/models/blog_post.rb	/^class BlogPost < ActiveRecord::Base$/;"	c
+Captcha	lib/captcha.rb	/^module Captcha$/;"	m
+Category	app/models/category.rb	/^class Category < ActiveRecord::Base$/;"	c
+Comment	app/models/comment.rb	/^class Comment < ActiveRecord::Base$/;"	c
+ContentSuggestion	app/models/content_suggestion.rb	/^class ContentSuggestion < ActiveRecord::Base$/;"	c
+CreateBlogPosts	db/migrate/20120913075555_create_blog_posts.rb	/^class CreateBlogPosts < ActiveRecord::Migration$/;"	c
+CreateCategories	db/migrate/20120913074940_create_categories.rb	/^class CreateCategories < ActiveRecord::Migration$/;"	c
+CreateComments	db/migrate/20120913075650_create_comments.rb	/^class CreateComments < ActiveRecord::Migration$/;"	c
+CreateContentSuggestions	db/migrate/20120913075848_create_content_suggestions.rb	/^class CreateContentSuggestions < ActiveRecord::Migration$/;"	c
+CreateDiscussionPosts	db/migrate/20121231140126_create_discussion_posts.rb	/^class CreateDiscussionPosts < ActiveRecord::Migration$/;"	c
+CreateFeedbacks	db/migrate/20120913075833_create_feedbacks.rb	/^class CreateFeedbacks < ActiveRecord::Migration$/;"	c
+CreateGlossaryEntries	db/migrate/20120913075243_create_glossary_entries.rb	/^class CreateGlossaryEntries < ActiveRecord::Migration$/;"	c
+CreateGlossaryLesson	db/migrate/20120913080048_create_glossary_lesson.rb	/^class CreateGlossaryLesson < ActiveRecord::Migration$/;"	c
+CreateLessonRatings	db/migrate/20120913075912_create_lesson_ratings.rb	/^class CreateLessonRatings < ActiveRecord::Migration$/;"	c
+CreateLessons	db/migrate/20120913075148_create_lessons.rb	/^class CreateLessons < ActiveRecord::Migration$/;"	c
+CreateLessonsTags	db/migrate/20121230085227_create_lessons_tags.rb	/^class CreateLessonsTags < ActiveRecord::Migration$/;"	c
+CreateObjectives	db/migrate/20120913075706_create_objectives.rb	/^class CreateObjectives < ActiveRecord::Migration$/;"	c
+CreateQuestionRatings	db/migrate/20120913080210_create_question_ratings.rb	/^class CreateQuestionRatings < ActiveRecord::Migration$/;"	c
+CreateQuestions	db/migrate/20120913075614_create_questions.rb	/^class CreateQuestions < ActiveRecord::Migration$/;"	c
+CreateReferences	db/migrate/20120913075727_create_references.rb	/^class CreateReferences < ActiveRecord::Migration$/;"	c
+CreateTags	db/migrate/20121230065428_create_tags.rb	/^class CreateTags < ActiveRecord::Migration$/;"	c
+CreateUsers	db/migrate/20120913075747_create_users.rb	/^class CreateUsers < ActiveRecord::Migration$/;"	c
+DiscussionPost	app/models/discussion_post.rb	/^class DiscussionPost < ActiveRecord::Base$/;"	c
+Feedback	app/models/feedback.rb	/^class Feedback < ActiveRecord::Base$/;"	c
+GlossaryController	app/controllers/glossary_controller.rb	/^class GlossaryController < ApplicationController$/;"	c
+GlossaryEntry	app/models/glossary_entry.rb	/^class GlossaryEntry < ActiveRecord::Base$/;"	c
+GlossaryHelper	app/helpers/glossary_helper.rb	/^module GlossaryHelper$/;"	m
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c
+HomeHelper	app/helpers/home_helper.rb	/^module HomeHelper$/;"	m
+Lesson	app/models/lesson.rb	/^class Lesson < ActiveRecord::Base$/;"	c
+LessonController	app/controllers/lesson_controller.rb	/^class LessonController < ApplicationController$/;"	c
+LessonHelper	app/helpers/lesson_helper.rb	/^module LessonHelper$/;"	m
+LessonRating	app/models/lesson_rating.rb	/^class LessonRating < ActiveRecord::Base$/;"	c
+MicroblogController	app/controllers/microblog_controller.rb	/^class MicroblogController < ApplicationController$/;"	c
+MicroblogHelper	app/helpers/microblog_helper.rb	/^module MicroblogHelper$/;"	m
+Objective	app/models/objective.rb	/^class Objective < ActiveRecord::Base$/;"	c
+Protorails	config/application.rb	/^module Protorails$/;"	m
+Question	app/models/question.rb	/^class Question < ActiveRecord::Base$/;"	c
+QuestionController	app/controllers/question_controller.rb	/^class QuestionController < ApplicationController$/;"	c
+QuestionHelper	app/helpers/question_helper.rb	/^module QuestionHelper$/;"	m
+QuestionRating	app/models/question_rating.rb	/^class QuestionRating < ActiveRecord::Base$/;"	c
+Reference	app/models/reference.rb	/^class Reference < ActiveRecord::Base$/;"	c
+RemoveContentFromContentSuggestion	db/migrate/20121206055143_remove_content_from_content_suggestion.rb	/^class RemoveContentFromContentSuggestion < ActiveRecord::Migration$/;"	c
+Tag	app/models/tag.rb	/^class Tag < ActiveRecord::Base$/;"	c
+User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
+UserController	app/controllers/user_controller.rb	/^class UserController < ApplicationController$/;"	c
+UserHelper	app/helpers/user_helper.rb	/^module UserHelper$/;"	m
+authenticate	app/models/user.rb	/^  def self.authenticate(email, submitted_password)$/;"	F	class:User
+captcha	app/controllers/home_controller.rb	/^  def captcha$/;"	f	class:HomeController
+captcha_tag	app/helpers/application_helper.rb	/^  def captcha_tag$/;"	f	class:ApplicationHelper
+change	db/migrate/20120913074940_create_categories.rb	/^  def change$/;"	f	class:CreateCategories
+change	db/migrate/20120913075148_create_lessons.rb	/^  def change$/;"	f	class:CreateLessons
+change	db/migrate/20120913075243_create_glossary_entries.rb	/^  def change$/;"	f	class:CreateGlossaryEntries
+change	db/migrate/20120913075555_create_blog_posts.rb	/^  def change$/;"	f	class:CreateBlogPosts
+change	db/migrate/20120913075614_create_questions.rb	/^  def change$/;"	f	class:CreateQuestions
+change	db/migrate/20120913075650_create_comments.rb	/^  def change$/;"	f	class:CreateComments
+change	db/migrate/20120913075706_create_objectives.rb	/^  def change$/;"	f	class:CreateObjectives
+change	db/migrate/20120913075727_create_references.rb	/^  def change$/;"	f	class:CreateReferences
+change	db/migrate/20120913075747_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20120913075833_create_feedbacks.rb	/^  def change$/;"	f	class:CreateFeedbacks
+change	db/migrate/20120913075848_create_content_suggestions.rb	/^  def change$/;"	f	class:CreateContentSuggestions
+change	db/migrate/20120913075912_create_lesson_ratings.rb	/^  def change$/;"	f	class:CreateLessonRatings
+change	db/migrate/20120913080048_create_glossary_lesson.rb	/^  def change$/;"	f	class:CreateGlossaryLesson
+change	db/migrate/20120913080210_create_question_ratings.rb	/^  def change$/;"	f	class:CreateQuestionRatings
+change	db/migrate/20121014145843_add_slug_to_lesson.rb	/^  def change$/;"	f	class:AddSlugToLesson
+change	db/migrate/20121021145844_add_salt_to_user.rb	/^  def change$/;"	f	class:AddSaltToUser
+change	db/migrate/20121122071541_add_image_file_to_lesson.rb	/^  def change$/;"	f	class:AddImageFileToLesson
+change	db/migrate/20121205105546_add_columns_to_content_suggestion.rb	/^  def change$/;"	f	class:AddColumnsToContentSuggestion
+change	db/migrate/20121230065428_create_tags.rb	/^  def change$/;"	f	class:CreateTags
+change	db/migrate/20121230085227_create_lessons_tags.rb	/^  def change$/;"	f	class:CreateLessonsTags
+change	db/migrate/20121231140126_create_discussion_posts.rb	/^  def change$/;"	f	class:CreateDiscussionPosts
+check_if_captcha_is_correct?	app/controllers/application_controller.rb	/^  def check_if_captcha_is_correct?(random_text, entered_text)$/;"	f	class:ApplicationController
+clear_flash_messages	app/controllers/application_controller.rb	/^  def clear_flash_messages$/;"	f	class:ApplicationController
+content_suggestion	app/controllers/home_controller.rb	/^  def content_suggestion$/;"	f	class:HomeController
+create	app/controllers/microblog_controller.rb	/^  def create$/;"	f	class:MicroblogController
+create_child_for_category	app/helpers/home_helper.rb	/^   def create_child_for_category(root_categories)$/;"	f	class:HomeHelper
+create_navbar	app/helpers/lesson_helper.rb	/^  def create_navbar(id)$/;"	f	class:LessonHelper
+down	db/migrate/20121206055143_remove_content_from_content_suggestion.rb	/^  def down$/;"	f	class:RemoveContentFromContentSuggestion
+enable?	app/models/user.rb	/^  def enable?$/;"	f	class:User
+encrypt	app/models/user.rb	/^  def encrypt(string)$/;"	f	class:User
+encrypt_password	app/models/user.rb	/^  def encrypt_password$/;"	f	class:User
+feedback	app/controllers/home_controller.rb	/^  def feedback$/;"	f	class:HomeController
+generate_random_text	lib/captcha.rb	/^  def Captcha.generate_random_text(size)$/;"	F	class:Captcha
+get	app/controllers/microblog_controller.rb	/^  def get$/;"	f	class:MicroblogController
+get_text	lib/captcha.rb	/^  def Captcha.get_text(secret, random, alphabet = 'abcdefghijklmnopqrstuvwxyz', character_count = 6)$/;"	F	class:Captcha
+has_password?	app/models/user.rb	/^  def has_password?(submitted_password)$/;"	f	class:User
+index	app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+initialize_variables	app/controllers/application_controller.rb	/^  def initialize_variables$/;"	f	class:ApplicationController
+latest	app/controllers/lesson_controller.rb	/^  def latest$/;"	f	class:LessonController
+lesson_user_rated	app/helpers/home_helper.rb	/^  def lesson_user_rated(lesson_id,user_id)$/;"	f	class:HomeHelper
+lesson_user_rated	app/models/lesson_rating.rb	/^  def self.lesson_user_rated(lesson_id , user_id)$/;"	F	class:LessonRating
+lookup_lesson_terms	app/controllers/glossary_controller.rb	/^  def lookup_lesson_terms$/;"	f	class:GlossaryController
+lookup_term	app/controllers/glossary_controller.rb	/^  def lookup_term$/;"	f	class:GlossaryController
+make_salt	app/models/user.rb	/^  def make_salt$/;"	f	class:User
+most_popular	app/controllers/lesson_controller.rb	/^  def most_popular$/;"	f	class:LessonController
+not_found	app/controllers/application_controller.rb	/^  def not_found(message)$/;"	f	class:ApplicationController
+pagination	app/controllers/question_controller.rb	/^  def pagination$/;"	f	class:QuestionController
+posted_on	app/models/blog_post.rb	/^  def posted_on$/;"	f	class:BlogPost
+question_user_rated	app/helpers/question_helper.rb	/^  def question_user_rated(question_id,user_id)$/;"	f	class:QuestionHelper
+question_user_rated	app/models/question_rating.rb	/^  def self.question_user_rated(question_id , user_id)$/;"	F	class:QuestionRating
+rate	app/controllers/lesson_controller.rb	/^  def rate$/;"	f	class:LessonController
+rate	app/controllers/question_controller.rb	/^  def rate$/;"	f	class:QuestionController
+replies_for	app/helpers/lesson_helper.rb	/^  def replies_for(post)$/;"	f	class:LessonHelper
+secure_hash	app/models/user.rb	/^  def secure_hash(string)$/;"	f	class:User
+should_generate_new_friendly_id?	app/models/lesson.rb	/^  def should_generate_new_friendly_id?$/;"	f	class:Lesson
+show	app/controllers/lesson_controller.rb	/^  def show$/;"	f	class:LessonController
+show_message	app/controllers/application_controller.rb	/^  def show_message(message, options = {:type => :notice})$/;"	f	class:ApplicationController
+signin	app/controllers/user_controller.rb	/^  def signin$/;"	f	class:UserController
+signout	app/controllers/user_controller.rb	/^  def signout$/;"	f	class:UserController
+signup	app/controllers/user_controller.rb	/^  def signup$/;"	f	class:UserController
+suggestion	app/controllers/home_controller.rb	/^  def suggestion$/;"	f	class:HomeController
+summary	app/helpers/lesson_helper.rb	/^  def summary(input)$/;"	f	class:LessonHelper
+title	app/helpers/application_helper.rb	/^  def title(page_title)$/;"	f	class:ApplicationHelper
+to_s	app/models/objective.rb	/^  def to_s$/;"	f	class:Objective
+up	db/migrate/20121206055143_remove_content_from_content_suggestion.rb	/^  def up$/;"	f	class:RemoveContentFromContentSuggestion
