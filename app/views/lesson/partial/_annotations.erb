@@ -1,8 +1,6 @@
 <div id="annotations">
 
-    <!--this icon is visible on text select to add annotations-->
-    <a id="add-note"></a>
-
+    
     <h3>Annotations</h3>
 
     <!--if no annotation exists    -->
@@ -11,22 +9,23 @@
     </p>
     <!--end if no annotation exists  -->
 
-    <!--every note should have this structure-->
-    <div class="note" data-order="1">
-      <div class="header">
-        <a class="button green"></a>
-        <a class="button blue"></a>
-        <a class="button yellow"></a>
-        <a class="button red"></a>
-        <a class="button minimize"></a>
-        <a class="button delete"></a>
-      </div>
-      <p>
-        Hijab or the Islamic modest dress is a way of covering the body according to certain principles in order to make Muslim women
-        Hijab or the Islamic modest dress is a way of covering the body according to certain principles in order to make Muslim women
-        Hijab or the Islamic modest dress is a way of covering the body according to certain principles in order to make Muslim women
-      </p>
-    </div>
-    <!--end of note structure-->
 
-</div>
+    <script id="annotation-template" type="text/plain">
+
+      <!--every note should have this structure-->
+      <div class="note" data-order="1">
+        <div class="header">
+          <a class="button green"></a>
+          <a class="button blue"></a>
+          <a class="button yellow"></a>
+          <a class="button red"></a>
+          <a class="button minimize"></a>
+          <a class="button delete"></a>
+        </div>
+        <p contentEditable="true">
+        </p>
+      </div>
+      <!--end of note structure-->
+    </script>
+  
+  </div>

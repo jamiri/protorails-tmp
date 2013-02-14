@@ -60,6 +60,9 @@ class ApplicationController < ActionController::Base
     Captcha.get_text(secret_key, random_text) == entered_text
   end
 
+  def logged_in?
+    session["user_id"].present?
+  end
 
-  helper_method :show_message, :clear_flash_messages
+  helper_method :show_message, :clear_flash_messages, :logged_in?
 end

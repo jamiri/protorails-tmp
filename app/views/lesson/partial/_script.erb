@@ -29,7 +29,9 @@
     <%= render :partial => "lesson/partial/annotations" %>
     <!--end if logged in-->
 
-    <%= raw @lesson.script %>
+    <span id="lesson-script">
+      <%= raw @lesson.script %>
+    </span>
   </div>
 
 </div> <!------------------------------------------------------------------------------end of Script tab-->
